@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  balance_cents: 1
+
+two:
+  name: MyString
+  balance_cents: 1
