@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :balance_cents, :name, :email
+  attr_accessible :name, :email
   monetize :balance_cents
   def deposit(amount)
     self.balance_cents += amount
