@@ -3,12 +3,10 @@
   %ul.thumbnails
     - @users.each do |user|
       %li.span2
-        = link_to user_path(user) do
+        = link_to user_path(user), :title => user.name do
           .thumbnail
-            = gravatar_image_tag(user.email)
-            %h3
-              = user.name
-    %li.span2
+            %span.label= user.name
+            = gravatar(user)
+    %li.span1
       .thumbnail
-        %h3 Not listed
         = link_to t('.new', :default => t("helpers.links.new")), new_user_path, :class => 'btn btn-primary'
