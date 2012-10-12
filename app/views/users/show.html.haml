@@ -28,4 +28,4 @@
     .btn-group.pull-right
       = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(@user), :class => 'btn'
       = link_to t('.destroy', :default => t("helpers.links.destroy")),
-      user_path(@user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-warning'
+      user_path(@user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
