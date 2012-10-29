@@ -2,14 +2,17 @@ require 'bundler/capistrano'
 
 set :application, "mete"
 set :deploy_to, "/srv/http/mete"
-set :repository,  "https://github.com/nomaster/mete"
+set :repository,  "https://github.com/chaosdorf/mete"
 set :scm, :git
 set :use_sudo, false
 set :user, "http"
-
-role :app, "hyperion.chaosdorf.dn42"
-role :db, "hyperion.chaosdorf.dn42", :primary => true
-role :web, "hyperion.chaosdorf.dn42"
+set :default_environment, {
+  'GEM_HOME' => "$HOME/.gem",
+  'PATH' => "$PATH:$HOME/.gem/ruby/1.9.1/bin"
+}
+role :app, "webserver.chaosdorf.dn42"
+role :db, "webserver.chaosdorf.dn42", :primary => true
+role :web, "webserver.chaosdorf.dn42"
 after 'deploy:update', 'deploy:symlink_shared_paths', 'deploy:migrate', 'deploy:assets:precompile'
 
 namespace :deploy do
