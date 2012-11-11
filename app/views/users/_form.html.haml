@@ -10,7 +10,9 @@
   .control-group
     = f.label :balance, :class => 'control-label'
     .controls
-      = f.number_field :balance, :class => 'number_field'
+      .input-prepend
+        %span.add-on €
+        = f.number_field :balance, :class => 'number_field'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
