@@ -4,6 +4,9 @@ Mete::Application.routes.draw do
       get 'deposit'
       get 'payment'
     end
+    collection do
+      get 'stats'
+    end
   end
 
   # The priority is based upon order of creation:

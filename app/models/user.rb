@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
     self.balance_cents -= amount
     save
   end
+
+  def self.balance_sum
+    self.sum(:balance_cents) / 100.0
+  end
 end

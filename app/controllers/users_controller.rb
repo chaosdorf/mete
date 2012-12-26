@@ -93,4 +93,13 @@ class UsersController < ApplicationController
     @user.payment(params[:amount].to_i)
     redirect_to @user
   end
+
+  def stats
+    @user_count = User.count
+    @balance_sum = User.balance_sum
+    respond_to do |format|
+      format.html {  }
+      format.json { render json: { user_count: @user_count, balance_sum: @balance_sum } }
+    end
+  end
 end
