@@ -87,6 +87,7 @@ class UsersController < ApplicationController
     @user.deposit(params[:amount].to_i)
     redirect_to @user
   end
+
   def payment
     @user = User.find(params[:id])
     @user.payment(params[:amount].to_i)
