@@ -19,10 +19,10 @@
       = link_to '-1.50 EUR', payment_user_path(@user, :amount => 150), :class => 'btn btn-drink btn-0l5'
       = link_to '-1.00 EUR', payment_user_path(@user, :amount => 100), :class => 'btn btn-drink btn-0l33'
     .btn-group
-      = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-large'
-      = link_to '+20.00 EUR', deposit_user_path(@user, :amount => 2000), :class => 'btn btn-medium'
-      = link_to '+10.00 EUR', deposit_user_path(@user, :amount => 1000), :class => 'btn btn-small'
-      = link_to '+5.00 EUR', deposit_user_path(@user, :amount => 500), :class => 'btn btn-mini'
+      = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-pay btn-euro-50'
+      = link_to '+20.00 EUR', deposit_user_path(@user, :amount => 2000), :class => 'btn btn-pay btn-euro-20'
+      = link_to '+10.00 EUR', deposit_user_path(@user, :amount => 1000), :class => 'btn btn-pay btn-euro-10'
+      = link_to '+5.00 EUR', deposit_user_path(@user, :amount => 500), :class => 'btn btn-pay btn-euro-5'
     .btn-group.pull-right
       = link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn btn-inverse'
     .btn-group.pull-right
