@@ -5,11 +5,17 @@ class User < ActiveRecord::Base
 
   def deposit(amount)
     self.balance_cents += amount
-    save!
+    transaction do      
+      save!
+      Audit.create! difference_cents: amount
+    end
   end
   def payment(amount)
     self.balance_cents -= amount
-    save!
+    transaction do      
+      save!
+      Audit.create! difference_cents: -amount
+    end
   end
 
   def self.balance_sum

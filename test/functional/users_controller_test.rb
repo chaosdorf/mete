@@ -36,12 +36,14 @@ class UsersControllerTest < ActionController::TestCase
   
   test "deposit" do
     post :deposit, id: @user, amount: 100
-    assert_equal User.find(@user.id).balance_cents, 200
+    assert_equal 200, User.find(@user.id).balance_cents
+    assert_equal 100, Audit.last.difference_cents
   end
   
   test "payment" do
     post :payment, id: @user, amount: 100
-    assert_equal User.find(@user.id).balance_cents, 0
+    assert_equal 0, User.find(@user.id).balance_cents
+    assert_equal -100, Audit.last.difference_cents
   end
 
   test "should update user" do
