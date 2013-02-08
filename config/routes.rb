@@ -1,4 +1,6 @@
 Mete::Application.routes.draw do
+  get 'audits' => 'audits#index'
+
   resources :users do
     member do
       get 'deposit'
