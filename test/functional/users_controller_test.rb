@@ -33,6 +33,16 @@ class UsersControllerTest < ActionController::TestCase
     get :edit, id: @user
     assert_response :success
   end
+  
+  test "deposit" do
+    post :deposit, id: @user, amount: 100
+    assert_equal User.find(@user.id).balance_cents, 200
+  end
+  
+  test "payment" do
+    post :payment, id: @user, amount: 100
+    assert_equal User.find(@user.id).balance_cents, 0
+  end
 
   test "should update user" do
     put :update, id: @user, user: { balance: @user.balance, name: @user.name }
