@@ -3,19 +3,18 @@ class User < ActiveRecord::Base
   monetize :balance_cents
   default_scope order('LOWER(name)')
 
+  after_save do |user|
+    Audit.create! difference_cents: user.balance_cents - user.balance_cents_was    
+  end
+
   def deposit(amount)
     self.balance_cents += amount
-    transaction do      
-      save!
-      Audit.create! difference_cents: amount
-    end
+    save!
   end
+  
   def payment(amount)
     self.balance_cents -= amount
-    transaction do      
-      save!
-      Audit.create! difference_cents: -amount
-    end
+    save!
   end
 
   def self.balance_sum
