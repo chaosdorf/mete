@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
 
   def deposit(amount)
     self.balance_cents += amount
-    save
+    save!
   end
   def payment(amount)
     self.balance_cents -= amount
-    save
+    save!
   end
 
   def self.balance_sum
