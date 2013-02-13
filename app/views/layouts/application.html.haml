@@ -29,10 +29,9 @@
             %ul.nav
               %li= link_to "Users", "/users"
               %li= link_to "Stats", "/users/stats"
+              %li= link_to "Audits", "/audits"
 
-    .container-fluid
-      .span9
-        = yield
+    = yield
 
     /
       Javascripts

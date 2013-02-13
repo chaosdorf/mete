@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  balance_cents: 1
+  balance_cents: 100
 
 two:
   name: MyString
-  balance_cents: 1
+  balance_cents: 100

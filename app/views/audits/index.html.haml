@@ -1,0 +1,33 @@
+- model_class = Audit
+
+%p
+  %strong Sum of all deposits made: 
+  = @deposits_sum
+%p
+  %strong Sum of all payments made: 
+  = @payments_sum
+%p 
+  %strong Sum of all transactions:
+  = @sum
+
+
+%table.table.table-striped.table-bordered.table-condensed
+  %tr
+    %th Timestamp
+    %th Amount
+  - @audits.each do |audit|
+    - if audit.difference > 0
+      %tr.success
+        %td= audit.created_at
+        %td
+          = audit.difference
+          EUR
+    - else
+      %tr.error
+        %td= audit.created_at
+        %td
+          = audit.difference
+          EUR
+  
+  
+  
