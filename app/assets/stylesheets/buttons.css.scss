@@ -1,25 +1,3 @@
-@import "twitter/bootstrap/bootstrap";
-body { 
-	padding-top: 60px;
-}
-
-@import "twitter/bootstrap/responsive";
-
-// Set the correct sprite paths
-@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
-@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
-
-// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not 
-//       have the proper paths. So for now we use the absolute path.
-@fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
-@fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
-@fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
-@fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
-
-// Font Awesome
-@import "fontawesome";
-
 // Your custom LESS stylesheets goes here
 //
 // Since bootstrap was imported above you have access to its mixins which
@@ -32,11 +10,21 @@ body {
 // @linkColor: #ff0000;
 
 .btn-drink, .btn-pay {
-	min-width: 140px;
-	padding-top: 140px;
+	width: 140px;
+	height: 140px;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
+}
+
+.btn-drink:hover, .btn-pay:hover {
+  background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.btn-drink, .btn-drink:hover {
+  color: black;
 }
 
 .row {
