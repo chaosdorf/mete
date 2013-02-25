@@ -43,3 +43,7 @@ group :development do
   gem 'capistrano'
   gem 'unicorn'
 end
+
+group :production do
+  gem 'SyslogLogger'
+end
