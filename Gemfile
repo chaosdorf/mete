@@ -24,7 +24,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'therubyracer'
+#gem 'therubyracer'
+gem 'therubyrhino'
 gem 'money-rails'
 gem 'haml-rails'
 gem 'gravatar_image_tag'
