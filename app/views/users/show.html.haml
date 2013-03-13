@@ -14,12 +14,10 @@
 
 .form-actions
   .row
-    .span3
-      = link_to '-2.00 EUR', payment_user_path(@user, :amount => 200), :class => 'btn btn-drink btn-flora'
-    .span3
-      = link_to '-1.50 EUR', payment_user_path(@user, :amount => 150), :class => 'btn btn-drink btn-0l5'
-    .span3
-      = link_to '-1.00 EUR', payment_user_path(@user, :amount => 100), :class => 'btn btn-drink btn-0l33'
+    - unless @drinks.nil? || @drinks == 0
+      - @drinks.each_with_index do |drink|
+        .span3
+          = link_to '-' + ("%5.2f" % drink.donationRecommendation).to_s + ' EUR', deposit_user_path(@user, :amount => drink.donationRecommendation * 100 * -1), :class => 'btn btn-drink btn-' + drink.logoUrl
   .row
     .span3
       = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-pay btn-euro-50'

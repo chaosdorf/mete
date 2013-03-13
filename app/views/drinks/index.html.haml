@@ -1,0 +1,27 @@
+%h1 Listing drinks
+
+%table
+  %tr
+    %th Name
+    %th Bottlesize
+    %th Caffeine
+    %th Donationrecommendation
+    %th Logourl
+    %th
+    %th
+    %th
+
+  - @drinks.each do |drink|
+    %tr
+      %td= drink.name
+      %td= drink.bottleSize
+      %td= drink.caffeine
+      %td= drink.donationRecommendation
+      %td= drink.logoUrl
+      %td= link_to 'Show', drink
+      %td= link_to 'Edit', edit_drink_path(drink)
+      %td= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Drink', new_drink_path
