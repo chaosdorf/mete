@@ -1,7 +1,4 @@
-%h1 Editing drink
-
-= render 'form'
-
-= link_to 'Show', @drink
-\|
-= link_to 'Back', drinks_path
+- model_class = Drink
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human
+= render :partial => "form"

@@ -1,27 +1,29 @@
-%h1 Listing drinks
-
-%table
-  %tr
-    %th Name
-    %th Bottlesize
-    %th Caffeine
-    %th Donationrecommendation
-    %th Logourl
-    %th
-    %th
-    %th
-
-  - @drinks.each do |drink|
+- model_class = Drink
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
     %tr
-      %td= drink.name
-      %td= drink.bottleSize
-      %td= drink.caffeine
-      %td= drink.donationRecommendation
-      %td= drink.logoUrl
-      %td= link_to 'Show', drink
-      %td= link_to 'Edit', edit_drink_path(drink)
-      %td= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' }
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:bottleSize)
+      %th= model_class.human_attribute_name(:caffeine)
+      %th= model_class.human_attribute_name(:donationRecommendation)
+      %th= model_class.human_attribute_name(:logoUrl)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @drinks.each do |drink|
+      %tr
+        %td= link_to drink.id, drink_path(drink)
+        %td= drink.name
+        %td= drink.bottleSize
+        %td= drink.caffeine
+        %td= drink.donationRecommendation
+        %td= drink.logoUrl
+        %td=l drink.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_drink_path(drink), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), drink_path(drink), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-%br
-
-= link_to 'New Drink', new_drink_path
+= link_to t('.new', :default => t("helpers.links.new")), new_drink_path, :class => 'btn btn-primary'
