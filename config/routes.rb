@@ -1,4 +1,7 @@
 Mete::Application.routes.draw do
+  resources :drinks
+
+
   get 'audits' => 'audits#index'
 
   resources :users do

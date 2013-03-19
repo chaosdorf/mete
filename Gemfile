@@ -14,6 +14,8 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'bootstrap-sass'
+  gem 'twitter-bootstrap-rails'
+  gem 'bootswatch-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -22,10 +24,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'therubyracer'
+#gem 'therubyracer'
+gem 'therubyrhino'
 gem 'money-rails'
 gem 'haml-rails'
-gem 'twitter-bootstrap-rails'
 gem 'gravatar_image_tag'
 
 # To use ActiveModel has_secure_password
@@ -34,11 +36,15 @@ gem 'gravatar_image_tag'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-gem 'capistrano'
-
 # To use debugger
 # gem 'debugger'
+#
+#
+group :development do
+  gem 'capistrano'
+  gem 'unicorn'
+end
+
+group :production do
+  gem 'SyslogLogger'
+end

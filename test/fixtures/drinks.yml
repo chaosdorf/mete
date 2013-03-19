@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  bottleSize: MyString
+  caffeine: MyString
+  donationRecommendation: 9.99
+  logoUrl: MyString
+
+two:
+  name: MyString
+  bottleSize: MyString
+  caffeine: MyString
+  donationRecommendation: 9.99
+  logoUrl: MyString

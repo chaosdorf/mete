@@ -17,7 +17,7 @@
     %link(href="/assets/favicon.png" rel="shortcut icon" type="image/png")
 
   %body
-    .navbar.navbar-fixed-top
+    .navbar.navbar-fixed-top.navbar-inverse
       .navbar-inner
         .container-fluid
           %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
@@ -30,6 +30,7 @@
               %li= link_to "Users", "/users"
               %li= link_to "Stats", "/users/stats"
               %li= link_to "Audits", "/audits"
+              %li= link_to "Drinks", "/drinks"
 
     = yield
 
