@@ -12,7 +12,7 @@
     .controls
       .input-prepend
         %span.add-on €
-        = f.number_field :balance, :class => 'number_field'
+        = f.number_field :balance, :class => 'number_field', :step => 'any'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
