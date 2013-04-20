@@ -1,5 +1,20 @@
 - model_class = Audit
 
+= form_tag({}, { :class => 'form-horizontal', :method => :get }) do
+  .control-group
+    = label_tag :start_date, "Show audits from ", class: 'control-label'
+    .controls
+      = select_date @start_date || Date.today, prefix: :start_date
+  .control-group
+    = label_tag :end_date, "until", class: 'control-label'
+    .controls
+      = select_date @end_date || Date.today, prefix: :end_date
+  .control-group
+    .controls
+      %button.btn.btn-primary
+        Filter
+  
+
 %p
   %strong Sum of all deposits made: 
   = @deposits_sum
