@@ -2,7 +2,7 @@
   Most stylesheet definitions come from gems. Use this file only for overrides.
 */
 
-@import "bootswatch/cyborg/variables";
+@import "bootswatch/geo/variables";
 @import "bootstrap";
 
 // Bootstrap body padding for fixed navbar
@@ -11,7 +11,7 @@ body {
 }
 
 @import "bootstrap-responsive";
-@import "bootswatch/cyborg/bootswatch";
+@import "bootswatch/geo/bootswatch";
 
 @import "fonts";
 body { font-family: "Roboto Regular"; }

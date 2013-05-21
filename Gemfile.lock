@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/mxey/bootswatch-rails.git
+  revision: 0de873c202d23eab108a91e5b7390d1967194314
+  specs:
+    bootswatch-rails (0.4.0)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -32,8 +39,6 @@ GEM
     arel (3.0.2)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
-    bootswatch-rails (0.4.0)
-      railties (>= 3.1)
     builder (3.0.4)
     capistrano (2.14.2)
       highline
@@ -152,7 +157,7 @@ PLATFORMS
 DEPENDENCIES
   SyslogLogger
   bootstrap-sass
-  bootswatch-rails
+  bootswatch-rails!
   capistrano
   coffee-rails (~> 3.2.1)
   gravatar_image_tag
