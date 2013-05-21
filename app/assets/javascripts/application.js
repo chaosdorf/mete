@@ -20,7 +20,7 @@
 // app from opening links in extra browser app
 if (navigator.userAgent.match(/(ipod|iphone|ipad)/i)) {
 	$(function() {
-		$('body a').click(function(e) {
+		$('body a[href]').click(function(e) {
 	  	e.preventDefault();
 	    top.location.href = this;
 	  });
