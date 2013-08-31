@@ -7,7 +7,7 @@ Mete::Application.configure do
   config.cache_classes = false
 
   # Show full error reports and disable caching
-  config.consider_all_requests_local       = true
+  config.consider_aluser_params      = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send

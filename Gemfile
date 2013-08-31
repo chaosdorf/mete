@@ -13,7 +13,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
 gem 'bootswatch-rails'
-gem 'protected_attributes'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', :platforms => :ruby

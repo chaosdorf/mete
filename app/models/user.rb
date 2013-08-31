@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :balance
   monetize :balance_cents
   default_scope order('LOWER(name)')
 
