@@ -22,7 +22,6 @@ gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails'
 #gem 'therubyracer'
 gem 'therubyrhino'
-gem 'money-rails'
 gem 'haml-rails'
 gem 'gravatar_image_tag'
 

@@ -17,16 +17,16 @@
     - unless @drinks.nil? || @drinks == 0
       - @drinks.each_with_index do |drink|
         .span3
-          = link_to '-' + ("%5.2f" % drink.donation_recommendation).to_s + ' EUR', deposit_user_path(@user, :amount => drink.donation_recommendation * 100 * -1), :class => 'btn btn-drink btn-' + drink.logo_url
+          = link_to '-' + ("%5.2f" % drink.donation_recommendation).to_s + ' EUR', deposit_user_path(@user, :amount => drink.donation_recommendation * -1), :class => 'btn btn-drink btn-' + drink.logo_url
   .row
     .span3
-      = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-pay btn-euro-50'
+      = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 50), :class => 'btn btn-pay btn-euro-50'
     .span3
-      = link_to '+20.00 EUR', deposit_user_path(@user, :amount => 2000), :class => 'btn btn-pay btn-euro-20'
+      = link_to '+20.00 EUR', deposit_user_path(@user, :amount => 20), :class => 'btn btn-pay btn-euro-20'
     .span3
-      = link_to '+10.00 EUR', deposit_user_path(@user, :amount => 1000), :class => 'btn btn-pay btn-euro-10'
+      = link_to '+10.00 EUR', deposit_user_path(@user, :amount => 10), :class => 'btn btn-pay btn-euro-10'
     .span3
-      = link_to '+5.00 EUR', deposit_user_path(@user, :amount => 500), :class => 'btn btn-pay btn-euro-5'
+      = link_to '+5.00 EUR', deposit_user_path(@user, :amount => 5), :class => 'btn btn-pay btn-euro-5'
   .row
     .span1
       = link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn btn-inverse'

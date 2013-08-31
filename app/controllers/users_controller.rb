@@ -85,13 +85,13 @@ class UsersController < ApplicationController
 
   def deposit
     @user = User.find(params[:id])
-    @user.deposit(params[:amount].to_i)
+    @user.deposit(BigDecimal.new(params[:amount]))
     redirect_to @user
   end
 
   def payment
     @user = User.find(params[:id])
-    @user.payment(params[:amount].to_i)
+    @user.payment(BigDecimal.new(params[:amount]))
     redirect_to @user
   end
 
