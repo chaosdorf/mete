@@ -4,21 +4,21 @@
     .controls
       = f.text_field :name, :class => 'text_field'
   .control-group
-    = f.label :bottleSize, :class => 'control-label'
+    = f.label :bottle_size, :class => 'control-label'
     .controls
-      = f.text_field :bottleSize, :class => 'text_field'
+      = f.text_field :bottle_size, :class => 'text_field'
   .control-group
     = f.label :caffeine, :class => 'control-label'
     .controls
       = f.text_field :caffeine, :class => 'text_field'
   .control-group
-    = f.label :donationRecommendation, :class => 'control-label'
+    = f.label :donation_recommendation, :class => 'control-label'
     .controls
-      = f.text_field :donationRecommendation, :class => 'text_field'
+      = f.text_field :donation_recommendation, :class => 'text_field'
   .control-group
-    = f.label :logoUrl, :class => 'control-label'
+    = f.label :logo_url, :class => 'control-label'
     .controls
-      = f.text_field :logoUrl, :class => 'text_field'
+      = f.text_field :logo_url, :class => 'text_field'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), drinks_path, :class => 'btn'

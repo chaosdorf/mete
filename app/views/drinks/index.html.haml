@@ -6,10 +6,10 @@
     %tr
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:bottleSize)
+      %th= model_class.human_attribute_name(:bottle_size)
       %th= model_class.human_attribute_name(:caffeine)
-      %th= model_class.human_attribute_name(:donationRecommendation)
-      %th= model_class.human_attribute_name(:logoUrl)
+      %th= model_class.human_attribute_name(:donation_recommendation)
+      %th= model_class.human_attribute_name(:logo_url)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -17,10 +17,10 @@
       %tr
         %td= link_to drink.id, drink_path(drink)
         %td= drink.name
-        %td= drink.bottleSize
+        %td= drink.bottle_size
         %td= drink.caffeine
-        %td= drink.donationRecommendation
-        %td= drink.logoUrl
+        %td= drink.donation_recommendation
+        %td= drink.logo_url
         %td=l drink.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_drink_path(drink), :class => 'btn btn-mini'

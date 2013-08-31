@@ -7,21 +7,21 @@
   %br
   = @drink.name
 %p
-  %strong= model_class.human_attribute_name(:bottleSize) + ':'
+  %strong= model_class.human_attribute_name(:bottle_size) + ':'
   %br
-  = @drink.bottleSize
+  = @drink.bottle_size
 %p
   %strong= model_class.human_attribute_name(:caffeine) + ':'
   %br
   = @drink.caffeine
 %p
-  %strong= model_class.human_attribute_name(:donationRecommendation) + ':'
+  %strong= model_class.human_attribute_name(:donation_recommendation) + ':'
   %br
-  = @drink.donationRecommendation
+  = @drink.donation_recommendation
 %p
-  %strong= model_class.human_attribute_name(:logoUrl) + ':'
+  %strong= model_class.human_attribute_name(:logo_url) + ':'
   %br
-  = @drink.logoUrl
+  = @drink.logo_url
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), drinks_path, :class => 'btn'

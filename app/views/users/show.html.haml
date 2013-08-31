@@ -17,7 +17,7 @@
     - unless @drinks.nil? || @drinks == 0
       - @drinks.each_with_index do |drink|
         .span3
-          = link_to '-' + ("%5.2f" % drink.donationRecommendation).to_s + ' EUR', deposit_user_path(@user, :amount => drink.donationRecommendation * 100 * -1), :class => 'btn btn-drink btn-' + drink.logoUrl
+          = link_to '-' + ("%5.2f" % drink.donation_recommendation).to_s + ' EUR', deposit_user_path(@user, :amount => drink.donation_recommendation * 100 * -1), :class => 'btn btn-drink btn-' + drink.logo_url
   .row
     .span3
       = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-pay btn-euro-50'
