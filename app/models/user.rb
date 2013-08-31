@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   monetize :balance_cents
-  default_scope order('LOWER(name)')
+  default_scope ->{ order('LOWER(name)') }
 
   after_save do |user|
     Audit.create! difference_cents: user.balance_cents - user.balance_cents_was    
