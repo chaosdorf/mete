@@ -5,13 +5,12 @@ set :deploy_to, "/srv/mete"
 set :repository,  "https://github.com/chaosdorf/mete"
 set :scm, :git
 set :use_sudo, false
-set :user, "mete-app"
-set :default_environment, {
-  'PATH' => "$PATH:$HOME/.gem/ruby/1.9.1/bin"
-}
-role :app, "figurehead.chaosdorf.dn42"
-role :db, "figurehead.chaosdorf.dn42", :primary => true
-role :web, "figurehead.chaosdorf.dn42"
+set :user, "mete"
+
+role :app, "meteserver.chaosdorf.dn42"
+role :db, "meteserver.chaosdorf.dn42", :primary => true
+role :web, "meteserver.chaosdorf.dn42"
+
 after 'deploy:update', 'deploy:symlink_shared_paths', 'deploy:migrate', 'deploy:assets:precompile'
 
 namespace :deploy do
