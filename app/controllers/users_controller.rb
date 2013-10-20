@@ -75,24 +75,27 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-
     respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+      if @user.destroy
+        format.html { redirect }
+        format.json { head :no_content }
+      else
+        format.html { redirect }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def deposit
     @user = User.find(params[:id])
     @user.deposit(params[:amount].to_i)
-    redirect_to @user
+    redirect(@user)
   end
 
   def payment
     @user = User.find(params[:id])
     @user.payment(params[:amount].to_i)
-    redirect_to @user
+    redirect(@user)
   end
 
   def stats
@@ -110,4 +113,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :balance)
   end
 
+  def redirect(user = users_url)
+    respond_to do |format|
+      format.html { redirect_to user }
+      format.json { head :no_content }
+    end
+  end
 end

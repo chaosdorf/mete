@@ -1,4 +1,9 @@
 - model_class = User
+- content_for :actions do
+  %li
+    = link_to 'edit user', [:edit, @user]
+  %li
+    = link_to 'delete user', @user, :method => :delete, :confirm => "Really delete #{@user.name}’s account?"
 .span2
   %span.label= @user.name
   = gravatar(@user)
@@ -14,7 +19,7 @@
 
 .form-actions
   .row.drinks
-    = render @drinks, :path => deposit_user_path(@user, :amount => drink.price * 100 * -1)
+    = render @drinks, :locals => {:user => @user}
   .row
     .span3
       = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-pay btn-euro-50'
@@ -24,11 +29,3 @@
       = link_to '+10.00 EUR', deposit_user_path(@user, :amount => 1000), :class => 'btn btn-pay btn-euro-10'
     .span3
       = link_to '+5.00 EUR', deposit_user_path(@user, :amount => 500), :class => 'btn btn-pay btn-euro-5'
-  .row
-    .span1
-      = link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn btn-inverse'
-    .span1
-      = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(@user), :class => 'btn'
-    .span1
-      = link_to t('.destroy', :default => t("helpers.links.destroy")),
-    user_path(@user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

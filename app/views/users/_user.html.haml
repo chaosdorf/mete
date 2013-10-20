@@ -1,0 +1,5 @@
+%li.span2
+  = link_to user, :title => user.name do
+    .thumbnail
+      %span.label= user.name
+      = gravatar(user)

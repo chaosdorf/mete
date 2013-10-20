@@ -1,4 +1,7 @@
 - model_class = Drink
+- content_for :actions do
+  %li
+    = link_to 'new drink', [:new, :drink]
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize
 %table.table.table-striped
@@ -10,19 +13,15 @@
       %th= model_class.human_attribute_name(:caffeine)
       %th= model_class.human_attribute_name(:price)
       %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @drinks.each do |drink|
       %tr
-        %td= image_tag(drink.logo.url :thumb)
+        %td
+          = link_to [:edit, drink] do
+            = image_tag(drink.logo.url :thumb)
         %td= drink.name
         %td= drink.bottle_size
         %td= drink.caffeine
         %td= humanized_money_with_symbol drink.price
         %td
           %span{ :title => l(drink.created_at)}= l(drink.created_at, format: :short)
-        %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_drink_path(drink), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), drink_path(drink), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
-
-= link_to t('.new', :default => t("helpers.links.new")), new_drink_path, :class => 'btn btn-primary'

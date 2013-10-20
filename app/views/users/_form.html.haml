@@ -1,18 +1,10 @@
-= form_for @user, :html => { :class => 'form-horizontal' } do |f|
-  .control-group
-    = f.label :name, :class => 'control-label'
-    .controls
-      = f.text_field :name, :class => 'text_field', :required => true
-  .control-group
-    = f.label :email, :class => 'control-label'
-    .controls
-      = f.email_field :email, :class => 'email_field'
-  .control-group
-    = f.label :balance, :class => 'control-label'
-    .controls
-      .input-prepend
-        %span.add-on €
-        = f.number_field :balance, :class => 'number_field', :step => 'any'
-  .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
+= semantic_form_for @user, :html => { :class => 'form-horizontal' } do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :name
+    = f.input :email
+    = f.input :balance, :as => :number, :append => currency_symbol
+  .controls
+    = f.action :submit
+
+
