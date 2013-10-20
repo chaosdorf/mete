@@ -24,6 +24,7 @@ gem 'therubyracer'
 gem 'money-rails'
 gem 'haml-rails'
 gem 'gravatar_image_tag'
+gem 'paperclip'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -37,6 +38,7 @@ gem 'gravatar_image_tag'
 #
 group :development do
   gem 'capistrano'
+  gem 'faker'
   gem 'unicorn'
 end
 

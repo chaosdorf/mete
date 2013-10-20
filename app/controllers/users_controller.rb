@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @drinks = Drink.order("donationRecommendation DESC")
+    @drinks = Drink.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -103,11 +103,11 @@ class UsersController < ApplicationController
       format.json { render json: { user_count: @user_count, balance_sum: @balance_sum } }
     end
   end
-  
+
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :email, :balance)
   end
-  
+
 end
