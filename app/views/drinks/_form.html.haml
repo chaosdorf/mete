@@ -1,24 +1,24 @@
-= form_for @drink, :html => { :class => 'form-horizontal' } do |f|
+= form_for @drink, :html => { :class => 'form-horizontal', :multipart => true } do |f|
   .control-group
     = f.label :name, :class => 'control-label'
     .controls
       = f.text_field :name, :class => 'text_field'
   .control-group
-    = f.label :bottleSize, :class => 'control-label'
+    = f.label :bottle_size, :class => 'control-label'
     .controls
-      = f.text_field :bottleSize, :class => 'text_field'
+      = f.text_field :bottle_size, :class => 'text_field'
   .control-group
     = f.label :caffeine, :class => 'control-label'
     .controls
       = f.text_field :caffeine, :class => 'text_field'
   .control-group
-    = f.label :donationRecommendation, :class => 'control-label'
+    = f.label :price, :class => 'control-label'
     .controls
-      = f.text_field :donationRecommendation, :class => 'text_field'
+      = f.text_field :price, :class => 'text_field'
   .control-group
-    = f.label :logoUrl, :class => 'control-label'
+    = f.label :logo, :class => 'control-label'
     .controls
-      = f.text_field :logoUrl, :class => 'text_field'
+      = f.file_field :logo
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), drinks_path, :class => 'btn'

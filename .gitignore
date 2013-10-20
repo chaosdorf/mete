@@ -16,4 +16,7 @@
 
 # Ignore Sublime Text 2 project files
 *.sublime-project
-*.sublime-workspace
+*.sublime-workspace/public/system
+
+# Ignore uploaded files
+/public/system

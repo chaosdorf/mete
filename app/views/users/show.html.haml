@@ -13,11 +13,8 @@
   EUR
 
 .form-actions
-  .row
-    - unless @drinks.nil? || @drinks == 0
-      - @drinks.each_with_index do |drink|
-        .span3
-          = link_to '-' + ("%5.2f" % drink.donationRecommendation).to_s + ' EUR', deposit_user_path(@user, :amount => drink.donationRecommendation * 100 * -1), :class => 'btn btn-drink btn-' + drink.logoUrl
+  .row.drinks
+    = render @drinks, :user => @user
   .row
     .span3
       = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-pay btn-euro-50'

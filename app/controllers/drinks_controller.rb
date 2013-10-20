@@ -80,10 +80,11 @@ class DrinksController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   private
-  
+
   def drink_params
-    params.require(:drink).permit(:bottleSize, :caffeine, :donationRecommendation, :logoUrl, :name)
+    params.require(:drink).permit(:bottle_size, :caffeine, :logo, :name, :price)
   end
+
 end

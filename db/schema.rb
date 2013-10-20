@@ -9,31 +9,37 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313210611) do
+ActiveRecord::Schema.define(version: 20131020002631) do
 
-  create_table "audits", :force => true do |t|
+  create_table "audits", force: true do |t|
     t.integer  "difference_cents"
     t.datetime "created_at"
   end
 
-  create_table "drinks", :force => true do |t|
+  create_table "drinks", force: true do |t|
     t.string   "name"
-    t.string   "bottleSize"
+    t.string   "bottle_size"
     t.string   "caffeine"
-    t.decimal  "donationRecommendation"
-    t.string   "logoUrl"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.decimal  "price"
+    t.string   "logo_file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "balance_cents", :default => 0
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.integer  "balance_cents", default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "slug"
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end

@@ -1,27 +1,4 @@
-- model_class = Drink
-.page-header
-  %h1=t '.title', :default => model_class.model_name.human
-
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @drink.name
-%p
-  %strong= model_class.human_attribute_name(:bottleSize) + ':'
-  %br
-  = @drink.bottleSize
-%p
-  %strong= model_class.human_attribute_name(:caffeine) + ':'
-  %br
-  = @drink.caffeine
-%p
-  %strong= model_class.human_attribute_name(:donationRecommendation) + ':'
-  %br
-  = @drink.donationRecommendation
-%p
-  %strong= model_class.human_attribute_name(:logoUrl) + ':'
-  %br
-  = @drink.logoUrl
+= render @drink
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), drinks_path, :class => 'btn'

@@ -1,0 +1,5 @@
+%li[drink]
+  = link_to deposit_user_path(@user, :amount => drink.price * 100 * -1) do
+    = image_tag drink.logo(:medium), :title => drink.name
+    .text-center
+      %span.badge= humanized_money_with_symbol drink.price
