@@ -25,11 +25,13 @@
             %span.icon-bar
           %a.brand(href=root_path) Mete
           .container.nav-collapse
-            %ul.nav
+            %ul.nav.navbar-nav.navbar-left
               %li= link_to "Users", "/users"
               %li= link_to "Stats", "/users/stats"
               %li= link_to "Audits", "/audits"
               %li= link_to "Drinks", "/drinks"
+            %ul.nav.navbar-nav.navbar-right
+              = yield :actions
 
     = yield
 

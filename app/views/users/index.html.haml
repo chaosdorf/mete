@@ -1,12 +1,7 @@
 - model_class = User
+- content_for :actions do
+  %li
+    = link_to 'new user', [:new, :user]
 .page-header
   %ul.thumbnails
-    - @users.each do |user|
-      %li.span2
-        = link_to user_path(user), :title => user.name do
-          .thumbnail
-            %span.label= user.name
-            = gravatar(user)
-    %li.span1
-      .thumbnail
-        = link_to t('.new', :default => t("helpers.links.new")), new_user_path, :class => 'btn btn-primary'
+    = render @users
