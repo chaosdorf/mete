@@ -14,7 +14,7 @@
 
 .form-actions
   .row.drinks
-    = render @drinks, :user => @user
+    = render @drinks, :path => deposit_user_path(@user, :amount => drink.price * 100 * -1)
   .row
     .span3
       = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-pay btn-euro-50'

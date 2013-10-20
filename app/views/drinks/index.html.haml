@@ -14,14 +14,13 @@
   %tbody
     - @drinks.each do |drink|
       %tr
-        %td
-          = link_to drink do
-            = image_tag(drink.logo.url :thumb)
+        %td= image_tag(drink.logo.url :thumb)
         %td= drink.name
         %td= drink.bottle_size
         %td= drink.caffeine
-        %td= drink.price
-        %td=l drink.created_at
+        %td= humanized_money_with_symbol drink.price
+        %td
+          %span{ :title => l(drink.created_at)}= l(drink.created_at, format: :short)
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_drink_path(drink), :class => 'btn btn-mini'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), drink_path(drink), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
