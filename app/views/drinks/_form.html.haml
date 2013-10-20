@@ -4,7 +4,7 @@
     = f.input :name
     = f.input :bottle_size, :append => 'l'
     = f.input :caffeine, :append => 'mg/100 ml'
-    = f.input :price, :prepend => currency_symbol
+    = f.input :price, :as => :number, :prepend => currency_symbol
     = f.input :logo
   = f.actions do
     = f.action :submit

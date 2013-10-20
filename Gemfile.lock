@@ -30,6 +30,9 @@ GEM
     atomic (1.1.14)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
+    bootstrap-sass-rails (3.0.0.3)
+      railties (>= 3.1.0)
+      sass-rails (>= 3.1.0)
     bootswatch-rails (0.5.0)
       railties (>= 3.1)
     builder (3.1.4)
@@ -54,8 +57,11 @@ GEM
       i18n (~> 0.5)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    formtastic-bootstrap (2.1.3)
+    formtastic-plus-bootstrap (1.1.7)
+      bootstrap-sass (~> 2.3)
       formtastic (~> 2.2)
+      railties (>= 3.1.0)
+      sass-rails
     gravatar_image_tag (1.1.3)
     haml (4.0.3)
       tilt
@@ -143,11 +149,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.2.8)
-      actionpack (>= 3.1)
-      execjs
-      rails (>= 3.1)
-      railties (>= 3.1)
     tzinfo (0.3.38)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
@@ -162,13 +163,13 @@ PLATFORMS
 
 DEPENDENCIES
   SyslogLogger
-  bootstrap-sass
+  bootstrap-sass-rails
   bootswatch-rails
   capistrano
   coffee-rails (~> 4.0.0)
   faker
   formtastic
-  formtastic-bootstrap
+  formtastic-plus-bootstrap
   gravatar_image_tag
   haml-rails
   jquery-rails
@@ -178,6 +179,5 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sqlite3
   therubyracer
-  twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   unicorn

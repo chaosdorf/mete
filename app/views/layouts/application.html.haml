@@ -3,7 +3,7 @@
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
-    %meta(name="viewport" content="initial-scale=1.0")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     %meta(name="apple-mobile-web-app-capable" content="yes")
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
     %title= content_for?(:title) ? yield(:title) : "Mete"
@@ -16,24 +16,27 @@
     %link(href="/assets/favicon.png" rel="shortcut icon" type="image/png")
 
   %body
-    .navbar.navbar-fixed-top.navbar-inverse
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href=root_path) Mete
-          .container.nav-collapse
-            %ul.nav.navbar-nav.navbar-left
-              %li= link_to "Users", "/users"
-              %li= link_to "Stats", "/users/stats"
-              %li= link_to "Audits", "/audits"
-              %li= link_to "Drinks", "/drinks"
-            %ul.nav.navbar-nav.navbar-right
-              = yield :actions
+    %header
+      .navbar.navbar-fixed-top.navbar-inverse
+        .navbar-inner
+          .container-fluid
+            %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.brand(href=root_path) Mete
+            .container.nav-collapse
+              %ul.nav.navbar-nav.navbar-left
+                %li= link_to "Users", "/users"
+                %li= link_to "Stats", "/users/stats"
+                %li= link_to "Audits", "/audits"
+                %li= link_to "Drinks", "/drinks"
+              %ul.nav.navbar-nav.navbar-right
+                = yield :actions
 
-    = yield
+    %article
+      .container
+        = yield
 
     /
       Javascripts

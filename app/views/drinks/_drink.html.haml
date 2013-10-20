@@ -1,7 +1,7 @@
 - path = deposit_user_path(@user, :amount => drink.price.to_f * 100 * -1) if @user
-%li[drink]
+.col-md-1
   = link_to path || '#' do
-    = image_tag drink.logo(:medium), :title => drink.name
+    = image_tag drink.logo(:thumb), :title => drink.name
     .text-center
       %span.badge= humanized_money_with_symbol drink.price
 

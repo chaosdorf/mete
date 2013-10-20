@@ -3,7 +3,7 @@
   = f.inputs do
     = f.input :name
     = f.input :email
-    = f.input :balance, :as => :number, :append => currency_symbol
+    = f.input :balance, :as => :number, :prepend => currency_symbol
   .controls
     = f.action :submit
 
