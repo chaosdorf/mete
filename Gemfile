@@ -7,11 +7,9 @@ gem 'rails', '~> 4.0.0'
 
 gem 'sqlite3'
 
-
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'bootstrap-sass'
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass-rails'
 gem 'bootswatch-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -26,7 +24,7 @@ gem 'haml-rails'
 gem 'gravatar_image_tag'
 gem 'paperclip'
 gem 'formtastic'
-gem 'formtastic-bootstrap'
+gem 'formtastic-plus-bootstrap'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

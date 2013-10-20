@@ -2,6 +2,6 @@
 - content_for :actions do
   %li
     = link_to 'new user', [:new, :user]
-.page-header
-  %ul.thumbnails
-    = render @users
+
+.row
+  = render @users

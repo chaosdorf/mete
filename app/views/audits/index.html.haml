@@ -13,15 +13,15 @@
     .controls
       %button.btn.btn-primary
         Filter
-  
+
 
 %p
-  %strong Sum of all deposits made: 
+  %strong Sum of all deposits made:
   = @deposits_sum
 %p
-  %strong Sum of all payments made: 
+  %strong Sum of all payments made:
   = @payments_sum
-%p 
+%p
   %strong Sum of all transactions:
   = @sum
 
@@ -35,14 +35,12 @@
       %tr.success
         %td= audit.created_at
         %td
-          = audit.difference
-          EUR
+          = m audit.difference
     - else
       %tr.error
         %td= audit.created_at
         %td
-          = audit.difference
-          EUR
-  
-  
-  
+          = m audit.difference
+
+
+

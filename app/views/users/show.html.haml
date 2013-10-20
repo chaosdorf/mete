@@ -4,28 +4,27 @@
     = link_to 'edit user', [:edit, @user]
   %li
     = link_to 'delete user', @user, :method => :delete, :confirm => "Really delete #{@user.name}’s account?"
-.span2
-  %span.label= @user.name
-  = gravatar(@user)
-%p
-  %strong= model_class.human_attribute_name(:email) + ':'
-  %br
-  = @user.email
-%p
-  %strong= model_class.human_attribute_name(:balance) + ':'
-  %br
-  = @user.balance
-  EUR
 
-.form-actions
-  .row.drinks
+.page-header
+  %h1
+    = "Hi, #{@user.name}"
+    %small
+      Choose your Poison!
+
+.row
+  .col-md-1
+    = gravatar(@user)
+  .col-md-1
+    %dl.dl-horizontal
+      %dt
+        = model_class.human_attribute_name(:email)
+      %dd
+        = @user.email
+      %dt
+        = model_class.human_attribute_name(:balance)
+      %dd
+        = m @user.balance
+
+.row-fluid
+  .text-center
     = render @drinks, :locals => {:user => @user}
-  .row
-    .span3
-      = link_to '+50.00 EUR', deposit_user_path(@user, :amount => 5000), :class => 'btn btn-pay btn-euro-50'
-    .span3
-      = link_to '+20.00 EUR', deposit_user_path(@user, :amount => 2000), :class => 'btn btn-pay btn-euro-20'
-    .span3
-      = link_to '+10.00 EUR', deposit_user_path(@user, :amount => 1000), :class => 'btn btn-pay btn-euro-10'
-    .span3
-      = link_to '+5.00 EUR', deposit_user_path(@user, :amount => 500), :class => 'btn btn-pay btn-euro-5'
