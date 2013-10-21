@@ -1,6 +1,8 @@
+@import "bootswatch/slate/variables";
 @import "bootstrap";
 @import "bootstrap/theme";
 @import "formtastic-bootstrap";
+@import "bootswatch/slate/bootswatch";
 
 // make room for navigation bar
 body { padding-top: 70px; }

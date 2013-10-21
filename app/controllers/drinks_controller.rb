@@ -2,7 +2,7 @@ class DrinksController < ApplicationController
   # GET /drinks
   # GET /drinks.json
   def index
-    @drinks = Drink.all
+    @drinks = Drink.order(:name).all
 
     respond_to do |format|
       format.html # index.html.erb
