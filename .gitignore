@@ -20,3 +20,6 @@
 
 # Ignore uploaded files
 /public/system
+
+# Ignore vim swap files
+*.swp
