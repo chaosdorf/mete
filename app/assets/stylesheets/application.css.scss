@@ -1,6 +1,8 @@
-/*
- *= require bootstrap-without-forms
- *= require formtastic-plus-bootstrap
- *= require bootstrap-responsive
- *= require formtastic-plus-bootstrap/responsive
- */
+@import "bootstrap";
+@import "bootstrap/theme";
+@import "formtastic-bootstrap";
+
+// make room for navigation bar
+body { padding-top: 70px; }
+
+

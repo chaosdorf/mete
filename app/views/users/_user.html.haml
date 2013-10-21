@@ -1,5 +1,7 @@
-.col-xs-6.col-md-4.col-sm-4
+.col-xs-6.col-sm-3.col-md-2.col-sm-2.col-lg-2
   = link_to user, :title => user.name do
     .thumbnail
-      %span.label= user.name
       = gravatar(user)
+      .text-center
+        %h3
+          = user.name
