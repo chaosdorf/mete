@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, success: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -89,20 +89,34 @@ class UsersController < ApplicationController
   def deposit
     @user = User.find(params[:id])
     @user.deposit(params[:amount].to_i)
-    redirect(@user)
+    respond_to do |format|
+      format.html do
+        flash[:success] = "You just deposited some money and your new balance is #{@user.balance}. Thank you!"
+        redirect(@user)
+      end
+      format.json { head :no-content }
+    end
   end
 
   def payment
     @user = User.find(params[:id])
     @user.payment(params[:amount].to_i)
-    redirect(@user)
+    respond_to do |format|
+      format.html do
+        flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you!"
+        if (@user.balance < 0) then
+          flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible!"
+        end
+        redirect(@user)
+      end
+    end
   end
 
   def stats
     @user_count = User.count
     @balance_sum = User.balance_sum
     respond_to do |format|
-      format.html {  }
+      format.html { }
       format.json { render json: { user_count: @user_count, balance_sum: @balance_sum } }
     end
   end
