@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/log0ymxm/bootswatch-rails.git
+  revision: 1c504d71fb6f2c25c4603ccd243f02b6c499312b
+  specs:
+    bootswatch-rails (3.0.0)
+      railties (>= 3.1)
+
+GIT
   remote: git://github.com/nickl-/formtastic-bootstrap3.git
   revision: 0c86c329da7d97ef11bf9cc58ef2cd8d3bc30ec2
   branch: bootstrap3
@@ -167,6 +174,7 @@ PLATFORMS
 DEPENDENCIES
   SyslogLogger
   bootstrap-sass!
+  bootswatch-rails!
   capistrano
   coffee-rails (~> 4.0.0)
   faker
