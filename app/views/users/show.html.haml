@@ -12,9 +12,9 @@
       Choose your Poison!
 
 .row
-  .col-md-1
+  .col-xs-3.col-sm-2.col-md-1
     = gravatar(@user)
-  .col-md-1
+  .col-xs-9.col-sm-10.col-md-11
     %dl.dl-horizontal
       %dt
         = model_class.human_attribute_name(:email)
@@ -25,6 +25,7 @@
       %dd
         = m @user.balance
 
-.row-fluid
-  .text-center
-    = render @drinks, :locals => {:user => @user}
+%hr
+
+.row
+  = render @drinks, :locals => {:user => @user}
