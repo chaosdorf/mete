@@ -1,32 +1,30 @@
-require 'bundler/capistrano'
+set :application, 'mete'
+set :repo_url, 'https://github.com/chaosdorf/mete'
+set :deploy_to, '/srv/mete'
 
-set :application, "mete"
-set :deploy_to, "/srv/mete"
-set :repository,  "https://github.com/chaosdorf/mete"
-set :scm, :git
-set :use_sudo, false
-set :user, "mete"
+set :format, :pretty
+set :log_level, :debug
 
-role :app, "meteserver.chaosdorf.dn42"
-role :db, "meteserver.chaosdorf.dn42", :primary => true
-role :web, "meteserver.chaosdorf.dn42"
-
-after 'deploy:update', 'deploy:symlink_shared_paths', 'deploy:migrate', 'deploy:assets:precompile'
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
   end
-  task :symlink_shared_paths do
-    run "mkdir -p #{shared_path}/db"
-    run "mkdir -p #{shared_path}/public/assets"
-    run "mkdir -p #{shared_path}/files"
-    run "mkdir -p #{shared_path}/log"
-    run "ln -fns #{shared_path}/db/production.sqlite3 #{release_path}/db/"
-    run "ln -fns #{shared_path}/public/assets #{release_path}/public/"
-    run "ln -fns #{shared_path}/files #{release_path}"
-    run "ln -fns #{shared_path}/log #{release_path}"
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      within release_path do
+        execute :rake, 'cache:clear'
+      end
+    end
   end
+
+  after :finishing, 'deploy:cleanup'
+
 end

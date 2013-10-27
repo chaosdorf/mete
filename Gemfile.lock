@@ -55,6 +55,10 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
+    capistrano-bundler (1.0.0)
+      capistrano (>= 3.0.0.pre)
+    capistrano-rails (1.0.0)
+      capistrano
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.2)
@@ -176,6 +180,8 @@ DEPENDENCIES
   bootstrap-sass!
   bootswatch-rails!
   capistrano
+  capistrano-bundler
+  capistrano-rails
   coffee-rails (~> 4.0.0)
   faker
   formtastic
