@@ -5,7 +5,7 @@ set :deploy_to, '/srv/mete'
 set :format, :pretty
 set :log_level, :debug
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml db/production.sqlite3}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
@@ -19,9 +19,9 @@ namespace :deploy do
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      within release_path do
-        execute :rake, 'cache:clear'
-      end
+      #within release_path do
+      #  execute :rake, 'cache:clear'
+      #end
     end
   end
 
