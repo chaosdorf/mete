@@ -23,8 +23,8 @@ gem 'haml-rails'
 gem 'gravatar_image_tag'
 gem 'paperclip'
 gem 'formtastic'
-gem 'formtastic-bootstrap', github: 'nickl-/formtastic-bootstrap3', branch: 'bootstrap3'
-gem 'bootswatch-rails', github: 'log0ymxm/bootswatch-rails'
+gem 'formtastic-bootstrap', :github => 'nickl-/formtastic-bootstrap3', :branch => 'bootstrap3'
+gem 'bootswatch-rails', :github => 'log0ymxm/bootswatch-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -38,6 +38,8 @@ gem 'bootswatch-rails', github: 'log0ymxm/bootswatch-rails'
 #
 group :development do
   gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
   gem 'faker'
   gem 'unicorn'
 end
