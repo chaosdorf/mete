@@ -5,6 +5,14 @@ class Drink < ActiveRecord::Base
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   before_post_process :normalize_filename
 
+  def as_json(options)
+    h = super(options)
+    h[:donationRecommendation] = price
+    h[:bottleSize] = bottle_size
+    h[:logoUrl] = logo.url
+    h
+  end
+
   private
 
   def normalize_filename
