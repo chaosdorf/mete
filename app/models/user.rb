@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  default_scope order('LOWER(name)')
+  default_scope ->{order('LOWER(name)')}
   validates_presence_of :name
 
 
