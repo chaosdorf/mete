@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def m(price)
     return 'n/a' if price.blank?
-    humanized_money_with_symbol price
+    raw sprintf('%.2f&thinsp;EUR', price)
   end
 
 end
