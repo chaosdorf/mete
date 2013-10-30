@@ -8,8 +8,8 @@ class AuditsController < ApplicationController
       @audits = Audit.all
     end
     
-    @sum = @audits.to_a.sum(&:difference)
-    @payments_sum = @audits.payments.to_a.sum(&:difference).abs
-    @deposits_sum = @audits.deposits.to_a.sum(&:difference)
+    @sum = @audits.sum(:difference)
+    @payments_sum = @audits.payments.sum(:difference).abs
+    @deposits_sum = @audits.deposits.sum(:difference)
   end
 end

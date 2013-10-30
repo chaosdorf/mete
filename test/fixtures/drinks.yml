@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  bottleSize: MyString
+  bottle_size: MyString
   caffeine: MyString
-  donationRecommendation: 9.99
-  logoUrl: MyString
+  donation_recommendation: 9.99
+  logo_url: MyString
 
 two:
   name: MyString
-  bottleSize: MyString
+  bottle_size: MyString
   caffeine: MyString
-  donationRecommendation: 9.99
-  logoUrl: MyString
+  donation_recommendation: 9.99
+  logo_url: MyString

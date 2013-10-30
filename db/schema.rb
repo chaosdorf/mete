@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131020154048) do
+ActiveRecord::Schema.define(version: 20131030170549) do
 
   create_table "audits", force: true do |t|
-    t.integer  "difference_cents"
     t.datetime "created_at"
+    t.decimal  "difference", precision: 20, scale: 2, default: 0.0
   end
 
   create_table "drinks", force: true do |t|
     t.string   "name"
     t.integer  "bottle_size",       limit: 255
     t.integer  "caffeine",          limit: 255
-    t.decimal  "price"
+    t.decimal  "price",                         precision: 20, scale: 2, default: 0.0
     t.string   "logo_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20131020154048) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "balance_cents", default: 0
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "slug"
+    t.decimal  "balance",    precision: 20, scale: 2, default: 0.0
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true
