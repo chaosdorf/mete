@@ -4,7 +4,7 @@
     = link_to path || '#' do
       .panel.panel-default.text-center
         .panel-body
-          = image_tag "euro-#{n}.png", alt: "#{currency_symbol} #{n}"
+          = image_tag "euro-#{n}.png", alt: m(n)
         .panel-footer
-          deposit
-          = currency_symbol + n.to_s
+          +
+          =m n
