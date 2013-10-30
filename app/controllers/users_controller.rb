@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @drinks = Drink.all
+    @drinks = Drink.order("price DESC")
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,7 +88,7 @@ class UsersController < ApplicationController
 
   def deposit
     @user = User.find(params[:id])
-    @user.deposit(params[:amount].to_i)
+    @user.deposit(BigDecimal.new(params[:amount]))
     respond_to do |format|
       format.html do
         flash[:success] = "You just deposited some money and your new balance is #{@user.balance}. Thank you!"
@@ -96,11 +96,12 @@ class UsersController < ApplicationController
       end
       format.json { head :no-content }
     end
+    redirect_to @user
   end
 
   def payment
     @user = User.find(params[:id])
-    @user.payment(params[:amount].to_i)
+    @user.payment(BigDecimal.new(params[:amount]))
     respond_to do |format|
       format.html do
         flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you!"
