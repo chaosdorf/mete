@@ -96,7 +96,6 @@ class UsersController < ApplicationController
       end
       format.json { head :no-content }
     end
-    redirect_to @user
   end
 
   def payment
