@@ -17,7 +17,6 @@ gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
 gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
-gem 'therubyrhino'
 gem 'haml-rails'
 gem 'gravatar_image_tag'
 gem 'paperclip'
