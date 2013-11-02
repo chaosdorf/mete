@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030170549) do
+ActiveRecord::Schema.define(version: 20131030174047) do
 
   create_table "audits", force: true do |t|
     t.datetime "created_at"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20131030170549) do
 
   create_table "drinks", force: true do |t|
     t.string   "name"
-    t.integer  "bottle_size",       limit: 255
+    t.decimal  "bottle_size",                   precision: 20, scale: 2, default: 0.0
     t.integer  "caffeine",          limit: 255
     t.decimal  "price",                         precision: 20, scale: 2, default: 0.0
     t.string   "logo_file_name"
