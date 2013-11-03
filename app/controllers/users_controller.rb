@@ -114,7 +114,7 @@ class UsersController < ApplicationController
 
   def stats
     @user_count = User.count
-    @balance_sum = User.balance_sum
+    @balance_sum = User.sum(:balance)
     respond_to do |format|
       format.html { }
       format.json { render json: { user_count: @user_count, balance_sum: @balance_sum } }
