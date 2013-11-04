@@ -91,7 +91,7 @@ class UsersController < ApplicationController
     @user.deposit(BigDecimal.new(params[:amount]))
     respond_to do |format|
       format.html do
-        flash[:success] = "You just deposited some money and your new balance is #{@user.balance}. Thank you!"
+        flash[:success] = "You just deposited some money and your new balance is #{@user.balance}. Thank you."
         redirect(@user)
       end
       format.json { head :no-content }
@@ -103,9 +103,9 @@ class UsersController < ApplicationController
     @user.payment(BigDecimal.new(params[:amount]))
     respond_to do |format|
       format.html do
-        flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you!"
+        flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
         if (@user.balance < 0) then
-          flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible!"
+          flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
         end
         redirect(@user)
       end
