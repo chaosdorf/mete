@@ -10,4 +10,5 @@ This code is intended to be simple, full of security problems and lacking a lot
 of features. Please hack on it.
 
 Android App: (https://github.com/chaosdorf/meteroid)
+iOS App: (https://github.com/chaosdorf/meteroid-ios)
 
