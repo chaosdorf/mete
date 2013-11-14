@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030174047) do
+ActiveRecord::Schema.define(version: 20131030201041) do
 
   create_table "audits", force: true do |t|
     t.datetime "created_at"
@@ -34,12 +34,9 @@ ActiveRecord::Schema.define(version: 20131030174047) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.decimal  "balance",    precision: 20, scale: 2, default: 0.0
   end
-
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end
