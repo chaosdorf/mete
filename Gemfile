@@ -23,6 +23,7 @@ gem 'paperclip'
 gem 'formtastic'
 gem 'formtastic-bootstrap', :github => 'nickl-/formtastic-bootstrap3', :branch => 'bootstrap3'
 gem 'bootswatch-rails', :github => 'log0ymxm/bootswatch-rails'
+gem 'favicon_maker'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

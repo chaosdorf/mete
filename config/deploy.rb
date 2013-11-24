@@ -27,4 +27,18 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
 
+  task :create_favicons do
+    options = {
+      :root_dir => release_path,
+      :input_dir => File.join("app", "assets", "images"),
+      :output_dir => "public",
+      :base_image => "mete-logo.svg"
+    }
+    FaviconMaker::Generator.create_versions(options) do |filepath|
+      puts "Created favicon: #{filepath}"
+    end
+  end
+
+  after "deploy:update_code", "deploy:create_versions"
+
 end

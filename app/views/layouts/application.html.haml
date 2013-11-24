@@ -12,8 +12,12 @@
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
     = stylesheet_link_tag "application", :media => "all"
-    %link(href="/assets/favicon.png" rel="apple-touch-icon")
-    %link(href="/assets/favicon.png" rel="shortcut icon" type="image/png")
+    %link{ rel: "apple-touch-icon", sizes: "144x144", href: "apple-touch-icon-144x144-precomposed.png" }
+    %link{ rel: "apple-touch-icon", sizes: "114x114", href: "apple-touch-icon-114x114-precomposed.png" }
+    %link{ rel: "apple-touch-icon", sizes: "72x72", href: "apple-touch-icon-72x72-precomposed.png" }
+    %link{ rel: "apple-touch-icon", href: "apple-touch-icon-precomposed.png" }
+    %link{ rel: "shortcut icon", href: "favicon.png" }
+    %link{ rel: "icon", type: "image/ico", href: "favicon.ico" }
 
   %body
     %header
@@ -23,7 +27,7 @@
             %span.sr-only Toggle navigation
             - 3.times do
               %span.icon-bar
-          %a.navbar-brand( href=root_path )M.E.T.E.
+        = link_to 'MeTe', root_path, :class => 'navbar-brand'
 
         .collapse.navbar-collapse.navbar-ex1-collapse
           %ul.nav.navbar-nav
