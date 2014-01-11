@@ -2,7 +2,7 @@ class Drink < ActiveRecord::Base
 
   validates_presence_of :name, :bottle_size, :price
 
-  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :logo, :styles => { :thumb => "100x100#" }, :default_style => :thumb
   before_post_process :normalize_filename
 
   def as_json(options)
