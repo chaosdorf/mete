@@ -7,7 +7,7 @@ Mete::Application.routes.draw do
   resources :users do
     member do
       get 'deposit'
-      get 'payment'
+      get 'buy'
     end
     collection do
       get 'stats'
