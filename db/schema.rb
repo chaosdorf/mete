@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030201041) do
+ActiveRecord::Schema.define(version: 20141221222640) do
 
   create_table "audits", force: true do |t|
     t.datetime "created_at"
     t.decimal  "difference", precision: 20, scale: 2, default: 0.0
+    t.integer  "drink"
   end
 
   create_table "drinks", force: true do |t|

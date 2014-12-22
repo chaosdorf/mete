@@ -98,9 +98,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def payment
+  def buy
     @user = User.find(params[:id])
-    @user.payment(BigDecimal.new(params[:amount]))
+    @user.buy(Drink.find(params[:drink]))
     respond_to do |format|
       format.html do
         flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
