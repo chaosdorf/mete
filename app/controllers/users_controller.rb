@@ -112,6 +112,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def payment
+    @user = User.find(params[:id])
+    @user.payment(BigDecimal.new(params[:amount]))
+    respond_to do |format|
+      format.html do
+        flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+        if (@user.balance < 0) then
+          flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
+        end
+        redirect(@user)
+      end
+    end
+  end
+
   def stats
     @user_count = User.count
     @balance_sum = User.sum(:balance)
