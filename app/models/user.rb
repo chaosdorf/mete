@@ -21,4 +21,9 @@ class User < ActiveRecord::Base
     @purchased_drink = drink
     save!
   end
+
+  def payment(amount)
+    self.balance -= amount
+    save!
+  end
 end
