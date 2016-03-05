@@ -1,14 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.0'
+gem 'rails', '~> 4.2'
+
+# https://github.com/rails/sprockets-rails/issues/131
+#gem 'sprockets-rails', :require => 'sprockets/rails/version'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 
-gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails',   '~> 5.0.4'
+gem 'coffee-rails', '~> 4.1.1'
 gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
