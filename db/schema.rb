@@ -19,24 +19,24 @@ ActiveRecord::Schema.define(version: 20131030201041) do
   end
 
   create_table "drinks", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.decimal  "bottle_size",                   precision: 20, scale: 2, default: 0.0
-    t.integer  "caffeine",          limit: 255
-    t.decimal  "price",                         precision: 20, scale: 2, default: 0.0
-    t.string   "logo_file_name",    limit: 255
+    t.string   "name"
+    t.decimal  "bottle_size",       precision: 20, scale: 2, default: 0.0
+    t.integer  "caffeine"
+    t.decimal  "price",             precision: 20, scale: 2, default: 0.0
+    t.string   "logo_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo_content_type", limit: 255
+    t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "balance",                precision: 20, scale: 2, default: 0.0
+    t.decimal  "balance",    precision: 20, scale: 2, default: 0.0
   end
 
 end
