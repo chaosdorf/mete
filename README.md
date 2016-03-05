@@ -1,3 +1,5 @@
+![build status](https://travis-ci.org/chaosdorf/mete.svg?branch=master)
+
 # Matekasse
 
 Keep track of your donations!
