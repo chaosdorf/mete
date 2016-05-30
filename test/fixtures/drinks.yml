@@ -4,12 +4,12 @@ one:
   name: MyString
   bottle_size: MyString
   caffeine: MyString
-  donation_recommendation: 9.99
+  price: 9.99
   logo_url: MyString
 
 two:
   name: MyString
   bottle_size: MyString
   caffeine: MyString
-  donation_recommendation: 9.99
+  price: 9.99
   logo_url: MyString
