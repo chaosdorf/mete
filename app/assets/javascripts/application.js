@@ -25,3 +25,6 @@ if (navigator.userAgent.match(/(ipod|iphone|ipad)/i)) {
 	  });
 	});
 }
+
+//hide notification bars after a few seconds
+$('.alert').delay(10000).fadeOut('slow');
