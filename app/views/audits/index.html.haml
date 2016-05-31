@@ -44,7 +44,7 @@
         %td
           = m audit.difference
         %td
-          - drink = Drink.find(audit.drink)
+          - drink = Drink.find_by(:id => audit.drink)
           - if drink.nil?
             n/a
           - else
