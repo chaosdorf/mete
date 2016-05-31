@@ -6,8 +6,7 @@ class CreateDrinks < ActiveRecord::Migration
       t.string :caffeine
       t.decimal :donationRecommendation
       t.string :logoUrl
-
-      t.timestamps
+      t.timestamps null: true
     end
   end
 end
