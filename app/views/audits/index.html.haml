@@ -30,17 +30,22 @@
   %tr
     %th Timestamp
     %th Amount
+    %th Drink
   - @audits.each do |audit|
     - if audit.difference > 0
       %tr.success
         %td= audit.created_at
         %td
           = m audit.difference
+        %td n/a
     - else
       %tr.error
         %td= audit.created_at
         %td
           = m audit.difference
-
-
-
+        %td
+          - drink = Drink.find(audit.drink)
+          - if drink.nil?
+            n/a
+          - else
+            = drink.name
