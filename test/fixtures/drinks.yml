@@ -5,11 +5,11 @@ one:
   bottle_size: MyString
   caffeine: MyString
   price: 9.99
-  logo_url: MyString
+  logo_file_name: MyString
 
 two:
   name: MyString
   bottle_size: MyString
   caffeine: MyString
   price: 9.99
-  logo_url: MyString
+  logo_file_name: MyString
