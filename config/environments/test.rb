@@ -29,5 +29,8 @@ Mete::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  # Run the tests in random order.
+  config.active_support.test_order = :random
+
   config.eager_load = false
 end
