@@ -25,7 +25,7 @@
       %tr
         %td
           = link_to [:edit, drink] do
-            = image_tag(drink.logo.url :thumb)
+            = image_tag drink.logo(:thumb), class: drink.active ? "" : "disabled"
         %td= drink.name
         %td= drink.bottle_size
         %td= drink.caffeine

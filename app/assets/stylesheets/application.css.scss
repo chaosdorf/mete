@@ -14,3 +14,9 @@ body { padding-top: 70px; }
   background-size: 2em;
   padding-left: 3em;
 }
+
+img.disabled {
+  //see http://blog.nmsdvid.com/css-filter-property/
+  //see http://stackoverflow.com/a/11842712
+  filter: grayscale(100%) contrast(30%);
+}
