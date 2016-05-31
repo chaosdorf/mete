@@ -100,7 +100,13 @@ class UsersController < ApplicationController
 
   def buy
     @user = User.find(params[:id])
-    @user.buy(Drink.find(params[:drink]))
+    @drink = Drink.find(params[:drink])
+    unless @drink.active?
+      @drink.active = true
+      @drink.save!
+      flash[:info] = "The drink you just bought has been set to 'available'."
+    end
+    @user.buy(@drink)
     respond_to do |format|
       format.html do
         flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
