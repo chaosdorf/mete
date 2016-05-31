@@ -55,8 +55,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.json
+  # PATCH /users/1
+  # PATCH /users/1.json
   def update
     @user = User.find(params[:id])
 
