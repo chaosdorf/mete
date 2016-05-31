@@ -144,7 +144,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :balance)
+    params.require(:user).permit(:name, :email, :balance, :active)
   end
 
   def redirect(user = users_url)
