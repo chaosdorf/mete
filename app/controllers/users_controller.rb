@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.order(active: :desc, name: :asc).all
 
 
     respond_to do |format|
@@ -144,7 +144,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :balance)
+    params.require(:user).permit(:name, :email, :balance, :active)
   end
 
   def redirect(user = users_url)
