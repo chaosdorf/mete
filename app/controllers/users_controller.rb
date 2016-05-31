@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @drinks = Drink.order(:name).all
+    @drinks = Drink.order(active: :desc, name: :asc).all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -100,8 +100,13 @@ class UsersController < ApplicationController
 
   def buy
     @user = User.find(params[:id])
-    @drinks = Drink.order(:name).all
-    @user.buy(Drink.find(params[:drink]))
+    @drink = Drink.find(params[:drink])
+    unless @drink.active?
+      @drink.active = true
+      @drink.save!
+      flash[:info] = "The drink you just bought has been set to 'available'."
+    end
+    @user.buy(@drink)
     respond_to do |format|
       format.html do
         flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
