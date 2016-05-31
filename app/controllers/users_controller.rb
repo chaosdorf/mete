@@ -98,10 +98,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def payment
+  def buy
     @user = User.find(params[:id])
-		@drinks = Drink.order(:name).all
-    @user.payment(BigDecimal.new(params[:amount]))
+    @drinks = Drink.order(:name).all
+    @user.buy(Drink.find(params[:drink]))
     respond_to do |format|
       format.html do
         flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
@@ -109,6 +109,20 @@ class UsersController < ApplicationController
           flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
         end
         redirect_to users_url
+      end
+    end
+  end
+
+  def payment
+    @user = User.find(params[:id])
+    @user.payment(BigDecimal.new(params[:amount]))
+    respond_to do |format|
+      format.html do
+        flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+        if (@user.balance < 0) then
+          flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
+        end
+        redirect(@user)
       end
     end
   end

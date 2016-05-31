@@ -8,6 +8,7 @@ Mete::Application.routes.draw do
     member do
       get 'deposit'
       get 'payment'
+      get 'buy'
     end
     collection do
       get 'stats'
