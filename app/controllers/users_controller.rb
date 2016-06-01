@@ -86,6 +86,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/deposit?amount=100
+  # GET /users/1/deposit.json?amount=100
   def deposit
     @user = User.find(params[:id])
     @user.deposit(BigDecimal.new(params[:amount]))
@@ -98,6 +100,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/buy?drink=5
+  # GET /users/1/buy.json?drink=5
   def buy
     @user = User.find(params[:id])
     @drink = Drink.find(params[:drink])
@@ -115,9 +119,12 @@ class UsersController < ApplicationController
         end
         redirect_to users_url
       end
+      format.json { head :no-content }
     end
   end
 
+  # GET /users/1/pay?amount=1.5
+  # GET /users/1/pay.json?amount=1.5
   def payment
     @user = User.find(params[:id])
     @user.payment(BigDecimal.new(params[:amount]))
@@ -129,9 +136,12 @@ class UsersController < ApplicationController
         end
         redirect(@user)
       end
+      format.json { head :no-content }
     end
   end
 
+  # GET /users/stats
+  # GET /users/stats.json
   def stats
     @user_count = User.count
     @balance_sum = User.sum(:balance)
