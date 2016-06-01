@@ -14,3 +14,6 @@ of features. Please hack on it.
 Android App: (https://github.com/chaosdorf/meteroid)  
 iOS App: (https://github.com/chaosdorf/meteroid-ios)
 
+## Documentation
+
+[How the API works.](https://github.com/chaosdorf/mete/blob/master/API.md)
