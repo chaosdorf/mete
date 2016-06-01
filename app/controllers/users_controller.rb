@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "User was successfully updated."
-      redirect @user
+      no_resp_redir @user
     else
       respond_to do |format|
         format.html { render action: "edit", error: "Couldn't update the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.destroy
       flash[:success] = "User was successfully deleted."
-      redirect
+      no_resp_redir users_url
     else
       respond_to do |format|
         format.html { redirect_to users_url, error:  "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
@@ -86,7 +86,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.deposit(BigDecimal.new(params[:amount]))
     flash[:success] = "You just deposited some money and your new balance is #{@user.balance}. Thank you."
-    redirect @user
+    no_resp_redir @user
   end
 
   # GET /users/1/buy?drink=5
@@ -104,7 +104,7 @@ class UsersController < ApplicationController
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
-    redirect
+    no_resp_redir users_url
   end
 
   # GET /users/1/pay?amount=1.5
@@ -116,7 +116,7 @@ class UsersController < ApplicationController
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
-    redirect @user
+    no_resp_redir @user
   end
 
   # GET /users/stats
@@ -134,12 +134,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :balance, :active)
-  end
-
-  def redirect(dest = users_url)
-    respond_to do |format|
-      format.html { redirect_to dest }
-      format.json { head :no_content }
-    end
   end
 end

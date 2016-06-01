@@ -55,7 +55,7 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     if @drink.update_attributes(drink_params)
       flash[:success] = "Drink was successfully updated."
-      redirect @drink
+      no_resp_redir @drink
     else
       respond_to do |format|
         format.html { render action: "edit", error: "Couldn't update the drink. Error: #{@drink.errors} Status: #{:unprocessable_entity}" }
@@ -70,7 +70,7 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     if @drink.destroy
       flash[:success] = "Drink was successfully deleted."
-      redirect
+      no_resp_redir drinks_url
     else
       respond_to do |format|
         format.html { redirect_to drinks_url, error: "Couldn't delete the drink. Error: #{@drink.errors} Status: #{:unprocessable_entity}" }
@@ -84,12 +84,4 @@ class DrinksController < ApplicationController
   def drink_params
     params.require(:drink).permit(:bottle_size, :caffeine, :price, :logo, :name, :active)
   end
-
-  def redirect(dest = drinks_url)
-    respond_to do |format|
-      format.html { redirect_to dest }
-      format.json { head :no_content }
-    end
-  end
-
 end
