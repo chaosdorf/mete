@@ -17,3 +17,4 @@ iOS App: (https://github.com/chaosdorf/meteroid-ios)
 ## Documentation
 
 [How the API works.](https://github.com/chaosdorf/mete/blob/master/API.md)
+[How to setup the server.](https://github.com/chaosdorf/mete/blob/master/Setup.md)
