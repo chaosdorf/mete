@@ -10,4 +10,29 @@ class BrowsingTest < ActionDispatch::PerformanceTest
   def test_homepage
     get '/'
   end
+
+  def test_audits
+    get '/audits'
+  end
+
+  def test_audits_json
+    get '/audits.json'
+  end
+
+  def test_drinks
+    get '/drinks'
+  end
+
+  def test_drinks_json
+    get '/drinks.json'
+  end
+
+  def test_users
+    get '/users'
+  end
+
+  def test_users_json
+    get '/users.json'
+  end
+
 end
