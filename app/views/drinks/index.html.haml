@@ -29,6 +29,6 @@
         %td= drink.name
         %td= drink.bottle_size
         %td= drink.caffeine
-        %td=m drink.price
+        %td= show_amount drink.price
         %td
           %span{ :title => l(drink.created_at)}= l(drink.created_at, format: :short)

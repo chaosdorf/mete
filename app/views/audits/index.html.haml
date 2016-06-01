@@ -36,13 +36,13 @@
       %tr.success
         %td= audit.created_at
         %td
-          = m audit.difference
+          = show_amount audit.difference
         %td n/a
     - else
       %tr.error
         %td= audit.created_at
         %td
-          = m audit.difference
+          = show_amount audit.difference
         %td
           - drink = Drink.find_by(:id => audit.drink)
           - if drink.nil?
