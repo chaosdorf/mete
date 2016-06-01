@@ -55,8 +55,8 @@ class DrinksController < ApplicationController
     end
   end
 
-  # PUT /drinks/1
-  # PUT /drinks/1.json
+  # PATCH /drinks/1
+  # PATCH /drinks/1.json
   def update
     @drink = Drink.find(params[:id])
 
