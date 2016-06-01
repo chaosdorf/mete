@@ -4,6 +4,8 @@
 [![Code Climate](https://codeclimate.com/github/chaosdorf/mete/badges/gpa.svg)](https://codeclimate.com/github/chaosdorf/mete)
 [![test coverage](https://codeclimate.com/github/chaosdorf/mete/badges/coverage.svg)](https://codeclimate.com/github/chaosdorf/mete/coverage)
 
+[//]: # (The Code Climate is not being updated automatically.)
+
 # Matekasse
 
 Keep track of your donations!
