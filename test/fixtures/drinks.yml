@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  bottle_size: MyString
-  caffeine: MyString
-  price: 9.99
-  logo_file_name: MyString
+  name: Mate
+  bottle_size: 0.5
+  caffeine: 10
+  price: 1.5
+  logo_file_name: mate.png
 
 two:
-  name: MyString
-  bottle_size: MyString
-  caffeine: MyString
-  price: 9.99
-  logo_file_name: MyString
+  name: Coffee
+  bottle_size: 0.2
+  caffeine: 20
+  price: 0.0.5
+  logo_file_name: coffee.png

@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  name: A
+  email: mail@example.net
   balance: 100
 
 two:
-  name: MyString
-  balance: 100
+  name: B
+  email: mail@example.org
+  balance: 50
