@@ -1,6 +1,7 @@
 ![build status](https://travis-ci.org/chaosdorf/mete.svg?branch=master)
 [![dependency status](https://gemnasium.com/badges/github.com/chaosdorf/mete.svg)](https://gemnasium.com/github.com/chaosdorf/mete)
 [![documentation status](https://inch-ci.org/github/chaosdorf/mete.svg?branch=master)](https://inch-ci.org/github/chaosdorf/mete)
+[![Code Climate](https://codeclimate.com/github/chaosdorf/mete/badges/gpa.svg)](https://codeclimate.com/github/chaosdorf/mete)
 
 # Matekasse
 
