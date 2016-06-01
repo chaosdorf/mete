@@ -3,8 +3,8 @@ class AuditsController < ApplicationController
   # GET /audits.json
   def index
     if params[:start_date] and params[:end_date]
-      @start_date = Date.civil(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
-      @end_date = Date.civil(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
+      @start_date = parse_date params[:start_date]
+      @end_date = parse_date params[:end_date]
       @audits = Audit.where("created_at >= :start_date AND created_at <= :end_date", start_date: @start_date, end_date: @end_date)
     else
       @audits = Audit.all
@@ -23,5 +23,11 @@ class AuditsController < ApplicationController
         :audits => @audits
       }}
     end
+  end
+
+  private
+
+  def parse_date data
+    return Date.civil(data[:year].to_i, data[:month].to_i, data[:day].to_i)
   end
 end
