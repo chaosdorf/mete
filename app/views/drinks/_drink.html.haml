@@ -8,4 +8,4 @@
       .panel-body
         = image_tag drink.logo(:thumb), alt: drink.name, class: drink.active? ? "" : "disabled"
       .panel-footer
-        =m drink.price
+        = show_amount drink.price
