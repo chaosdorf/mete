@@ -1,4 +1,5 @@
 ![build status](https://travis-ci.org/chaosdorf/mete.svg?branch=master)
+[![dependency status](https://gemnasium.com/badges/github.com/chaosdorf/mete.svg)](https://gemnasium.com/github.com/chaosdorf/mete)
 
 # Matekasse
 
