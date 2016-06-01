@@ -29,6 +29,8 @@ gem 'bootswatch-rails', :github => 'log0ymxm/bootswatch-rails'
 gem 'favicon_maker'
 gem 'mini_magick', :github => 'minimagick/minimagick'
 
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
