@@ -21,16 +21,6 @@ img.disabled {
   filter: grayscale(100%) contrast(30%);
 }
 
-.row.drinks::before, .row.drinks::after {
-  content: initial;
-  display: initial;
-}
-
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
 .drink-panel {
   display: flex;
   -webkit-display: flex;
