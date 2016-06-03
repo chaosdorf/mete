@@ -2,7 +2,7 @@ class DrinksController < ApplicationController
   # GET /drinks
   # GET /drinks.json
   def index
-    @drinks = Drink.order(active: :desc, name: :asc).all
+    @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @drinks }
