@@ -19,6 +19,10 @@ listen "#{app_dir}/unicorn.sock", :backlog => 64
 # Set master PID location
 pid "#{app_dir}/unicorn.pid"
 
+# disable logging
+stdout_path "/dev/null"
+stderr_path "/dev/null"
+
 # deployment
 # shamelessly copied from https://gist.github.com/defunkt/206253
 
