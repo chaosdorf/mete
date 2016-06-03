@@ -53,5 +53,4 @@ after_fork do |server, worker|
   # sockets, e.g. db connection
 
   ActiveRecord::Base.establish_connection
-  CHIMNEY.client.connect_to_server
 end
