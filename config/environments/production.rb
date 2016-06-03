@@ -39,6 +39,7 @@ Mete::Application.configure do
   # Use a different logger for distributed setups
   require 'syslog/logger'
   config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new)
+  config.log_level = :error
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
