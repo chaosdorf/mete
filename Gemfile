@@ -28,6 +28,7 @@ gem 'formtastic-bootstrap', :github => 'nickl-/formtastic-bootstrap3', :branch =
 gem 'bootswatch-rails', :github => 'log0ymxm/bootswatch-rails'
 gem 'favicon_maker'
 gem 'mini_magick', :github => 'minimagick/minimagick'
+gem 'unicorn'
 
 gem "codeclimate-test-reporter", group: :test, require: nil
 
@@ -46,7 +47,6 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'faker'
-  gem 'unicorn'
   gem 'rails-perftest'
   gem 'ruby-prof'
 end
