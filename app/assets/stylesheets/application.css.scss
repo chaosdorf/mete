@@ -20,3 +20,37 @@ img.disabled {
   //see http://stackoverflow.com/a/11842712
   filter: grayscale(100%) contrast(30%);
 }
+
+.row.drinks::before, .row.drinks::after {
+  content: initial;
+  display: initial;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.drink {
+  height: 165px;
+  width: 145px;
+  display: flex;
+}
+
+.drink-panel {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+}
+
+.panel-body {
+  flex: 1 1 0;
+  overflow: hidden;
+}
+
+div.drinks {
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
