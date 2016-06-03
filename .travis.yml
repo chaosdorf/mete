@@ -1,6 +1,13 @@
 language: ruby
 rvm:
  - "2.3.0"
+before_install:
+ - sudo sh -c 'echo "deb http://apt.gemnasium.com stable main" > /etc/apt/sources.list.d/gemnasium.list'
+ - sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E5CEAB0AC5F1CA2A
+ - sudo apt-get update
+ - sudo apt-get install gemnasium-toolbelt
 script:
  - bundle exec rake db:migrate RAILS_ENV=test
  - bundle exec rake
+after_success:
+ - gemnasium --token c21fa494c0b563e747694a4ff0876a32 autoupdate run
