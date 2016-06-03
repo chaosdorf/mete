@@ -31,26 +31,17 @@ img.disabled {
   margin-right: 0;
 }
 
-div.drink {
-  height: 165px;
-  width: 145px;
-  display: flex;
-}
-
 .drink-panel {
   display: flex;
-  flex: 1 1 0;
+  -webkit-display: flex;
+  -webkit-flex-directon: column;
   flex-direction: column;
+  height: 165px;
+  width: 160px;
 }
 
 .panel-body {
+  -webkit-flex: 1 1 0;
   flex: 1 1 0;
   overflow: hidden;
-}
-
-div.drinks {
-  display: flex;
-  flex: 1 1 0;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
