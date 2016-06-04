@@ -9,7 +9,13 @@ The API is REST-like (but not entirely).
 
 ### /audits ###
 
- * `GET /audits` - returns statistics about previous transactions
+ * `GET /audits` - returns statistics about previous transactions; possible paramters are:
+   * `start_date[year]` - `integer`
+   * `start_date[month]` - `integer`
+   * `start_date[day]` - `integer`
+   * `end_date[year]` - `integer`
+   * `end_date[month]` - `integer`
+   * `end_date[day]` - `integer`
  * `GET /audits.json` - the same as above, but in JSON format
 
 ### /drinks ###
