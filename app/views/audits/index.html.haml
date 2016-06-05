@@ -4,11 +4,11 @@
   .control-group
     = label_tag :start_date, "Show audits from ", class: 'control-label'
     .controls
-      = select_date @start_date || Date.today, prefix: :start_date
+      = select_date @start_date, prefix: :start_date
   .control-group
     = label_tag :end_date, "until", class: 'control-label'
     .controls
-      = select_date @end_date || Date.today, prefix: :end_date
+      = select_date @end_date, prefix: :end_date
   .control-group
     .controls
       %button.btn.btn-primary
@@ -25,6 +25,8 @@
   %strong Sum of all transactions:
   = @sum
 
+%p
+  %strong= "Showing data from #{@start_date} to #{@end_date}:"
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr
