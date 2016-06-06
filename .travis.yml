@@ -10,4 +10,4 @@ script:
  - bundle exec rake db:migrate RAILS_ENV=test
  - bundle exec rake
 after_success:
- - gemnasium --token c21fa494c0b563e747694a4ff0876a32 autoupdate run
+ - gemnasium autoupdate run
