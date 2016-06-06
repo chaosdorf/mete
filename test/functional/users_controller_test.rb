@@ -24,8 +24,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to user_path(assigns(:user))
   end
 
-  test "should show user" do
+  test "should show user with email" do
     get :show, id: @user
+    assert_response :success
+  end
+
+  test "should show user without email" do
+    get :show, id: users(:two)
     assert_response :success
   end
 
@@ -46,9 +51,30 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal -100, Audit.first.difference
   end
 
+  test "payment resulting in a negative balance" do
+    get :payment, id: users(:two), amount: 100
+    assert_equal -100, User.find(users(:two).id).balance
+    assert_equal -100, Audit.first.difference
+  end
+
   test "buy" do
     get :buy, id: @user, drink: @drink
     assert_equal -@drink.price, Audit.first.difference
+    assert_redirected_to users_path
+  end
+
+  test "buy resulting in a negative balance" do
+    get :buy, id: users(:two), drink: @drink
+    assert_equal -@drink.price, User.find(users(:two).id).balance
+    assert_equal -@drink.price, Audit.first.difference
+    assert_redirected_to users_path
+  end
+
+  test "buy unavailable drink" do
+    assert_equal Drink.find(drinks(:two).id).active, false
+    get :buy, id: @user, drink: drinks(:two)
+    assert_equal Drink.find(drinks(:two).id).active, true
+    assert_equal -drinks(:two).price, Audit.first.difference
     assert_redirected_to users_path
   end
 
