@@ -230,6 +230,7 @@ PLATFORMS
 
 DEPENDENCIES
   SyslogLogger
+  autoprefixer-rails
   bootstrap-sass!
   bootswatch-rails!
   capistrano
