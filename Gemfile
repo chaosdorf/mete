@@ -54,4 +54,5 @@ end
 
 group :production do
   gem 'SyslogLogger'
+  gem 'sentry-raven'
 end
