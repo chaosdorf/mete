@@ -44,9 +44,6 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 #
 #
 group :development do
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
   gem 'faker'
   gem 'rails-perftest'
   gem 'ruby-prof'

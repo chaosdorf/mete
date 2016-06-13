@@ -32,9 +32,6 @@
     <orderEntry type="library" scope="PROVIDED" name="bootswatch-rails (v3.0.0@1c504d, rbenv: 1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.1.4, rbenv: 1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.6.1, rbenv: 1.9.3-p484) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="capistrano (v3.0.1, rbenv: 1.9.3-p484) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="capistrano-bundler (v1.0.0, rbenv: 1.9.3-p484) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="capistrano-rails (v1.0.0, rbenv: 1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="climate_control (v0.0.3, rbenv: 1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cocaine (v0.5.3, rbenv: 1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.0.1, rbenv: 1.9.3-p484) [gem]" level="application" />
@@ -92,4 +89,3 @@
     <I18N_FOLDERS number="1" string0="$MODULE_DIR$/config/locales" />
   </component>
 </module>
-
