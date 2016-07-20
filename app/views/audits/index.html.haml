@@ -9,6 +9,8 @@
     = label_tag :end_date, "until", class: 'control-label'
     .controls
       = select_date @end_date, prefix: :end_date
+  - unless @user.nil?
+    %input{:type => "hidden", :name => "user", :value => @user.id}
   .control-group
     .controls
       %button.btn.btn-primary
@@ -26,7 +28,10 @@
   = @sum
 
 %p
-  %strong= "Showing data from #{@start_date} to #{@end_date}:"
+  %strong
+    = "Showing data from #{@start_date} to #{@end_date} for "
+    = @user.nil? ? "all users" : "user #{@user.name}"
+    \:
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr

@@ -54,7 +54,18 @@ class UsersController < ApplicationController
   # PATCH /users/1.json
   def update
     @user = User.find(params[:id])
+    @old_audit_status = @user.audit
     if @user.update_attributes(user_params)
+      if @user.audit != @old_audit_status
+        unless @user.audit
+          @user_audits = Audit.where(:user => @user.id)
+          @user_audits.each do |audit|
+            audit.user = nil
+            audit.save!
+          end
+          flash[:notice] = "Deleted all your logs."
+        end
+      end
       flash[:success] = "User was successfully updated."
       no_resp_redir @user
     else
@@ -133,6 +144,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :balance, :active)
+    params.require(:user).permit(:name, :email, :balance, :active, :audit)
   end
 end

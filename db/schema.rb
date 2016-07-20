@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531175554) do
+ActiveRecord::Schema.define(version: 20160719184610) do
 
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at"
     t.decimal  "difference", precision: 20, scale: 2, default: 0.0
     t.integer  "drink"
+    t.integer  "user"
   end
 
   create_table "drinks", force: :cascade do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160531175554) do
     t.datetime "updated_at"
     t.decimal  "balance",    precision: 20, scale: 2, default: 0.0
     t.boolean  "active",                              default: true
+    t.boolean  "audit",                               default: false
   end
 
 end
