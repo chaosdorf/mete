@@ -10,7 +10,13 @@ class AuditsController < ApplicationController
       @start_date = Date.new(Date.tomorrow.year)
       @end_date  = Date.tomorrow
     end
-    @audits = Audit.where(created_at: (@start_date..@end_date))
+    if params[:user]
+      @user = User.find(params[:user])
+      @audits = Audit.where(user: @user).where(created_at: (@start_date..@end_date))
+    else
+      @audits = Audit.where(created_at: (@start_date..@end_date))
+      @user = nil
+    end
 
     @sum = @audits.sum(:difference)
     @payments_sum = @audits.payments.sum(:difference).abs

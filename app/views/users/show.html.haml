@@ -2,6 +2,9 @@
 - content_for :actions do
   %li
     = link_to 'edit user', edit_user_path(@user)
+  - if @user.audit?
+    %li
+      = link_to 'show logs', audits_path(:user => @user)
   %li
     = link_to 'delete user', @user, :method => :delete, :confirm => "Really delete #{@user.name}’s account?"
 .page-header
