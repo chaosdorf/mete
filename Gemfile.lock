@@ -67,7 +67,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (6.4.0)
+    autoprefixer-rails (6.4.0.1)
       execjs
     builder (3.2.2)
     climate_control (0.0.3)
