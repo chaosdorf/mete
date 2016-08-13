@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2'
+gem 'rails', '~> 5'
 
 # https://github.com/rails/sprockets-rails/issues/131
 #gem 'sprockets-rails', :require => 'sprockets/rails/version'
@@ -10,8 +10,8 @@ gem 'rails', '~> 4.2'
 
 gem 'sqlite3'
 
-gem 'sass-rails',   '~> 5.0.4'
-gem 'coffee-rails', '~> 4.1.1'
+gem 'sass-rails'
+gem 'coffee-rails'
 gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
