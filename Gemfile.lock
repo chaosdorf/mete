@@ -20,6 +20,12 @@ GIT
       formtastic (~> 2.2)
 
 GIT
+  remote: git://github.com/rails/rails-perftest.git
+  revision: fc772f40224064cf7ca5256a04607372429021ba
+  specs:
+    rails-perftest (0.0.6)
+
+GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
   revision: 5d6b2ebba0c2a5885ce2f0e01e9218db3d3b5e47
   specs:
@@ -168,7 +174,6 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-perftest (0.0.6)
     railties (5.0.0.1)
       actionpack (= 5.0.0.1)
       activesupport (= 5.0.0.1)
@@ -242,7 +247,7 @@ DEPENDENCIES
   paperclip
   rails (~> 5)
   rails-controller-testing
-  rails-perftest
+  rails-perftest!
   ruby-prof
   sass-rails
   sentry-raven

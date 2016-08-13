@@ -46,7 +46,7 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 #
 group :development do
   gem 'faker'
-  gem 'rails-perftest'
+  gem 'rails-perftest', :github => 'rails/rails-perftest'
   gem 'ruby-prof'
 end
 
