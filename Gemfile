@@ -30,6 +30,7 @@ gem 'favicon_maker'
 gem 'mini_magick', :github => 'minimagick/minimagick'
 gem 'unicorn'
 gem 'autoprefixer-rails'
+gem 'rails-controller-testing'
 
 gem "codeclimate-test-reporter", group: :test, require: nil
 
