@@ -18,30 +18,30 @@ class DrinksControllerTest < ActionController::TestCase
 
   test "should create drink" do
     assert_difference('Drink.count') do
-      post :create, drink: { bottle_size: @drink.bottle_size, caffeine: @drink.caffeine, price: @drink.price, logo_file_name: @drink.logo_file_name, name: @drink.name }
+      post :create, params: {drink: { bottle_size: @drink.bottle_size, caffeine: @drink.caffeine, price: @drink.price, logo_file_name: @drink.logo_file_name, name: @drink.name }}
     end
 
     assert_redirected_to drink_path(assigns(:drink))
   end
 
   test "should show drink" do
-    get :show, id: @drink
+    get :show, params: {id: @drink}
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @drink
+    get :edit, params: {id: @drink}
     assert_response :success
   end
 
   test "should update drink" do
-    put :update, id: @drink, drink: { bottle_size: @drink.bottle_size, caffeine: @drink.caffeine, price: @drink.price, logo_file_name: @drink.logo_file_name, name: @drink.name }
+    put :update, params: {id: @drink, drink: { bottle_size: @drink.bottle_size, caffeine: @drink.caffeine, price: @drink.price, logo_file_name: @drink.logo_file_name, name: @drink.name }}
     assert_redirected_to drink_path(assigns(:drink))
   end
 
   test "should destroy drink" do
     assert_difference('Drink.count', -1) do
-      delete :destroy, id: @drink
+      delete :destroy, params: {id: @drink}
     end
 
     assert_redirected_to drinks_path
