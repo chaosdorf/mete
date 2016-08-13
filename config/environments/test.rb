@@ -8,7 +8,7 @@ Mete::Application.configure do
   config.cache_classes = true
 
   # Configure static files server for tests with Cache-Control for performance
-  config.serve_static_files = true
+  config.public_file_server.enabled = true
   config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching
