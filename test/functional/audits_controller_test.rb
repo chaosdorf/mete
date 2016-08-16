@@ -23,7 +23,7 @@ class AuditsControllerTest < ActionController::TestCase
       "month" => 1,
       "day"   => 1
     }
-    get :index, start_date: @date, end_date: @date, :format => "json"
+    get :index, params: { start_date: @date, end_date: @date}, :format => "json"
     assert_response :success
     resp = JSON.parse(response.body)
     assert_equal [], resp["audits"]
