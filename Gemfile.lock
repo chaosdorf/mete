@@ -234,7 +234,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass!
   bootswatch-rails!
-  codeclimate-test-reporter
+  codeclimate-test-reporter (~> 0.6)
   coffee-rails
   faker
   favicon_maker
