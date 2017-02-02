@@ -1,9 +1,8 @@
 module UsersHelper
+  
+  # see also: /config/initializers/gravatar_image_tag.rb
+  
   def gravatar(user)
-    if user.respond_to? :email
-      gravatar_image_tag user.email, :gravatar => { :default => 'https://assets.github.com/images/gravatars/gravatar-140.png' }, class: user.active? ? "" : "disabled"
-    else
-      gravatar_image_tag class: user.active? ? "" : "disabled"
-    end
+    gravatar_image_tag user.email, class: user.active? ? "" : "disabled"
   end
 end
