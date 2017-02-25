@@ -6,5 +6,6 @@
     = f.input :balance, :as => :number, hint: 'just in case you need to correct this'
     = f.input :active
     = f.input :audit, hint: 'This will create detailed logs about what you buy and deposit. If you uncheck this box, all records will be deleted.'
+    = f.input :redirect, hint: "Redirect after buying a drink?"
   = f.actions do
     = f.action :submit

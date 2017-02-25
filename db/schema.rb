@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719184610) do
+ActiveRecord::Schema.define(version: 20170225163225) do
 
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160719184610) do
     t.decimal  "balance",    precision: 20, scale: 2, default: "0.0"
     t.boolean  "active",                              default: true
     t.boolean  "audit",                               default: false
+    t.boolean  "redirect",                            default: true
   end
 
 end

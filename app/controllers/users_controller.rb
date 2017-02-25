@@ -117,7 +117,7 @@ class UsersController < ApplicationController
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
     warn_user_if_audit
-    no_resp_redir users_url
+    no_resp_redir @user.redirect ? users_url : @user
   end
 
   # GET /users/1/pay?amount=1.5
@@ -147,7 +147,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :balance, :active, :audit)
+    params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
   end
   
   def warn_user_if_audit
