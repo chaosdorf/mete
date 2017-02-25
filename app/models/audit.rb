@@ -7,6 +7,7 @@ class Audit < ActiveRecord::Base
   def as_json(options)
     h = super(options)
     h[:drink] = drink
+    h.delete('user')
    return h
   end
 end
