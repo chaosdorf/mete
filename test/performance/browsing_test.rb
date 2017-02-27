@@ -7,47 +7,47 @@ class BrowsingTest < ActionDispatch::PerformanceTest
   self.profile_options = { :runs => 2, :metrics => [:wall_time, :memory],
                            :output => 'tmp/performance', :formats => [:flat] }
 
-  def test_homepage
+  test "homepage" do
     get '/'
   end
 
-  def test_audits
+  test "audits" do
     get '/audits'
   end
 
-  def test_audits_json
+  test "audits.json" do
     get '/audits.json'
   end
 
-  def test_drinks
+  test "drinks" do
     get '/drinks'
   end
 
-  def test_drinks_json
+  test "drinks.json" do
     get '/drinks.json'
   end
   
-  def test_drinks_new
+  test "drinks/new" do
     get '/drinks/new'
   end
 
-  def test_users
+  test "users" do
     get '/users'
   end
 
-  def test_users_json
+  test "users.json" do
     get '/users.json'
   end
   
-  def test_users_new
+  test "users/new" do
     get '/users/new'
   end
   
-  def test_stats
+  test "stats" do
     get '/users/stats'
   end
   
-  def test_stats_json
+  test "stats.json" do
     get '/users/stats.json'
   end
 
