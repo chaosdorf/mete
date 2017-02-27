@@ -1,4 +1,4 @@
-class ActivateAllUsers < ActiveRecord::Migration
+class ActivateAllUsers < ActiveRecord::Migration[4.2]
 #via http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
 		def up
 			add_column :users, :active, :boolean, default: true

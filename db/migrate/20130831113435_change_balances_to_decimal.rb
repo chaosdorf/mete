@@ -1,4 +1,4 @@
-class ChangeBalancesToDecimal < ActiveRecord::Migration
+class ChangeBalancesToDecimal < ActiveRecord::Migration[4.2]
   def up
     add_column :users, :balance, :decimal, default: 0.0, precision: 20, scale: 2
     add_column :audits, :difference, :decimal, default: 0.0, precision: 20, scale: 2

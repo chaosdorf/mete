@@ -1,4 +1,4 @@
-class UserAudits < ActiveRecord::Migration
+class UserAudits < ActiveRecord::Migration[4.2]
 #via http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
 	def up
 		add_column :audits, :user, :int

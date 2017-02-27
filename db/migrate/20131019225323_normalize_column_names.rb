@@ -1,4 +1,4 @@
-class NormalizeColumnNames < ActiveRecord::Migration
+class NormalizeColumnNames < ActiveRecord::Migration[4.2]
   def change
     change_table :drinks do |t|
       t.rename :bottleSize, :bottle_size

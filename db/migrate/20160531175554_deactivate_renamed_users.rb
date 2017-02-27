@@ -1,4 +1,4 @@
-class DeactivateRenamedUsers < ActiveRecord::Migration
+class DeactivateRenamedUsers < ActiveRecord::Migration[4.2]
 #via http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
 		def up
 			User.all.each do |user|

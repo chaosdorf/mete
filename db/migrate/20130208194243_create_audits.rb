@@ -1,4 +1,4 @@
-class CreateAudits < ActiveRecord::Migration
+class CreateAudits < ActiveRecord::Migration[4.2]
   def change
     create_table :audits do |t|
       t.integer :difference_cents
