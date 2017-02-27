@@ -26,3 +26,6 @@
 
 # Ignore bundler's gem directory
 /vendor/bundle
+
+# Ignore Code Climate's coverage reports
+coverage
