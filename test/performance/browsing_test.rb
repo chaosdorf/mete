@@ -26,6 +26,10 @@ class BrowsingTest < ActionDispatch::PerformanceTest
   def test_drinks_json
     get '/drinks.json'
   end
+  
+  def test_drinks_new
+    get '/drinks/new'
+  end
 
   def test_users
     get '/users'
@@ -33,6 +37,10 @@ class BrowsingTest < ActionDispatch::PerformanceTest
 
   def test_users_json
     get '/users.json'
+  end
+  
+  def test_users_new
+    get '/users/new'
   end
   
   def test_stats
