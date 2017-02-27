@@ -58,16 +58,19 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "buy" do
-    get :buy, params: {id: @user, drink: @drink}
+    assert_difference('Audit.count') do
+      get :buy, params: {id: @user, drink: @drink}
+    end
     assert_equal -@drink.price, Audit.first.difference
     assert_redirected_to users_path
   end
 
   test "buy resulting in a negative balance" do
-    get :buy, params: {id: users(:two), drink: @drink}
+    assert_difference('Audit.count') do
+      get :buy, params: {id: users(:two), drink: @drink}
+    end
     assert_equal -@drink.price, User.find(users(:two).id).balance
     assert_equal -@drink.price, Audit.first.difference
-    assert_redirected_to users_path
   end
 
   test "buy unavailable drink" do
@@ -76,6 +79,16 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal Drink.find(drinks(:two).id).active, true
     assert_equal -drinks(:two).price, Audit.first.difference
     assert_redirected_to users_path
+  end
+  
+  test "buy resulting in unidentifiable audit" do
+    get :buy, params: {id: @user, drink: @drink}
+    assert_nil Audit.first.user
+  end
+  
+  test "buy with logging enabled resulting in identifiable audit" do
+    get :buy, params: {id: users(:two), drink: @drink}
+    assert_equal users(:two).id, Audit.first.user
   end
 
   test "should show stats" do
