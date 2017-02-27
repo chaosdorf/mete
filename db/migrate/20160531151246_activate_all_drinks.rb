@@ -1,4 +1,4 @@
-class ActivateAllDrinks < ActiveRecord::Migration
+class ActivateAllDrinks < ActiveRecord::Migration[4.2]
 #via http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
 	def up
 		add_column :drinks, :active, :boolean, default: true

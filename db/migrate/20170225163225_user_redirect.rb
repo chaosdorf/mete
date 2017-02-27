@@ -1,4 +1,4 @@
-class UserRedirect < ActiveRecord::Migration
+class UserRedirect < ActiveRecord::Migration[5.0]
 #via http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
 	def up
 		add_column :users, :redirect, :boolean, default: true

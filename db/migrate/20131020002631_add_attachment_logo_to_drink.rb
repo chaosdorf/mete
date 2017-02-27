@@ -1,4 +1,4 @@
-class AddAttachmentLogoToDrink < ActiveRecord::Migration
+class AddAttachmentLogoToDrink < ActiveRecord::Migration[4.2]
   def self.up
     add_column :drinks, :logo_content_type, :string
     add_column :drinks, :logo_file_size, :integer
