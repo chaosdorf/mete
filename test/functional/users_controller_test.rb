@@ -90,6 +90,11 @@ class UsersControllerTest < ActionController::TestCase
     get :buy, params: {id: users(:two), drink: @drink}
     assert_equal users(:two).id, Audit.first.user
   end
+  
+  test "buy with redirect disabled results in no redirect" do
+    get :buy, params: {id: users(:two), drink: @drink}
+    assert_redirected_to users(:two)
+  end
 
   test "should show stats" do
     get :stats
