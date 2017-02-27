@@ -34,5 +34,13 @@ class BrowsingTest < ActionDispatch::PerformanceTest
   def test_users_json
     get '/users.json'
   end
+  
+  def test_stats
+    get '/users/stats'
+  end
+  
+  def test_stats_json
+    get '/users/stats.json'
+  end
 
 end
