@@ -1,18 +1,18 @@
 GIT
-  remote: git://github.com/log0ymxm/bootswatch-rails.git
+  remote: https://github.com/log0ymxm/bootswatch-rails.git
   revision: 93d450185c57ceaabd0e29c7b03ea235824998c8
   specs:
     bootswatch-rails (3.0.0)
       railties (>= 3.1)
 
 GIT
-  remote: git://github.com/minimagick/minimagick.git
-  revision: a58d5f01a72512586886fe08349da365e1042731
+  remote: https://github.com/minimagick/minimagick.git
+  revision: d329157c320cc53998f590e404df09019f9435f1
   specs:
-    mini_magick (4.6.0)
+    mini_magick (4.6.1)
 
 GIT
-  remote: git://github.com/nickl-/formtastic-bootstrap3.git
+  remote: https://github.com/nickl-/formtastic-bootstrap3.git
   revision: 187efe6623a56ae8094c2b8a6063ff61e96b4e11
   branch: bootstrap3
   specs:
@@ -20,13 +20,13 @@ GIT
       formtastic (~> 2.2)
 
 GIT
-  remote: git://github.com/rails/rails-perftest.git
-  revision: fc772f40224064cf7ca5256a04607372429021ba
+  remote: https://github.com/rails/rails-perftest.git
+  revision: 5c1707ee582c5287b506950dd59de1a0e7bd8a93
   specs:
-    rails-perftest (0.0.6)
+    rails-perftest (0.0.7)
 
 GIT
-  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  remote: https://github.com/thomas-mcdonald/bootstrap-sass.git
   revision: 5d6b2ebba0c2a5885ce2f0e01e9218db3d3b5e47
   specs:
     bootstrap-sass (3.3.7)
