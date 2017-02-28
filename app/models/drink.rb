@@ -9,10 +9,8 @@ class Drink < ActiveRecord::Base
   
   def as_json(options)
     h = super(options)
-    #h[:donationRecommendation] = price
-    h[:donation_recommendation] = price
-    h[:bottle_size] = bottle_size
-    h[:logo_url] = logo.url
+    h["donation_recommendation"] = price # API compatibility
+    h["logo_url"] = logo.url
     h
   end
 
