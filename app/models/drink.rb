@@ -3,7 +3,7 @@ class Drink < ActiveRecord::Base
   validates_presence_of :name, :bottle_size, :price
 
   has_attached_file :logo, :styles => { :thumb => "100x100#" }, :default_style => :thumb
-	validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
+  validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
   before_post_process :normalize_filename
   after_initialize :set_defaults, unless: :persisted?
   
