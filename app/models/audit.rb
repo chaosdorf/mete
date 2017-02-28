@@ -1,4 +1,5 @@
 class Audit < ActiveRecord::Base
+  validates_presence_of :difference
   default_scope ->{ order('created_at DESC') }
 
   scope :deposits, ->{ where('difference > 0') }
