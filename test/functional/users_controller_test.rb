@@ -95,6 +95,14 @@ class UsersControllerTest < ActionController::TestCase
     get :buy, params: {id: users(:two), drink: @drink}
     assert_redirected_to users(:two)
   end
+  
+  test "buy by barcode" do
+    assert_difference('Audit.count') do
+      post :buy_barcode, params: {id: @user, barcode: @drink.barcode}
+    end
+    assert_equal -@drink.price, Audit.first.difference
+    assert_redirected_to users_path
+  end
 
   test "should show stats" do
     get :stats

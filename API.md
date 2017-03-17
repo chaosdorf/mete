@@ -65,5 +65,7 @@ The API is REST-like (but not entirely).
  * `GET /users/%uid%/pay.json?amount%amount%` - the same as above, but in JSON format (What's the difference?) (**This GET request modifys data!**)
  * `GET /users/%uid%/buy?drink=%did%` - buys the drink with the id `%did%` for the user with the id `%uid%` (**This GET request modifys data!**)
  * `GET /Users/%uid%/buy.json?drink=%did%` - the same as above, but in JSON format (What's the difference?) (**This GET request modifys data!**)
+ * `POST /users/%uid%/buy_barcode` - buys the drink with the barcode `%barcode%` for the user with the id `%uid`
+ * `POST /users/%uid%/buy_barcode.json` - buys the drink with the barcode `%barcode%` for the user with the id `%id%`
  * `GET /users/stats` - displays various statistics about the users
  * `GET /users/stats.json` - the same as above, but in JSON format

@@ -9,6 +9,7 @@ Mete::Application.routes.draw do
       get 'deposit'
       get 'payment'
       get 'buy'
+      post 'buy_barcode'
     end
     collection do
       get 'stats'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225163225) do
+ActiveRecord::Schema.define(version: 20170317193125) do
 
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170225163225) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.boolean  "active",                                     default: true
+    t.string   "barcode"
+    t.index ["barcode"], name: "index_drinks_on_barcode"
   end
 
   create_table "users", force: :cascade do |t|

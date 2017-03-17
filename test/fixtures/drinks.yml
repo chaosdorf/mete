@@ -6,6 +6,7 @@ one:
   caffeine: 10
   price: 1.5
   logo_file_name: mate.png
+  barcode: i2ea56t89
 
 two:
   name: Coffee
