@@ -29,6 +29,13 @@
 
 %hr
 
+%form{:method => "POST", :action => buy_barcode_user_path}
+  %small
+    Buy a drink by scanning a barcode: 
+  %input{:autofocus => true, :name => "barcode"}
+
+%hr
+
 .row.drinks
   = render @drinks, :locals => {:user => @user}
 

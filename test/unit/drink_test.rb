@@ -33,11 +33,23 @@ class DrinkTest < ActiveSupport::TestCase
     assert drink.save, "Failed to save"
   end
   
+  test "should save two drinks with the same barcode" do
+    drink1 = Drink.new
+    drink1.name = "Test1"
+    drink1.barcode = "abcdefgh"
+    assert drink1.save, "Failed to save first drink with the barcode"
+    drink2 = Drink.new
+    drink2.name = "Test2"
+    drink2.barcode = "abcdefgh"
+    assert drink2.save, "Failed to save second drink with the barcode"
+  end
+  
   test "should have attributes" do
     d = drinks(:one)
     assert_respond_to d, :id, "id missing"
     assert_respond_to d, :name, "name missing"
     assert_respond_to d, :bottle_size, "bottle_size missing"
+    assert_respond_to d, :barcode, "barcode missing"
     assert_respond_to d, :caffeine, "caffeine missing"
     assert_respond_to d, :price, "price missing"
     assert_respond_to d, :logo_file_name, "logo_file_name missing"
@@ -58,6 +70,7 @@ class DrinkTest < ActiveSupport::TestCase
     assert j.key?('id'), "Failed to export id"
     assert j.key?('name'), "Failed to export name"
     assert j.key?('bottle_size'), "Failed to export bottle size"
+    assert j.key?('barcode'), "Failed to export barcode"
     assert j.key?('caffeine'), "Failed to export caffeine"
     assert j.key?('price'), "Failed to export price"
     assert j.key?('donation_recommendation'), "Failed to export donation recommendation"

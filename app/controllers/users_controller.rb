@@ -106,18 +106,36 @@ class UsersController < ApplicationController
   def buy
     @user = User.find(params[:id])
     @drink = Drink.find(params[:drink])
-    unless @drink.active?
-      @drink.active = true
-      @drink.save!
-      flash[:info] = "The drink you just bought has been set to 'available'."
+    buy_drink
+  end
+  
+  # POST /users/1/buy_barcode
+  # POST /users/1/buy_barcode.json
+  def buy_barcode
+    @user = User.find(params[:id])
+    unless Drink.where(barcode: params[:barcode]).exists?
+      puts "No drink found."
+      respond_to do |format|
+        format.html do
+          flash[:danger] = "No drink found with this barcode."
+          redirect_to @user
+        end
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    else
+      if Drink.where(barcode: params[:barcode]).count > 1
+        respond_to do |format|
+          format.html do
+            flash[:danger] = "Multiple drinks found with this barcode."
+            redirect_to @user
+          end
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      else
+        @drink = Drink.where(barcode: params[:barcode]).take
+        buy_drink
+      end
     end
-    @user.buy(@drink)
-    flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
-    if (@user.balance < 0) then
-      flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
-    end
-    warn_user_if_audit
-    no_resp_redir @user.redirect ? users_url : @user
   end
 
   # GET /users/1/pay?amount=1.5
@@ -145,6 +163,21 @@ class UsersController < ApplicationController
   end
 
   private
+  
+  def buy_drink
+    unless @drink.active?
+      @drink.active = true
+      @drink.save!
+      flash[:info] = "The drink you just bought has been set to 'available'."
+    end
+    @user.buy(@drink)
+    flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+    if (@user.balance < 0) then
+      flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
+    end
+    warn_user_if_audit
+    no_resp_redir @user.redirect ? users_url : @user
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
