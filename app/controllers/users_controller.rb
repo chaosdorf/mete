@@ -113,7 +113,7 @@ class UsersController < ApplicationController
   # POST /users/1/buy_barcode.json
   def buy_barcode
     @user = User.find(params[:id])
-    unless Drink.where(barcode: params[:barcode]).exists?
+    unless Barcode.where(id: params[:barcode]).exists?
       puts "No drink found."
       respond_to do |format|
         format.html do
@@ -123,18 +123,8 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     else
-      if Drink.where(barcode: params[:barcode]).count > 1
-        respond_to do |format|
-          format.html do
-            flash[:danger] = "Multiple drinks found with this barcode."
-            redirect_to @user
-          end
-          format.json { render json: @user.errors, status: :unprocessable_entity }
-        end
-      else
-        @drink = Drink.where(barcode: params[:barcode]).take
-        buy_drink
-      end
+      @drink = Drink.find(Barcode.find(params[:barcode]).drink)
+      buy_drink
     end
   end
 

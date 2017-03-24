@@ -40,7 +40,6 @@ class DrinksController < ApplicationController
     @drink = Drink.new(drink_params)
     respond_to do |format|
       if @drink.save
-        warn_if_multiple_drinks_single_barcode
         format.html { redirect_to @drink, notice: 'Drink was successfully created.' }
         format.json { render json: @drink, status: :created, location: @drink }
       else
@@ -56,7 +55,6 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     if @drink.update_attributes(drink_params)
       flash[:success] = "Drink was successfully updated."
-      warn_if_multiple_drinks_single_barcode
       no_resp_redir @drink
     else
       respond_to do |format|
@@ -84,12 +82,6 @@ class DrinksController < ApplicationController
   private
 
   def drink_params
-    params.require(:drink).permit(:bottle_size, :barcode, :caffeine, :price, :logo, :name, :active)
-  end
-  
-  def warn_if_multiple_drinks_single_barcode
-    if not @drink.barcode.nil? and not @drink.barcode.empty? and Drink.where(barcode: @drink.barcode).count > 1
-      flash[:warning] = "There are multitple drinks with this barcode. This may cause errors."
-    end
+    params.require(:drink).permit(:bottle_size, :caffeine, :price, :logo, :name, :active)
   end
 end

@@ -50,5 +50,17 @@ class BrowsingTest < ActionDispatch::PerformanceTest
   test "stats.json" do
     get '/users/stats.json'
   end
+  
+  test "barcodes" do
+    get '/barcodes'
+  end
+  
+  test "barcodes.json" do
+    get '/barcodes.json'
+  end
+  
+  test "barcodes/new" do
+    get '/barcodes/new'
+  end
 
 end

@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317193125) do
+ActiveRecord::Schema.define(version: 20170323104606) do
 
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at"
     t.decimal  "difference", precision: 20, scale: 2, default: "0.0"
     t.integer  "drink"
     t.integer  "user"
+  end
+
+  create_table "barcodes", id: :string, force: :cascade do |t|
+    t.integer "drink", null: false
+    t.index ["id"], name: "sqlite_autoindex_barcodes_1", unique: true
   end
 
   create_table "drinks", force: :cascade do |t|
@@ -31,8 +36,6 @@ ActiveRecord::Schema.define(version: 20170317193125) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.boolean  "active",                                     default: true
-    t.string   "barcode"
-    t.index ["barcode"], name: "index_drinks_on_barcode"
   end
 
   create_table "users", force: :cascade do |t|

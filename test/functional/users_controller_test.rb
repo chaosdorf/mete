@@ -4,6 +4,7 @@ class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
     @drink = drinks(:one)
+    @barcode = barcodes(:one)
   end
 
   test "should get index" do
@@ -98,10 +99,17 @@ class UsersControllerTest < ActionController::TestCase
   
   test "buy by barcode" do
     assert_difference('Audit.count') do
-      post :buy_barcode, params: {id: @user, barcode: @drink.barcode}
+      post :buy_barcode, params: {id: @user, barcode: @barcode}
     end
     assert_equal -@drink.price, Audit.first.difference
     assert_redirected_to users_path
+  end
+  
+  test "should fail to buy by non-existing barcode" do
+    assert_difference('Audit.count', 0) do
+      post :buy_barcode, params: {id: @user, barcode: "987nonexisting"}
+    end
+    assert_redirected_to @user
   end
 
   test "should show stats" do
