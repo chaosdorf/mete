@@ -1,6 +1,6 @@
 Mete::Application.routes.draw do
   resources :drinks
-
+  resources :barcodes
 
   get 'audits' => 'audits#index'
 

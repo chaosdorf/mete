@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   name: Mate
   bottle_size: 0.5
   caffeine: 10
   price: 1.5
   logo_file_name: mate.png
-  barcode: i2ea56t89
 
 two:
   name: Coffee
