@@ -77,8 +77,6 @@ class BarcodesController < ApplicationController
   private
   
   def barcode_params
-    p = params.require(:barcode).permit(:id, :drink)
-    puts p
-    p
+    params.require(:barcode).permit(:id, :drink)
   end
 end
