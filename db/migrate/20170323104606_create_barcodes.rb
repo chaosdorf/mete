@@ -6,9 +6,11 @@ class CreateBarcodes < ActiveRecord::Migration[5.0]
     puts "Migrating existing barcodes…"
     Drink.all.each do |drink|
       unless drink.barcode.nil?
-        puts "Processing #{drink.barcode} -> #{drink.name}…"
-        barcode = Barcode.new(:id => drink.barcode, :drink => drink.id)
-        barcode.save!
+        unless drink.barcode.empty?
+          puts "Processing #{drink.barcode} -> #{drink.name}…"
+          barcode = Barcode.new(:id => drink.barcode, :drink => drink.id)
+          barcode.save!
+        end
       end
     end
     remove_index :drinks, column: :barcode
