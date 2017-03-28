@@ -114,7 +114,6 @@ class UsersController < ApplicationController
   def buy_barcode
     @user = User.find(params[:id])
     unless Barcode.where(id: params[:barcode]).exists?
-      puts "No drink found."
       respond_to do |format|
         format.html do
           flash[:danger] = "No drink found with this barcode."
