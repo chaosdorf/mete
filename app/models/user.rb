@@ -21,4 +21,10 @@ class User < ActiveRecord::Base
     self.balance -= amount
     save!
   end
+
+  def v1
+    h = as_json
+    h['balance'] = h['balance'] / 100.0
+    return h
+  end
 end

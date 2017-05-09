@@ -5,7 +5,7 @@ class DrinksController < ApplicationController
     @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @drinks }
+      format.json { render json: params['api'] != 'v2' ? @drinks.map { |a| a.v1 } : @drinks }
     end
   end
 
@@ -15,7 +15,7 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @drink }
+      format.json { render json: params['api'] != 'v2' ? @drink.v1 : @drink }
     end
   end
 
@@ -25,7 +25,7 @@ class DrinksController < ApplicationController
     @drink = Drink.new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @drink }
+      format.json { render json: params['api'] != 'v2' ? @drink.v1 : @drink }
     end
   end
 
@@ -41,7 +41,7 @@ class DrinksController < ApplicationController
     respond_to do |format|
       if @drink.save
         format.html { redirect_to @drink, notice: 'Drink was successfully created.' }
-        format.json { render json: @drink, status: :created, location: @drink }
+        format.json { render json: params['api'] != 'v2' ? @drink.v1 : @drink, status: :created, location: @drink }
       else
         format.html { render action: "new", error: "Couldn't create the drink. Error: #{@drink.errors} Status: #{:unprocessable_entity}" }
         format.json { render json: @drink.errors, status: :unprocessable_entity }
@@ -53,7 +53,8 @@ class DrinksController < ApplicationController
   # PATCH /drinks/1.json
   def update
     @drink = Drink.find(params[:id])
-    if @drink.update_attributes(drink_params)
+    @params = drink_params
+    if @drink.update_attributes(@params)
       flash[:success] = "Drink was successfully updated."
       no_resp_redir @drink
     else
@@ -82,6 +83,7 @@ class DrinksController < ApplicationController
   private
 
   def drink_params
-    params.require(:drink).permit(:bottle_size, :caffeine, :price, :logo, :name, :active)
+    @params = params.require(:drink).permit(:bottle_size, :caffeine, :price, :logo, :name, :active)
+    @params['price'] /= 100.0 if @params['price'] && @params['smat']
   end
 end

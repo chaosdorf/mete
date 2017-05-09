@@ -7,10 +7,17 @@ class Drink < ActiveRecord::Base
   before_post_process :normalize_filename
   after_initialize :set_defaults, unless: :persisted?
 
-  def as_json(options)
+  def as_json(options = nil)
     h = super(options)
     h["donation_recommendation"] = price # API compatibility
     h["logo_url"] = logo.url
+    h
+  end
+
+  def v1
+    h = as_json
+    h['price'] = h['price'] / 100.0
+    h['donation_recommendation'] = h['donation_recommendation'] / 100.0
     h
   end
 

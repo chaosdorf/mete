@@ -5,17 +5,23 @@ class Audit < ActiveRecord::Base
   scope :deposits, -> { where('difference > 0') }
   scope :payments, -> { where('difference < 0') }
 
-  def as_json(options)
+  def as_json(options = nil)
     h = super(options)
     h.delete('user')
-    return h
+    h
   end
 
-  def v2(options)
-    h = as_json(options)
+  def v1
+    h = as_json
+    h['difference'] /= 100.0
+    h
+  end
+
+  def v2
+    h = as_json
     h['product'] = h['drink']
     h.delete('drink')
-    return h
+    h
   end
 
 end

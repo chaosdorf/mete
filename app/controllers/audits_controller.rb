@@ -22,17 +22,13 @@ class AuditsController < ApplicationController
     @payments_sum = @audits.payments.sum(:difference).abs
     @deposits_sum = @audits.deposits.sum(:difference)
 
-    if params[:api] === 'v2'
-      @audits = @audits.map{|a| a.v2 nil}
-    end
-
     respond_to do |format|
       format.html #index.html.haml
       format.json { render json: {
-        :sum => @sum,
-        :payments_sum => @payments_sum,
-        :deposits_sum => @deposits_sum,
-        :audits => @audits
+        :sum => params[:api] != 'v2' ? @sum / 100.0 : @sum ,
+        :payments_sum => params[:api] != 'v2' ? @payments_sum / 100.0 : @payments_sum,
+        :deposits_sum => params[:api] != 'v2' ? @deposits_sum / 100.0 : @deposits_sum,
+        :audits => params[:api] != 'v2' ? @audits.map { |a| a.v1 } : @audits.map { |a| a.v2 }
       } }
     end
   end
