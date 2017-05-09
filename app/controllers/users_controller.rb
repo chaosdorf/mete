@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @users = User.order(active: :desc).order("name COLLATE nocase")
     respond_to do |format|
       format.html # index.html.erb
-      format.json {render json: @users}
+      format.json { render json: @users }
     end
   end
 
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
     respond_to do |format|
       format.html # show.html.erb
-      format.json {render json: @user}
+      format.json { render json: @user }
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new
     respond_to do |format|
       format.html # new.html.erb
-      format.json {render json: @user}
+      format.json { render json: @user }
     end
   end
 
@@ -42,11 +42,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html {redirect_to @user, success: 'User was successfully created.'}
-        format.json {render json: @user, status: :created, location: @user}
+        format.html { redirect_to @user, success: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
       else
-        format.html {render action: "new", error: "Couldn't create the user. Error: #{@user.errors} Status: #{:unprocessable_entity}"}
-        format.json {render json: @user.errors, status: :unprocessable_entity}
+        format.html { render action: "new", error: "Couldn't create the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -71,8 +71,8 @@ class UsersController < ApplicationController
       no_resp_redir @user
     else
       respond_to do |format|
-        format.html {render action: "edit", error: "Couldn't update the user. Error: #{@user.errors} Status: #{:unprocessable_entity}"}
-        format.json {render json: @user.errors, status: :unprocessable_entity}
+        format.html { render action: "edit", error: "Couldn't update the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -86,14 +86,14 @@ class UsersController < ApplicationController
       no_resp_redir users_url
     else
       respond_to do |format|
-        format.html {redirect_to users_url, error: "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}"}
-        format.json {render json: @user.errors, status: :unprocessable_entity}
+        format.html { redirect_to users_url, error: "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # GET /users/1/deposit?amount=100
-  # GET /users/1/deposit.json?amount=100
+  # POST /users/1/deposit?amount=100
+  # POST /users/1/deposit.json?amount=100
   def deposit
     @user = User.find(params[:id])
     @user.deposit(BigDecimal.new(params[:amount]))
@@ -102,8 +102,8 @@ class UsersController < ApplicationController
     no_resp_redir @user
   end
 
-  # GET /users/1/buy?drink=5
-  # GET /users/1/buy.json?drink=5
+  # POST /users/1/buy?drink=5
+  # POST /users/1/buy.json?drink=5
   def buy
     @user = User.find(params[:id])
     @drink = Drink.find(params[:drink])
@@ -120,7 +120,7 @@ class UsersController < ApplicationController
           flash[:danger] = "No drink found with this barcode."
           redirect_to @user
         end
-        format.json {render json: @user.errors, status: :unprocessable_entity}
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     else
       @drink = Drink.find(Barcode.find(params[:barcode]).drink)
@@ -128,8 +128,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/pay?amount=1.5
-  # GET /users/1/pay.json?amount=1.5
+  # POST /users/1/pay?amount=1.5
+  # POST /users/1/pay.json?amount=1.5
   def payment
     @user = User.find(params[:id])
     @user.payment(BigDecimal.new(params[:amount]))
@@ -148,7 +148,7 @@ class UsersController < ApplicationController
     @balance_sum = User.sum(:balance)
     respond_to do |format|
       format.html {}
-      format.json {render json: {user_count: @user_count, balance_sum: @balance_sum}}
+      format.json { render json: { user_count: @user_count, balance_sum: @balance_sum } }
     end
   end
 

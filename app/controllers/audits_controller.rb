@@ -8,7 +8,7 @@ class AuditsController < ApplicationController
     else
       # If no range is specified, show audits from the current year.
       @start_date = Date.new(Date.tomorrow.year)
-      @end_date  = Date.tomorrow
+      @end_date = Date.tomorrow
     end
     if params[:user]
       @user = User.find(params[:user])
@@ -22,6 +22,10 @@ class AuditsController < ApplicationController
     @payments_sum = @audits.payments.sum(:difference).abs
     @deposits_sum = @audits.deposits.sum(:difference)
 
+    if params[:api] === 'v2'
+      @audits = @audits.map{|a| a.v2 nil}
+    end
+
     respond_to do |format|
       format.html #index.html.haml
       format.json { render json: {
@@ -29,7 +33,7 @@ class AuditsController < ApplicationController
         :payments_sum => @payments_sum,
         :deposits_sum => @deposits_sum,
         :audits => @audits
-      }}
+      } }
     end
   end
 

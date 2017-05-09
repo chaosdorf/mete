@@ -2,7 +2,13 @@ class ApplicationController < ActionController::Base
   def no_resp_redir(dest)
     respond_to do |format|
       format.html { redirect_to dest }
-      format.json { head :no_content }
+      format.json { render json: '', status: 200 }
+    end
+  end
+
+  def info
+    respond_to do |format|
+      format.json { render json: '', status: 200 }
     end
   end
 

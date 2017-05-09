@@ -6,16 +6,60 @@ Mete::Application.routes.draw do
 
   resources :users do
     member do
-      get 'deposit'
-      get 'payment'
-      get 'buy'
-      post 'buy_barcode'
+      get :deposit
+      get :payment
+      get :buy
+      post :buy_barcode
     end
     collection do
       get 'stats'
     end
   end
 
+
+  scope :api do
+    constraints lambda {|req| req.format == :json} do
+      # Just to have it we add v1 here as well
+      scope :v1 do
+        resources :drinks
+        resources :barcodes
+
+        get 'audits' => 'audits#index'
+
+        resources :users do
+          member do
+            get :deposit
+            get :payment
+            get :buy
+            post :buy_barcode
+          end
+          collection do
+            get 'stats'
+          end
+        end
+      end
+      scope :v2 do
+        defaults api: 'v2' do
+          get 'info' => 'application#info'
+          resources :application
+          resources :drinks, path: 'products'
+          resources :barcodes
+          get 'audits' => 'audits#index'
+          resources :users do
+            member do
+              post :deposit
+              post :payment, path: 'pay'
+              post :buy, path: 'product'
+              post :buy_barcode
+            end
+            collection do
+              get :stats
+            end
+          end
+        end
+      end
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
