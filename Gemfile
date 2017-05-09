@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github){ |repo_name| "https://github.com/#{repo_name}.git" }
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}.git"}
 
 gem 'rails', '~> 5'
 
@@ -11,29 +11,29 @@ gem 'rails', '~> 5'
 
 gem 'sqlite3'
 
-gem 'sass-rails'
+gem 'bootstrap-sass'
 gem 'coffee-rails'
-gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
+gem 'sass-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', :platforms => :ruby
+# gem 'therubyracer', :platforms => :ruby
 
-gem 'uglifier', '>= 1.0.3'
+gem 'uglifier'
 
-gem 'jquery-rails'
-gem 'haml-rails'
-gem 'gravatar_image_tag'
-gem 'paperclip'
-gem 'formtastic'
-gem 'formtastic-bootstrap', :github => 'nickl-/formtastic-bootstrap3', :branch => 'bootstrap3'
-gem 'bootswatch-rails', :github => 'log0ymxm/bootswatch-rails'
-gem 'favicon_maker'
-gem 'mini_magick', :github => 'minimagick/minimagick'
-gem 'unicorn'
 gem 'autoprefixer-rails'
+gem 'bootswatch-rails'
+gem 'favicon_maker'
+gem 'formtastic'
+gem 'formtastic-bootstrap'
+gem 'gravatar_image_tag'
+gem 'haml-rails'
+gem 'jquery-rails'
+gem 'mini_magick'
+gem 'paperclip'
 gem 'rails-controller-testing'
+gem 'unicorn'
 
-gem "codeclimate-test-reporter", '~> 1', group: :test, require: nil
+gem 'codeclimate-test-reporter', group: :test, require: nil
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -47,11 +47,11 @@ gem "codeclimate-test-reporter", '~> 1', group: :test, require: nil
 #
 group :development do
   gem 'faker'
-  gem 'rails-perftest', :github => 'rails/rails-perftest'
+  gem 'rails-perftest'
   gem 'ruby-prof'
 end
 
 group :production do
-  gem 'SyslogLogger'
   gem 'sentry-raven'
+  gem 'SyslogLogger'
 end
