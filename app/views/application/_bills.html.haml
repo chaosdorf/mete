@@ -1,10 +1,12 @@
 - [50,100,200,500,1000,2000,5000].each do |amount|
-  - path = deposit_user_path(@user, :amount => amount) if @user
+  - path = deposit_api_user_path(@user, format: 'json') if @user
   .col-xs-12.col-sm-6.col-md-3.col-lg-2
-    = link_to path || '#' do
-      .panel.panel-default.text-center
-        .panel-body
-          = image_tag "euro-#{amount}.png", alt: show_amount(amount)
-        .panel-footer
-          +
-          = show_amount amount
+    = form_tag path, method: 'post' do
+      = hidden_field_tag('amount', amount)
+      %button.submitButton
+        .panel.panel-default.text-center
+          .panel-body
+            = image_tag "euro-#{amount}.png", alt: show_amount(amount)
+          .panel-footer
+            +
+            = show_amount amount

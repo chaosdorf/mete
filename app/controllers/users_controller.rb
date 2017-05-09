@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.order(active: :desc).order("name COLLATE nocase")
+    puts Rails.application.routes.url_helpers.payment_api_user_path(@users[0], format: 'json')
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -92,10 +94,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # POST /users/1/deposit?amount=100
-  # POST /users/1/deposit.json?amount=100
+  # POST /users/1/deposi
+  # POST /users/1/deposit.json
   def deposit
     @user = User.find(params[:id])
+    puts params[:amount]
     @user.deposit(BigDecimal.new(params[:amount]))
     flash[:success] = "You just deposited some money and your new balance is #{show_amount @user.balance}. Thank you."
     warn_user_if_audit
