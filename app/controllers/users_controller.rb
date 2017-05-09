@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
   # GET /users
   # GET /users.json
   def index
     @users = User.order(active: :desc).order("name COLLATE nocase")
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @users }
+      format.json {render json: @users}
     end
   end
 
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
     @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @user }
+      format.json {render json: @user}
     end
   end
 
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @user }
+      format.json {render json: @user}
     end
   end
 
@@ -41,11 +42,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, success: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+        format.html {redirect_to @user, success: 'User was successfully created.'}
+        format.json {render json: @user, status: :created, location: @user}
       else
-        format.html { render action: "new", error: "Couldn't create the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html {render action: "new", error: "Couldn't create the user. Error: #{@user.errors} Status: #{:unprocessable_entity}"}
+        format.json {render json: @user.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -70,8 +71,8 @@ class UsersController < ApplicationController
       no_resp_redir @user
     else
       respond_to do |format|
-        format.html { render action: "edit", error: "Couldn't update the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html {render action: "edit", error: "Couldn't update the user. Error: #{@user.errors} Status: #{:unprocessable_entity}"}
+        format.json {render json: @user.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -85,8 +86,8 @@ class UsersController < ApplicationController
       no_resp_redir users_url
     else
       respond_to do |format|
-        format.html { redirect_to users_url, error:  "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html {redirect_to users_url, error: "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}"}
+        format.json {render json: @user.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -96,7 +97,7 @@ class UsersController < ApplicationController
   def deposit
     @user = User.find(params[:id])
     @user.deposit(BigDecimal.new(params[:amount]))
-    flash[:success] = "You just deposited some money and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just deposited some money and your new balance is #{show_amount @user.balance}. Thank you."
     warn_user_if_audit
     no_resp_redir @user
   end
@@ -108,7 +109,7 @@ class UsersController < ApplicationController
     @drink = Drink.find(params[:drink])
     buy_drink
   end
-  
+
   # POST /users/1/buy_barcode
   # POST /users/1/buy_barcode.json
   def buy_barcode
@@ -119,7 +120,7 @@ class UsersController < ApplicationController
           flash[:danger] = "No drink found with this barcode."
           redirect_to @user
         end
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json {render json: @user.errors, status: :unprocessable_entity}
       end
     else
       @drink = Drink.find(Barcode.find(params[:barcode]).drink)
@@ -132,7 +133,7 @@ class UsersController < ApplicationController
   def payment
     @user = User.find(params[:id])
     @user.payment(BigDecimal.new(params[:amount]))
-    flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just bought a drink and your new balance is #{show_amount @user.balance}. Thank you."
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
@@ -146,13 +147,13 @@ class UsersController < ApplicationController
     @user_count = User.count
     @balance_sum = User.sum(:balance)
     respond_to do |format|
-      format.html { }
-      format.json { render json: { user_count: @user_count, balance_sum: @balance_sum } }
+      format.html {}
+      format.json {render json: {user_count: @user_count, balance_sum: @balance_sum}}
     end
   end
 
   private
-  
+
   def buy_drink
     unless @drink.active?
       @drink.active = true
@@ -160,7 +161,7 @@ class UsersController < ApplicationController
       flash[:info] = "The drink you just bought has been set to 'available'."
     end
     @user.buy(@drink)
-    flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just bought a drink and your new balance is #{show_amount @user.balance}. Thank you."
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
@@ -171,7 +172,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
   end
-  
+
   def warn_user_if_audit
     if (@user.audit) then
       flash[:info] = "This transaction has been logged, because you set up your account that way. #{view_context.link_to 'Change?', edit_user_url(@user)}".html_safe

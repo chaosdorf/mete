@@ -6,7 +6,7 @@ class Drink < ActiveRecord::Base
   validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
   before_post_process :normalize_filename
   after_initialize :set_defaults, unless: :persisted?
-  
+
   def as_json(options)
     h = super(options)
     h["donation_recommendation"] = price # API compatibility
@@ -17,7 +17,7 @@ class Drink < ActiveRecord::Base
   private
 
   def set_defaults
-    self.price = 1.5
+    self.price = 150
   end
 
   def normalize_filename

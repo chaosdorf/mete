@@ -5,13 +5,13 @@ one:
   name: Mate
   bottle_size: 0.5
   caffeine: 10
-  price: 1.5
+  price: 150
   logo_file_name: mate.png
 
 two:
   name: Coffee
   bottle_size: 0.2
   caffeine: 20
-  price: 0.0.5
+  price: 50
   logo_file_name: coffee.png
   active: false

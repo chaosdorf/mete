@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323104606) do
+ActiveRecord::Schema.define(version: 20170509165358) do
 
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at"
-    t.decimal "difference", precision: 20, scale: 2, default: "0.0"
+    t.integer "difference", default: 0
     t.integer "drink"
     t.integer "user"
   end
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170323104606) do
     t.string "name"
     t.decimal "bottle_size", precision: 20, scale: 2, default: "0.0"
     t.integer "caffeine"
-    t.decimal "price", precision: 20, scale: 2, default: "0.0"
+    t.integer "price", default: 150
     t.string "logo_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170323104606) do
     t.string "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal "balance", precision: 20, scale: 2, default: "0.0"
+    t.integer "balance", default: 0
     t.boolean "active", default: true
     t.boolean "audit", default: false
     t.boolean "redirect", default: true
