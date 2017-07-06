@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   def no_resp_redir(dest)
     respond_to do |format|
       format.html { redirect_to dest }
-      if request.origin == request.base_url
+      if request.origin === request.base_url
         format.json { redirect_to dest }
       else
         format.json { render json: '', status: 200 }

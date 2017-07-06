@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.order(active: :desc).order("name COLLATE nocase")
+    puts Rails.application.routes.url_helpers.payment_api_user_path(@users[0], format: 'json')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
     @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: params[:api] != 'v2' ? @user.v1 : @user }
+      format.json { render json: @user }
     end
   end
 
@@ -96,11 +97,9 @@ class UsersController < ApplicationController
   # POST /users/1/deposi
   # POST /users/1/deposit.json
   def deposit
-    @amount = BigDecimal.new(params[:amount])
-    @amount *= 100 if params[:api] != 'v2'
     @user = User.find(params[:id])
     puts params[:amount]
-    @user.deposit(BigDecimal.new(@amount))
+    @user.deposit(BigDecimal.new(params[:amount]))
     flash[:success] = "You just deposited some money and your new balance is #{show_amount @user.balance}. Thank you."
     warn_user_if_audit
     no_resp_redir @user
@@ -135,10 +134,8 @@ class UsersController < ApplicationController
   # POST /users/1/pay?amount=1.5
   # POST /users/1/pay.json?amount=1.5
   def payment
-    @amount = BigDecimal.new(params[:amount])
-    @amount *= 100 if params[:api] != 'v2'
     @user = User.find(params[:id])
-    @user.payment(BigDecimal.new(@amount))
+    @user.payment(BigDecimal.new(params[:amount]))
     flash[:success] = "You just bought a drink and your new balance is #{show_amount @user.balance}. Thank you."
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
@@ -152,7 +149,6 @@ class UsersController < ApplicationController
   def stats
     @user_count = User.count
     @balance_sum = User.sum(:balance)
-    @balance_sum /= 100.0 if params['api'] != 'v2'
     respond_to do |format|
       format.html {}
       format.json { render json: { user_count: @user_count, balance_sum: @balance_sum } }
@@ -177,8 +173,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    @params = params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
-    @params['balance'] /= 100 if @params['balance'] && @paramns['api'] != 'v2'
+    params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
   end
 
   def warn_user_if_audit
