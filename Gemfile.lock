@@ -99,6 +99,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.1.0)
     kgio (2.11.0)
+    libv8 (5.3.332.38.5)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.5)
@@ -110,6 +111,8 @@ GEM
     mimemagic (0.3.2)
     mini_magick (4.7.0)
     mini_portile2 (2.1.0)
+    mini_racer (0.1.9)
+      libv8 (~> 5.3)
     minitest (5.10.1)
     multipart-post (2.0.0)
     nio4r (2.0.0)
@@ -213,6 +216,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mini_magick
+  mini_racer
   paperclip
   rails (~> 5)
   rails-controller-testing
@@ -225,4 +229,4 @@ DEPENDENCIES
   unicorn
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
