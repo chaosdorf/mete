@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
   # GET /users
   # GET /users.json
   def index
     @users = User.order(active: :desc).order("name COLLATE nocase")
+    puts Rails.application.routes.url_helpers.payment_api_user_path(@users[0], format: 'json')
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -85,30 +88,31 @@ class UsersController < ApplicationController
       no_resp_redir users_url
     else
       respond_to do |format|
-        format.html { redirect_to users_url, error:  "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
+        format.html { redirect_to users_url, error: "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # GET /users/1/deposit?amount=100
-  # GET /users/1/deposit.json?amount=100
+  # POST /users/1/deposi
+  # POST /users/1/deposit.json
   def deposit
     @user = User.find(params[:id])
+    puts params[:amount]
     @user.deposit(BigDecimal.new(params[:amount]))
-    flash[:success] = "You just deposited some money and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just deposited some money and your new balance is #{show_amount @user.balance}. Thank you."
     warn_user_if_audit
     no_resp_redir @user
   end
 
-  # GET /users/1/buy?drink=5
-  # GET /users/1/buy.json?drink=5
+  # POST /users/1/buy?drink=5
+  # POST /users/1/buy.json?drink=5
   def buy
     @user = User.find(params[:id])
     @drink = Drink.find(params[:drink])
     buy_drink
   end
-  
+
   # POST /users/1/buy_barcode
   # POST /users/1/buy_barcode.json
   def buy_barcode
@@ -127,12 +131,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/pay?amount=1.5
-  # GET /users/1/pay.json?amount=1.5
+  # POST /users/1/pay?amount=1.5
+  # POST /users/1/pay.json?amount=1.5
   def payment
     @user = User.find(params[:id])
     @user.payment(BigDecimal.new(params[:amount]))
-    flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just bought a drink and your new balance is #{show_amount @user.balance}. Thank you."
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
@@ -146,13 +150,13 @@ class UsersController < ApplicationController
     @user_count = User.count
     @balance_sum = User.sum(:balance)
     respond_to do |format|
-      format.html { }
+      format.html {}
       format.json { render json: { user_count: @user_count, balance_sum: @balance_sum } }
     end
   end
 
   private
-  
+
   def buy_drink
     unless @drink.active?
       @drink.active = true
@@ -160,7 +164,7 @@ class UsersController < ApplicationController
       flash[:info] = "The drink you just bought has been set to 'available'."
     end
     @user.buy(@drink)
-    flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just bought a drink and your new balance is #{show_amount @user.balance}. Thank you."
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
@@ -171,7 +175,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
   end
-  
+
   def warn_user_if_audit
     if (@user.audit) then
       flash[:info] = "This transaction has been logged, because you set up your account that way. #{view_context.link_to 'Change?', edit_user_url(@user)}".html_safe

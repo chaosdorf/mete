@@ -5,7 +5,7 @@ class DrinkTest < ActiveSupport::TestCase
     drink = Drink.new
     drink.name = nil
     drink.bottle_size = 0.5
-    drink.price = 1.5
+    drink.price = 150
     assert_not drink.save, "Saved without a name"
   end
   
@@ -13,7 +13,7 @@ class DrinkTest < ActiveSupport::TestCase
     drink = Drink.new
     drink.name = "Test"
     drink.bottle_size = nil
-    drink.price = 1.5
+    drink.price = 150
     assert_not drink.save, "Saved without bottle_size"
   end
   
@@ -29,7 +29,7 @@ class DrinkTest < ActiveSupport::TestCase
     drink = Drink.new
     drink.name = "Test"
     drink.bottle_size = 0.5
-    drink.price = 1.5
+    drink.price = 150
     assert drink.save, "Failed to save"
   end
   
