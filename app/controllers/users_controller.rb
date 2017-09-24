@@ -1,3 +1,6 @@
+require 'net/http'
+require 'date'
+
 class UsersController < ApplicationController
   include ApplicationHelper
   
@@ -94,6 +97,29 @@ class UsersController < ApplicationController
     else
       @drink = Drink.find(Barcode.find(params[:barcode]).drink)
       buy_drink
+    end
+  end
+  
+  # POST /users/1/print_label
+  # POST /users/1/print_label.json
+  def print_label
+    @user = User.find(params[:id])
+    text = "#{@user.name} #{Date.today.iso8601}"
+    uri = URI('http://labello/print')
+    res = Net::HTTP.post_form(
+      uri,
+      'text' => text,
+      'font' => 'lettergothic',
+      'align' => 'left',
+      'fontSize' => '42'
+    )
+    result = res.body
+    respond_to do |format|
+      format.html do
+        flash[:info] = "Labello responded with '#{result}'."
+        redirect_to @user
+      end
+      format.json { render json: {"result" => result } }
     end
   end
 
