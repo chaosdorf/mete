@@ -69,3 +69,16 @@ The API is REST-like (but not entirely).
  * `POST /users/%uid%/buy_barcode.json` - buys the drink with the barcode `%barcode%` for the user with the id `%id%`
  * `GET /users/stats` - displays various statistics about the users
  * `GET /users/stats.json` - the same as above, but in JSON format
+
+### /barcodes ###
+
+ * `GET /barcodes` - returns all barcodes
+ * `GET /barcodes.json` - the same as above, but in JSON format
+ * `GET /barcodes/new` - returns the defaults for creating new barcodes
+ * `GET /barcodes/new.json` - the same as above, but in JSON format
+ * `POST /barcodes` - creates a new barcode; parameters are:
+   * `barcode[id]` - `string` - the barcode
+   * `barcode[drink]` - `int` - the ID of the drink
+ * `POST /barcodes.json` - the same as above, but in JSON format
+ * `DELETE /barcodes/%id%` - deletes the barcode with the id `%id%`
+ * `DELETE /barcodes/%id%.json` - the same as above, but in JSON format
