@@ -55,6 +55,8 @@ Or you can pass these parameters:
    * `email` - `string` - the email of the new user
    * `balance`- `double` - the balance of the new user in €
    * `active` - `boolean` - whether the new user is active
+   * `audit` - `boolean` - whether to log transactions
+   * `redirect` - `boolean` - whether to redirect to `/users` after buying something
  * `PATCH /users/%uid%.json` - modifys an existing user; the parameters are the same as for adding a user
  * `DELETE /users/%uid%.json` - deletes the user with the id `%uid%`
  * `GET /users/%uid%/deposit.json?amount=%amount%` - adds the amount `%amount%` (in €) to the balance of the user with the id `%uid%` (**This GET request modifys data!**)
