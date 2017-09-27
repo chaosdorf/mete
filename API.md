@@ -25,7 +25,7 @@ This can change at any time - do not parse it!
 
  * `GET /drinks.json` - returns all drinks
  * `GET /drinks/%did%.json` - returns information about the drink with the id `%did%`
- * `GET /drinks/new.json` - displays a form for creating a new drink
+ * `GET /drinks/new.json` - returns the default values for creating a new drink
  * `POST /drinks.json` - creates a new drink; parameters are:
    * `drink[name]` - `string` - the name of the new drink
    * `drink[price]` - `double` - the price of the new drink in €
@@ -40,7 +40,7 @@ This can change at any time - do not parse it!
 
  * `GET /users.json` - returns all users
  * `GET /users/%uid%.json` - returns information about the user with the id `%uid%`
- * `GET /users/new.json` - displays a form for creating a new user
+ * `GET /users/new.json` - returns the default values for creating a new user
  * `POST /users.json` - creates a new user; parameters are:
    * `user[name]` - `string` - the name of the new user
    * `user[email]` - `string` - the email of the new user
