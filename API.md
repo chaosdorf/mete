@@ -1,7 +1,15 @@
 # API Documentation #
 
-Mete responds to several requests.
-The API is REST-like (but not entirely).
+Mete currently implements [version 1](https://space-market.github.io/API/preview/v1/) of the [Space-Market API](https://github.com/Space-Market/API).
+
+The API endpoint is currently located at `/`.
+But you can't assume that this will be the case in the future.
+If you're developing a client, please let your users enter the whole URL.
+(And while you're at it:
+Implementing upcoming versions of the specification would be great, too.)
+
+The endpoints are briefly described here.
+For more detailed information, please follow the links above.
 
 For each of these endpoints there's one without the suffix `.json`,
 but it returns an unspecified HTML rendering of the data.
