@@ -27,4 +27,4 @@ Or you can pass these parameters:
 These are the endpoints which Mete supports,
 but are not (yet) part of the specification or have additional parameters:
 
-(currently none, yay)
+ * `POST /users/%uid%/buy_barcode.json` - buys the drink with the barcode `%barcode%` for the user with the id `%id%`
