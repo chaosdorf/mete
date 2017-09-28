@@ -20,7 +20,7 @@ class BarcodesController < ApplicationController
       @barcode.drink = params[:drink]
     end
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { @drinks = Drink.order(active: :desc).order("name COLLATE nocase") } # new.html.erb
       format.json { render json: @barcode }
     end
   end

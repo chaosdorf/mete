@@ -2,6 +2,6 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :id, hint: 'the label says…', input_html: { :autofocus => true }
-    = f.input :drink, hint: 'If you edit a drink and click on "add barcode" this will be prefilled for you.'
+    = f.input :drink, hint: 'If you edit a drink and click on "add barcode" this will be prefilled for you.', as: "select", collection: @drinks
   = f.actions do
     = f.action :submit
