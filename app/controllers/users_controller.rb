@@ -77,6 +77,55 @@ class UsersController < ApplicationController
     warn_user_if_audit
     no_resp_redir @user
   end
+  
+  # GET /users/1/transfer
+  # POST /users/1/transfer
+  # POST /users/1/transfer.json
+  def transfer
+    if request.request_method == "GET"
+      @users = User.order(active: :desc).order("name COLLATE nocase")
+      # auto render transfer.html
+    elsif request.request_method == "POST"
+      if params.has_key?(:transfer)
+        transfer_params = params[:transfer]
+      else
+        transfer_params = params
+      end
+      @user = User.find(params[:id])
+      @amount = BigDecimal.new(transfer_params[:amount])
+      if @amount <= 0
+        respond_to do |format|
+          format.html do
+            flash[:error] = "The amount must be positive."
+            redirect_to transfer_user_path(@user)
+          end
+          format.json do
+            render json: { :message => "The amount must be positive." }, :status => 400
+          end
+        end
+        return
+      end
+      @destination = User.find(transfer_params[:destination])
+      if @user == @destination
+        respond_to do |format|
+          format.html do
+            flash[:error] = "Source and destination can't be the same user."
+            redirect_to transfer_user_path(@user)
+          end
+          format.json do
+            render json: { :message => "Source and destination can't be the same user." }, :status => 400
+          end
+        end
+        return
+      end
+      @user.payment(@amount)
+      @destination.deposit(@amount)
+      flash[:success] = "You just transferred money and your new balance is #{@user.balance}. Thank you."
+      warn_user_if_negative_balance
+      warn_user_if_audit
+      no_resp_redir @user.redirect ? users_url : @user
+    end
+  end
 
   # GET /users/1/buy?drink=5
   def buy
@@ -126,9 +175,7 @@ class UsersController < ApplicationController
     end
     @user.buy(@drink)
     flash[:success] = "You just bought a drink and your new balance is #{show_amount(@user.balance)}. Thank you."
-    if (@user.balance < 0) then
-      flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
-    end
+    warn_user_if_negative_balance
     warn_user_if_audit
     no_resp_redir @user.redirect ? users_url : @user
   end
@@ -140,6 +187,12 @@ class UsersController < ApplicationController
   def warn_user_if_audit
     if (@user.audit) then
       flash[:info] = "This transaction has been logged, because you set up your account that way. #{view_context.link_to 'Change?', edit_user_url(@user)}".html_safe
+    end
+  end
+  
+  def warn_user_if_negative_balance
+    if (@user.balance < 0) then
+      flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
   end
 end
