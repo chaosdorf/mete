@@ -68,6 +68,10 @@ class DrinksController < ApplicationController
   # DELETE /drinks/1.json
   def destroy
     @drink = Drink.find(params[:id])
+    Barcode.where(:drink => @drink.id).each do |barcode|
+      barcode.destroy!
+      flash[:info] = "Deleted all barcodes for this drink."
+    end
     if @drink.destroy
       flash[:success] = "Drink was successfully deleted."
       no_resp_redir drinks_url
