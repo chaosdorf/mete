@@ -55,4 +55,5 @@
           - if drink.nil?
             n/a
           - else
-            = drink.name
+            = link_to drink do
+              = drink.name
