@@ -3,7 +3,7 @@
 ## Setup ##
 
 ```
-sudo apt install ruby ruby-dev bundler git zlib1g-dev libsqlite3-dev sqlite3 imagemagick
+sudo apt install ruby ruby-dev bundler git zlib1g-dev libsqlite3-dev sqlite3 imagemagick nodejs
 git clone https://github.com/chaosdorf/mete.git
 cd mete
 bundle
