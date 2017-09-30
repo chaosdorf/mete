@@ -210,6 +210,8 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
+    spring (2.0.2)
+      activesupport (>= 4.2)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -261,6 +263,7 @@ DEPENDENCIES
   ruby-prof
   sass-rails
   sentry-raven
+  spring
   sqlite3
   therubyracer
   uglifier (>= 1.0.3)

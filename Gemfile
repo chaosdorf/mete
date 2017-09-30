@@ -49,6 +49,7 @@ group :development do
   gem 'faker'
   gem 'rails-perftest', :github => 'rails/rails-perftest'
   gem 'ruby-prof'
+  gem 'spring'
 end
 
 group :production do
