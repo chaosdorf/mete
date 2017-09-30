@@ -7,6 +7,7 @@ before_install:
  - sudo apt-get update
  - sudo apt-get install gemnasium-toolbelt nodejs
 script:
+ - cd var && ln -s default_config.yaml config.yaml && ln -s currency-images-default currency-images && cd ..
  - bundle exec rake db:migrate RAILS_ENV=test
  - bundle exec rake
 after_success:
