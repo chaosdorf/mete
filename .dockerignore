@@ -1,0 +1,9 @@
+# The things below are copied from .gitignore.
+# The leading slash was removed, because Docker doesn't support this.
+
+# Ignore bundler's gem directory
+vendor/bundle
+
+# Ignore all logfiles and tempfiles.
+log/*.log
+tmp
