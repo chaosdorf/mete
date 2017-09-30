@@ -8,6 +8,10 @@ git clone https://github.com/chaosdorf/mete.git
 cd mete
 bundle
 rake db:migrate
+cd var
+cp default_config.yaml config.yaml # you'll want to adjust this
+ln -s currency-images-default currency-images # or cp
+cd ..
 ```
 
 ## Run ##
