@@ -2,7 +2,17 @@ module ApplicationHelper
 
   def show_amount(price)
     return 'n/a' if price.blank?
-    sprintf('%.2f EUR', price)
+    res = ""
+    if APP_CONFIG["currency"]["before_value"]
+      res += "#{APP_CONFIG["currency"]["symbol"]} "
+    end
+    
+    res += sprintf('%.2f', price)
+    
+    unless APP_CONFIG["currency"]["before_value"]
+      res += " #{APP_CONFIG["currency"]["symbol"]}"
+    end
+    return res
   end
 
   def link_to_drink_if_exists(drink)

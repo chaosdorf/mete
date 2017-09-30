@@ -13,6 +13,9 @@
 # Ignore the config.
 /var/config.yaml
 
+# Ignore the currency-images.
+/var/currency-images
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
