@@ -19,6 +19,17 @@ Mete::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :drinks
+      resources :users do
+        member do
+          get 'deposit'
+          get 'payment'
+          get 'buy'
+          post 'buy_barcode'
+        end
+        collection do
+          get 'stats'
+        end
+      end
     end
   end
 
