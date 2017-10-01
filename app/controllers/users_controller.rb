@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
+  
   # GET /users
   # GET /users.json
   def index
@@ -96,7 +98,7 @@ class UsersController < ApplicationController
   def deposit
     @user = User.find(params[:id])
     @user.deposit(BigDecimal.new(params[:amount]))
-    flash[:success] = "You just deposited some money and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just deposited some money and your new balance is #{show_amount(@user.balance)}. Thank you."
     warn_user_if_audit
     no_resp_redir @user
   end
@@ -132,7 +134,7 @@ class UsersController < ApplicationController
   def payment
     @user = User.find(params[:id])
     @user.payment(BigDecimal.new(params[:amount]))
-    flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just bought a drink and your new balance is #{show_amount(@user.balance)}. Thank you."
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
@@ -160,7 +162,7 @@ class UsersController < ApplicationController
       flash[:info] = "The drink you just bought has been set to 'available'."
     end
     @user.buy(@drink)
-    flash[:success] = "You just bought a drink and your new balance is #{@user.balance}. Thank you."
+    flash[:success] = "You just bought a drink and your new balance is #{show_amount(@user.balance)}. Thank you."
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
