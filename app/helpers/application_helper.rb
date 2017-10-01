@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def show_amount(price)
     return 'n/a' if price.blank?
-    raw sprintf('%.2f&thinsp;EUR', price)
+    sprintf('%.2f EUR', price)
   end
 
   def link_to_drink_if_exists(drink)
