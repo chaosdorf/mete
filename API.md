@@ -2,13 +2,14 @@
 
 Mete currently implements [version 1](https://space-market.github.io/API/preview/v1/) of the [Space-Market API](https://github.com/Space-Market/API).
 
-The API endpoint is currently located at `/`.
-But you can't assume that this will be the case in the future.
-If you're developing a client, please let your users enter the whole URL.
-(And while you're at it:
-Implementing upcoming versions of the specification would be great, too.)
+The API endpoint is currently located at `/api/v1`.
+In older versions of Mete, this was located at `/`.
+Some installations may have not yet been upgraded. Please be prepared.
+Some already upgraded installations may provide legacy support at `/`,
+but please don't depend on this.
+(Implementing upcoming versions of the specification would be great, too.)
 
-For each of these endpoints there's one without the suffix `.json`,
+For each of these endpoints there's one without the suffix `.json` located at `/`,
 but it returns an unspecified HTML rendering of the data.
 This can change at any time - do not parse it!
 
