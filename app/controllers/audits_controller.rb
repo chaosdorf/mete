@@ -1,6 +1,5 @@
 class AuditsController < ApplicationController
   # GET /audits
-  # GET /audits.json
   def index
     if params[:start_date] and params[:end_date]
       @start_date = parse_date params[:start_date]
@@ -21,16 +20,7 @@ class AuditsController < ApplicationController
     @sum = @audits.sum(:difference)
     @payments_sum = @audits.payments.sum(:difference).abs
     @deposits_sum = @audits.deposits.sum(:difference)
-
-    respond_to do |format|
-      format.html #index.html.haml
-      format.json { render json: {
-        :sum => @sum,
-        :payments_sum => @payments_sum,
-        :deposits_sum => @deposits_sum,
-        :audits => @audits
-      }}
-    end
+    # index.html.haml
   end
 
   private
