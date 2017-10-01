@@ -40,14 +40,4 @@ class BarcodeTest < ActiveSupport::TestCase
     assert_respond_to b, :id, "id missing"
     assert_respond_to b, :drink, "drink missing"
   end
-  
-  test "should export to json" do
-    assert_kind_of Hash, barcodes(:one).as_json({}), "Failed to export to json"
-  end
-  
-  test "should correctly export to json" do
-    j = barcodes(:one).as_json({})
-    assert j.key?('id'), "Failed to export id"
-    assert j.key?('drink'), "Failed to export drink"
-  end
 end
