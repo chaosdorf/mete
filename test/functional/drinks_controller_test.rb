@@ -17,7 +17,7 @@ class DrinksControllerTest < ActionController::TestCase
   end
 
   test "should create drink" do
-    assert_difference('Drink.count') do
+    assert_difference('Drink.count', 1) do
       post :create, params: {drink: { bottle_size: @drink.bottle_size, caffeine: @drink.caffeine, price: @drink.price, logo_file_name: @drink.logo_file_name, name: @drink.name }}
     end
 

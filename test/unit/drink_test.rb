@@ -48,26 +48,4 @@ class DrinkTest < ActiveSupport::TestCase
     assert_respond_to d, :logo_updated_at, "logo_updated_at missing"
     assert_respond_to d, :active, "active missing"
   end
-  
-  test "should export to json" do
-    assert_kind_of Hash, drinks(:one).as_json({}), "Failed to export to json"
-  end
-  
-  test "should correctly export to json" do
-    j = drinks(:one).as_json({})
-    assert j.key?('id'), "Failed to export id"
-    assert j.key?('name'), "Failed to export name"
-    assert j.key?('bottle_size'), "Failed to export bottle size"
-    assert j.key?('caffeine'), "Failed to export caffeine"
-    assert j.key?('price'), "Failed to export price"
-    assert j.key?('donation_recommendation'), "Failed to export donation recommendation"
-    assert j.key?('logo_file_name'), "Failed to export logo_file_name"
-    assert j.key?('created_at'), "Failed to export created_at"
-    assert j.key?('updated_at'), "Failed to export updated_at"
-    assert j.key?('logo_content_type'), "Failed to export logo_content_type"
-    assert j.key?('logo_file_size'), "Failed to export logo_file_size"
-    assert j.key?('logo_updated_at'), "Failed to export logo_updated_at"
-    assert j.key?('active'), "Failed to export active"
-    assert j.key?('logo_url'), "Failed to export logo_url"
-  end
 end

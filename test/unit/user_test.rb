@@ -60,21 +60,4 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to u, :audit, "audit missing"
     assert_respond_to u, :redirect, "redirect missing"
   end
-  
-  test "should export to json" do
-    assert_kind_of Hash, users(:one).as_json({}), "Failed to export to json"
-  end
-  
-  test "should correctly export to json" do
-    j = users(:one).as_json({})
-    assert j.key?('id'), "Failed to export id"
-    assert j.key?('name'), "Failed to export name"
-    assert j.key?('email'), "Failed to export email"
-    assert j.key?('created_at'), "Failed to export created_at"
-    assert j.key?('updated_at'), "Failed to export updated_at"
-    assert j.key?('balance'), "Failed to export balance"
-    assert j.key?('active'), "Failed to export active"
-    assert j.key?('audit'), "Failed to export audit"
-    assert j.key?('redirect'), "Failed to export redirect"
-  end
 end

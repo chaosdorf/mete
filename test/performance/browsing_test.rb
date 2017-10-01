@@ -15,18 +15,10 @@ class BrowsingTest < ActionDispatch::PerformanceTest
     get '/audits'
   end
 
-  test "audits.json" do
-    get '/audits.json'
-  end
-
   test "drinks" do
     get '/drinks'
   end
 
-  test "drinks.json" do
-    get '/drinks.json'
-  end
-  
   test "drinks/new" do
     get '/drinks/new'
   end
@@ -35,10 +27,6 @@ class BrowsingTest < ActionDispatch::PerformanceTest
     get '/users'
   end
 
-  test "users.json" do
-    get '/users.json'
-  end
-  
   test "users/new" do
     get '/users/new'
   end
@@ -47,20 +35,41 @@ class BrowsingTest < ActionDispatch::PerformanceTest
     get '/users/stats'
   end
   
-  test "stats.json" do
-    get '/users/stats.json'
-  end
-  
   test "barcodes" do
     get '/barcodes'
   end
   
-  test "barcodes.json" do
-    get '/barcodes.json'
-  end
-  
   test "barcodes/new" do
     get '/barcodes/new'
+  end
+
+  # API v1
+  test "users.json" do
+    get '/api/v1/users.json'
+  end
+  
+  test "users/new.json" do
+    get '/api/v1/users/new.json'
+  end
+  
+  test "barcodes.json" do
+    get '/api/v1/barcodes.json'
+  end
+  
+  test "barcodes/new.json" do
+    get '/api/v1/barcodes/new.json'
+  end
+  
+  test "drinks.json" do
+    get '/api/v1/drinks.json'
+  end
+  
+  test "drinks/new.json" do
+    get '/api/v1/drinks/new.json'
+  end
+  
+  test "audits.json" do
+    get '/api/v1/audits.json'
   end
 
 end

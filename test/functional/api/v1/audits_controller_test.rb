@@ -1,11 +1,13 @@
 require 'test_helper'
 
-class AuditsControllerTest < ActionController::TestCase
+class Api::V1::AuditsControllerTest < ActionController::TestCase
 
-  test "should get audits" do
+  test "should get audits as json" do
     get :index
     assert_response :success
-    assert_not_nil(:audits)
+    # The following line is the test.
+    resp = JSON.parse(response.body)
+    assert_not_nil resp["audits"]
   end
 
   test "should get no audits" do
@@ -17,7 +19,8 @@ class AuditsControllerTest < ActionController::TestCase
     }
     get :index, params: { start_date: @date, end_date: @date}
     assert_response :success
-    assert_not_nil assigns(:audits)
+    resp = JSON.parse(response.body)
+    assert_equal [], resp["audits"]
   end
 
 end
