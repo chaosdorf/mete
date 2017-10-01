@@ -18,6 +18,7 @@ Mete::Application.routes.draw do
   
   namespace :api do
     namespace :v1 do
+      resources :audits
       resources :drinks
       resources :barcodes
       resources :users do
