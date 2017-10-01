@@ -1,16 +1,11 @@
 class BarcodesController < ApplicationController
   # GET /barcodes
-  # GET /barcodes.json
   def index
     @barcodes = Barcode.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @barcodes }
-    end
+    # index.html.haml
   end
   
   # GET /barcodes/new
-  # GET /barcodes/new.json
   def new
     @barcode = Barcode.new
     if params.key?(:id)
@@ -19,58 +14,39 @@ class BarcodesController < ApplicationController
     if params.key?(:drink)
       @barcode.drink = params[:drink]
     end
-    respond_to do |format|
-      format.html { @drinks = Drink.order(active: :desc).order("name COLLATE nocase") } # new.html.erb
-      format.json { render json: @barcode }
-    end
+    @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
+    # new.html.haml
   end
   
   # POST /barcodes
-  # POST /barcodes.json
   def create
     @barcode = Barcode.new(barcode_params)
     if Barcode.where(id: @barcode.id).exists?
-      respond_to do |format|
-        flash[:danger] = "This barcode does already exist."
-        format.html { redirect_to new_barcode_path(barcode_params) }
-        format.json { render json: {"error" => "This barcode does already exist."}, status: :unprocessable_entity }
-      end
+      flash[:danger] = "This barcode does already exist."
+      redirect_to new_barcode_path(barcode_params)
       return
     end
     unless Drink.where(id: @barcode.drink).exists?
-      respond_to do |format|
-        flash[:danger] = "This drink does not exist."
-        format.html { redirect_to new_barcode_path(barcode_params) }
-        format.json { render json: {"error" => "This drink does not exist."}, status: :unprocessable_entity }
-      end
+      flash[:danger] = "This drink does not exist."
+      redirect_to new_barcode_path(barcode_params)
       return
     end
     if @barcode.save
-      respond_to do |format|
-        format.html { redirect_to barcodes_path, notice: 'Barcode was successfully created.' }
-        format.json { render json: @barcode, status: :created, location: @barcode }
-      end
+      redirect_to barcodes_path, notice: 'Barcode was successfully created.'
     else
-      respond_to do |format|
-        flash[:danger] = "Couldn't create the barcode. Error: #{@barcode.errors} Status: #{:unprocessable_entity}"
-        format.html { redirect_to new_barcode_path }
-        format.json { render json: @barcode.errors, status: :unprocessable_entity }
-      end
+      flash[:danger] = "Couldn't create the barcode. Error: #{@barcode.errors} Status: #{:unprocessable_entity}"
+      redirect_to new_barcode_path
     end
   end
   
   # DELETE /barcodes/1234
-  # DELETE /barcodes/1234.json
   def destroy
     @barcode = Barcode.find(params[:id])
     if @barcode.destroy
       flash[:success] = "Barcode was successfully deleted."
       no_resp_redir barcodes_path
     else
-      respond_to do |format|
-        format.html { redirect_to barcodes_path, error: "Couldn't delete the barcode. Error: #{@barcode.errors} Status: #{:unprocessable_entity}" }
-        format.json { render json: @barcode.errors, status: :unprocessable_entity }
-      end
+      redirect_to barcodes_path, error: "Couldn't delete the barcode. Error: #{@barcode.errors} Status: #{:unprocessable_entity}"
     end
   end
   
