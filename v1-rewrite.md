@@ -6,6 +6,7 @@ Yet, people went ahead and built clients which are probably still in use today.
 If you want to support them with a recent version of Mete,
 you can apply those rewrite rules to a web server of your choice.
 You may need to adjust them to your setup.
+Or you could use [this gist](https://gist.github.com/YtvwlD/dcff79c4ad735e37d32cf1bbb766b7c4).
 
 Be advised that really old clients (eg. Meteroid before v1.9)
 might break in future Mete versions (because they use `/user/{id}/deposit`).
