@@ -10,6 +10,12 @@
 # Ignore the default SQLite database.
 /var/*.sqlite3
 
+# Ignore the config.
+/var/config.yaml
+
+# Ignore the currency-images.
+/var/currency-images
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

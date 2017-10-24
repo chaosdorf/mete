@@ -1,0 +1,17 @@
+currency:
+  name: euro
+  symbol: €
+  before_value: false
+  amounts:
+    - amount: 0.5
+      image: euro-0.5.png
+    - amount: 1
+      image: euro-1.png
+    - amount: 2
+      image: euro-2.png
+    - amount: 5
+      image: euro-5.png
+    - amount: 10
+      image: euro-10.png
+    - amount: 20
+      image: euro-20.png
