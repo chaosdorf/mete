@@ -1,8 +1,12 @@
 class DrinksController < ApplicationController
   # GET /drinks
   def index
-    @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
     # index.html.haml
+    @drinks = Drink.order(active: :desc, name: :asc)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @drinks }
+    end
   end
 
   # GET /drinks/1
