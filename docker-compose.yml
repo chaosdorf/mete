@@ -6,6 +6,7 @@ networks:
 volumes:
   assets:
   system:
+  backup:
 
 services:
 
@@ -17,6 +18,16 @@ services:
       appservers:
         aliases:
           - db
+
+  db-backup:
+    image: nomaster/postgres-backup
+    environment:
+      PGPASSWORD: mete
+    volumes:
+      - backup:/backup
+    restart: on-failure
+    networks:
+      appservers:
 
   backend:
     image: nomaster/mete
