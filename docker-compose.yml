@@ -1,0 +1,47 @@
+version: "3"
+
+networks:
+  appservers:
+
+volumes:
+  assets:
+  system:
+
+services:
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: mete
+    networks:
+      appservers:
+        aliases:
+          - db
+
+  backend:
+    image: nomaster/mete
+    build: .
+    environment:
+      RAILS_ENV: production
+    build: .
+    volumes:
+      - assets:/mete/public/assets
+      - system:/mete/public/system
+    depends_on:
+      - db
+    restart: on-failure
+    networks:
+      appservers:
+        aliases:
+          - app
+
+  proxy:
+    image: nomaster/nginx-proxy
+    restart: always
+    volumes:
+      - assets:/usr/share/nginx/assets:ro
+      - system:/usr/share/nginx/system:ro
+    ports:
+      - 80:80
+    networks:
+      appservers:

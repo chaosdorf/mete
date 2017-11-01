@@ -15,6 +15,10 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
 
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', :platforms => :ruby
+gem 'execjs'
+
 gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
@@ -26,7 +30,7 @@ gem 'formtastic-bootstrap', :github => 'nickl-/formtastic-bootstrap3', :branch =
 gem 'bootswatch-rails', :github => 'log0ymxm/bootswatch-rails'
 gem 'favicon_maker'
 gem 'mini_magick', :github => 'minimagick/minimagick'
-gem 'unicorn'
+gem 'puma'
 gem 'autoprefixer-rails'
 gem 'rails-controller-testing'
 
@@ -52,4 +56,5 @@ end
 group :production do
   gem 'SyslogLogger'
   gem 'sentry-raven'
+  gem 'pg'
 end

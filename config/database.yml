@@ -19,7 +19,10 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: var/production.sqlite3
+  adapter: postgresql
+  database: mete
+  host: db
+  username: postgres
+  password: mete
   pool: 5
   timeout: 5000
