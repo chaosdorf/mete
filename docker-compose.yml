@@ -30,7 +30,7 @@ services:
       appservers:
 
   backend:
-    image: nomaster/mete
+    image: chaosdorf/mete
     build: .
     environment:
       RAILS_ENV: production
