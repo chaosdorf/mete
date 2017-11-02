@@ -5,10 +5,6 @@ class UsersController < ApplicationController
   def index
     @users = User.order(active: :desc, name: :asc)
     # index.html.haml
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
   end
 
   # GET /users/1
@@ -16,10 +12,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @drinks = Drink.order(active: :desc, name: :asc)
     # show.html.haml
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
   end
 
   # GET /users/new
