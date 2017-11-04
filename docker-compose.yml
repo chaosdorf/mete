@@ -4,7 +4,6 @@ networks:
   appservers:
 
 volumes:
-  assets:
   system:
   backup:
 
@@ -28,31 +27,37 @@ services:
     restart: on-failure
     networks:
       appservers:
+    depends_on:
+      - db
 
   backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: chaosdorf/mete
-    build: .
     environment:
       RAILS_ENV: production
     build: .
     volumes:
-      - assets:/mete/public/assets
-      - system:/mete/public/system
-    depends_on:
-      - db
+      - system:/app/public/system
     restart: on-failure
     networks:
       appservers:
         aliases:
           - app
+    depends_on:
+      - db
 
   proxy:
-    image: nomaster/nginx-proxy
-    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-proxy
+    restart: on-failure
     volumes:
-      - assets:/usr/share/nginx/assets:ro
-      - system:/usr/share/nginx/system:ro
+      - system:/usr/share/nginx/html/public/system:ro
     ports:
       - 80:80
     networks:
       appservers:
+    depends_on:
+      - backend
