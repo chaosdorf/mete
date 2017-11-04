@@ -42,6 +42,8 @@ gem "codeclimate-test-reporter", '~> 1', group: :test, require: nil
 # gem 'debugger'
 #
 #
+gem 'sentry-raven'
+
 group :development do
   gem 'faker'
   gem 'rails-perftest', :github => 'rails/rails-perftest'
@@ -51,5 +53,4 @@ end
 
 group :production do
   gem 'SyslogLogger'
-  gem 'sentry-raven'
 end
