@@ -10,43 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929201659) do
+ActiveRecord::Schema.define(version: 20171104191523) do
 
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at"
-    t.decimal  "difference", precision: 20, scale: 2, default: "0.0"
-    t.integer  "drink"
-    t.integer  "user"
+    t.decimal "difference", precision: 20, scale: 2, default: "0.0"
+    t.integer "drink"
+    t.integer "user"
   end
 
-  create_table "barcodes", id: :string, force: :cascade do |t|
-    t.integer "drink", null: false
-    t.index ["id"], name: "sqlite_autoindex_barcodes_1", unique: true
+  create_table "barcodes", force: :cascade do |t|
+    t.string "value"
+    t.integer "drink_id"
+    t.index ["drink_id"], name: "index_barcodes_on_drink_id"
+    t.index ["value"], name: "index_barcodes_on_value"
   end
 
   create_table "drinks", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "bottle_size",       precision: 20, scale: 2, default: "0.0"
-    t.integer  "caffeine"
-    t.decimal  "price",             precision: 20, scale: 2, default: "0.0"
-    t.string   "logo_file_name"
+    t.string "name"
+    t.decimal "bottle_size", precision: 20, scale: 2, default: "0.0"
+    t.integer "caffeine"
+    t.decimal "price", precision: 20, scale: 2, default: "0.0"
+    t.string "logo_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
     t.datetime "logo_updated_at"
-    t.boolean  "active",                                     default: true
+    t.boolean "active", default: true
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string "name"
+    t.string "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "balance",    precision: 20, scale: 2, default: "0.0"
-    t.boolean  "active",                              default: true
-    t.boolean  "audit",                               default: false
-    t.boolean  "redirect",                            default: true
+    t.decimal "balance", precision: 20, scale: 2, default: "0.0"
+    t.boolean "active", default: true
+    t.boolean "audit", default: false
+    t.boolean "redirect", default: true
   end
 
 end

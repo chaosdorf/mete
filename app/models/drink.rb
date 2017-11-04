@@ -6,7 +6,8 @@ class Drink < ActiveRecord::Base
   validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
   before_post_process :normalize_filename
   after_initialize :set_defaults, unless: :persisted?
-  
+  has_one :barcode
+
   def as_json(options)
     h = super(options)
     h["donation_recommendation"] = price # API compatibility
