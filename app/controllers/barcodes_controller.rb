@@ -14,7 +14,7 @@ class BarcodesController < ApplicationController
     if params.key?(:drink)
       @barcode.drink = params[:drink]
     end
-    @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
+    @drinks = Drink.order(active: :desc).order_by_name_asc
     # new.html.haml
   end
   

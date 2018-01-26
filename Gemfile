@@ -15,8 +15,6 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
 
-gem 'execjs'
-
 gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
