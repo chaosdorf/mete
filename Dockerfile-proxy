@@ -1,3 +1,6 @@
+FROM chaosdorf/mete as assets
+
+
 FROM nginx:alpine
 ADD nginx.conf /etc/nginx/nginx.conf
-ADD public /usr/share/nginx/html/public
+COPY --from=assets /app/public /usr/share/nginx/html/public
