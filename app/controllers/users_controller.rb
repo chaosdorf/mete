@@ -3,14 +3,14 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.order(active: :desc, name: :asc)
+    @users = User.order(active: :desc).order_by_name_asc
     # index.html.haml
   end
 
   # GET /users/1
   def show
     @user = User.find(params[:id])
-    @drinks = Drink.order(active: :desc, name: :asc)
+    @drinks = Drink.order(active: :desc).order_by_name_asc
     # show.html.haml
   end
 

@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   validates_presence_of :name
+  scope :order_by_name_asc, -> {
+    order(arel_table['name'].lower.asc)
+  }
 
 
   after_save do |user|
