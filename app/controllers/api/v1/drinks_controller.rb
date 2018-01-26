@@ -1,7 +1,7 @@
 class Api::V1::DrinksController < ApplicationController
   # GET /drinks.json
   def index
-    @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
+    @drinks = Drink.order(active: :desc).order_by_name_asc
     render json: @drinks
   end
 

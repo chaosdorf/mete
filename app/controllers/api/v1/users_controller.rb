@@ -2,14 +2,14 @@ class Api::V1::UsersController < ApplicationController
   
   # GET /users.json
   def index
-    @users = User.order(active: :desc).order("name COLLATE nocase")
+    @users = User.order(active: :desc).order_by_name_asc
     render json: @users
   end
 
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
+    @drinks = Drink.order(active: :desc).order_by_name_asc
     render json: @user
   end
 
