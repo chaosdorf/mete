@@ -129,7 +129,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.1.0)
-    kgio (2.11.0)
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -152,6 +151,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    pg (0.21.0)
+    puma (3.10.0)
     rack (2.0.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
@@ -182,7 +183,6 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.19.0)
     rake (12.1.0)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
@@ -227,9 +227,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    unicorn (5.3.1)
-      kgio (~> 2.6)
-      raindrops (~> 0.7)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -253,6 +250,8 @@ DEPENDENCIES
   jquery-rails
   mini_magick!
   paperclip
+  pg
+  puma
   rails (~> 5)
   rails-controller-testing
   rails-perftest!
@@ -262,7 +261,6 @@ DEPENDENCIES
   spring
   sqlite3
   uglifier (>= 1.0.3)
-  unicorn
 
 BUNDLED WITH
-   1.13.6
+   1.16.0

@@ -26,7 +26,7 @@ gem 'formtastic-bootstrap', :github => 'nickl-/formtastic-bootstrap3', :branch =
 gem 'bootswatch-rails', :github => 'log0ymxm/bootswatch-rails'
 gem 'favicon_maker'
 gem 'mini_magick', :github => 'minimagick/minimagick'
-gem 'unicorn'
+gem 'puma'
 gem 'autoprefixer-rails'
 gem 'rails-controller-testing'
 
@@ -42,6 +42,8 @@ gem "codeclimate-test-reporter", '~> 1', group: :test, require: nil
 # gem 'debugger'
 #
 #
+gem 'sentry-raven'
+
 group :development do
   gem 'faker'
   gem 'rails-perftest', :github => 'rails/rails-perftest'
@@ -51,5 +53,5 @@ end
 
 group :production do
   gem 'SyslogLogger'
-  gem 'sentry-raven'
+  gem 'pg'
 end

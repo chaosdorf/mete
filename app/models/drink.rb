@@ -1,4 +1,7 @@
 class Drink < ActiveRecord::Base
+  scope :order_by_name_asc, -> {
+    order(arel_table['name'].lower.asc)
+  }
 
   validates_presence_of :name, :bottle_size, :price
 

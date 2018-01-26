@@ -1,7 +1,7 @@
 class DrinksController < ApplicationController
   # GET /drinks
   def index
-    @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
+    @drinks = Drink.order(active: :desc).order_by_name_asc
     # index.html.haml
   end
 

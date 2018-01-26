@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
   include ApplicationHelper
-  
+
   # GET /users
   def index
-    @users = User.order(active: :desc).order("name COLLATE nocase")
+    @users = User.order(active: :desc).order_by_name_asc
     # index.html.haml
   end
 
   # GET /users/1
   def show
     @user = User.find(params[:id])
-    @drinks = Drink.order(active: :desc).order("name COLLATE nocase")
+    @drinks = Drink.order(active: :desc).order_by_name_asc
     # show.html.haml
   end
 
@@ -84,7 +84,7 @@ class UsersController < ApplicationController
     @drink = Drink.find(params[:drink])
     buy_drink
   end
-  
+
   # POST /users/1/buy_barcode
   def buy_barcode
     @user = User.find(params[:id])
@@ -117,7 +117,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
   def buy_drink
     unless @drink.active?
       @drink.active = true
@@ -136,7 +136,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
   end
-  
+
   def warn_user_if_audit
     if (@user.audit) then
       flash[:info] = "This transaction has been logged, because you set up your account that way. #{view_context.link_to 'Change?', edit_user_url(@user)}".html_safe
