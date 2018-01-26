@@ -241,7 +241,6 @@ DEPENDENCIES
   bootswatch-rails!
   codeclimate-test-reporter (~> 1)
   coffee-rails
-  execjs
   faker
   favicon_maker
   formtastic
@@ -264,4 +263,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
