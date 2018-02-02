@@ -33,13 +33,13 @@ services:
       - db
 
   backend:
+    environment:
+      RAILS_ENV: production
+      SENTRY_DSN:
     build:
       context: .
       dockerfile: Dockerfile
     image: chaosdorf/mete
-    environment:
-      RAILS_ENV: production
-      SENTRY_DSN:
     build: .
     volumes:
       - system:/app/public/system
