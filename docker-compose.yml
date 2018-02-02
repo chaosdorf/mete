@@ -37,6 +37,7 @@ services:
     image: chaosdorf/mete
     environment:
       RAILS_ENV: production
+      SENTRY_DSN:
     build: .
     volumes:
       - system:/app/public/system
