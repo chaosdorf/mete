@@ -152,7 +152,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
-    pg (1.0.0)
+    pg (0.21.0)
     puma (3.11.2)
     rack (2.0.3)
     rack-test (0.8.2)
@@ -251,7 +251,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick!
   paperclip
-  pg
+  pg (~> 0.18)
   puma
   rails (~> 5)
   rails-controller-testing
