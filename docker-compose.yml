@@ -6,13 +6,15 @@ networks:
 volumes:
   system:
   backup:
+  database:
 
 services:
-
   db:
     image: postgres
     environment:
       POSTGRES_PASSWORD: mete
+    volumes:
+    - database:/var/lib/postgresql
     networks:
       appservers:
         aliases:
@@ -57,7 +59,7 @@ services:
     volumes:
       - system:/usr/share/nginx/html/public/system:ro
     ports:
-      - 80:80
+      - 8081:80
     networks:
       appservers:
     depends_on:
