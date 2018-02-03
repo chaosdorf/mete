@@ -19,11 +19,11 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     assert_response :success
     resp = JSON.parse(response.body)
     assert_not_nil resp
-    assert_equal nil, resp["id"]
-    assert_equal nil, resp["name"]
-    assert_equal nil, resp["email"]
-    assert_equal nil, resp["created_at"]
-    assert_equal nil, resp["updated_at"]
+    assert_nil resp["id"]
+    assert_nil resp["name"]
+    assert_nil resp["email"]
+    assert_nil resp["created_at"]
+    assert_nil resp["updated_at"]
     assert_equal "0.0", resp["balance"]
     assert_equal true, resp["active"]
     assert_equal false, resp["audit"]
@@ -56,7 +56,7 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     resp = JSON.parse(response.body)
     assert_not_nil resp
     assert_equal users(:two).name, resp["name"]
-    assert_equal nil, resp["email"]
+    assert_nil resp["email"]
   end
 
   test "deposit as json" do

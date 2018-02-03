@@ -18,8 +18,8 @@ class Api::V1::BarcodesControllerTest < ActionController::TestCase
     assert_response :success
     resp = JSON.parse(response.body)
     assert_not_nil resp
-    assert_equal nil, resp["id"]
-    assert_equal nil, resp["drink"]
+    assert_nil resp["id"]
+    assert_nil resp["drink"]
   end
   
   test "should get new with drink as json" do
@@ -27,7 +27,7 @@ class Api::V1::BarcodesControllerTest < ActionController::TestCase
     assert_response :success
     resp = JSON.parse(response.body)
     assert_not_nil resp
-    assert_equal nil, resp["id"]
+    assert_nil resp["id"]
     assert_equal @drink.id, resp["drink"]
   end
   
@@ -37,7 +37,7 @@ class Api::V1::BarcodesControllerTest < ActionController::TestCase
     resp = JSON.parse(response.body)
     assert_not_nil resp
     assert_equal @barcode.id, resp["id"]
-    assert_equal nil, resp["drink"]
+    assert_nil resp["drink"]
   end
   
   test "should get new with id and drink as json" do

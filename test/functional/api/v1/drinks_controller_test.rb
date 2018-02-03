@@ -17,18 +17,18 @@ class Api::V1::DrinksControllerTest < ActionController::TestCase
     assert_response :success
     resp = JSON.parse(response.body)
     assert_not_nil resp
-    assert_equal nil, resp["id"]
-    assert_equal nil, resp["name"]
+    assert_nil resp["id"]
+    assert_nil resp["name"]
     assert_equal "0.0", resp["bottle_size"]
-    assert_equal nil, resp["caffeine"]
+    assert_nil resp["caffeine"]
     assert_equal "1.5", resp["price"]
-    assert_equal nil, resp["logo_file_name"]
-    assert_equal nil, resp["logo_content_type"]
-    assert_equal nil, resp["logo_file_size"]
-    assert_equal nil, resp["logo_updated_at"]
+    assert_nil resp["logo_file_name"]
+    assert_nil resp["logo_content_type"]
+    assert_nil resp["logo_file_size"]
+    assert_nil resp["logo_updated_at"]
     assert_equal "/logos/thumb/missing.png", resp["logo_url"]
-    assert_equal nil, resp["created_at"]
-    assert_equal nil, resp["updated_at"]
+    assert_nil resp["created_at"]
+    assert_nil resp["updated_at"]
     assert_equal true, resp["active"]
     assert_equal "1.5", resp["donation_recommendation"] # deprecated
   end
