@@ -1,5 +1,5 @@
-FROM ruby:2.4
-RUN apt-get update && apt-get -y install nodejs git
+FROM ruby:2.4-alpine
+RUN apk --no-cache add nodejs git g++ make postgresql-dev sqlite-dev tzdata ruby-bundler
 WORKDIR /app
 COPY Gemfile /app
 COPY Gemfile.lock /app
