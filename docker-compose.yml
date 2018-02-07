@@ -10,7 +10,7 @@ volumes:
 
 services:
   db:
-    image: postgres
+    image: postgres:10-alpine
     environment:
       POSTGRES_PASSWORD: mete
     volumes:
