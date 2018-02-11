@@ -49,6 +49,7 @@ group :development do
   gem 'rails-perftest'
   gem 'ruby-prof'
   gem 'spring'
+  gem 'minitest', '< 5.11'
 end
 
 group :production do

@@ -120,7 +120,7 @@ GEM
     mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.11.3)
+    minitest (5.10.3)
     multipart-post (2.0.0)
     nio4r (2.2.0)
     nokogiri (1.8.2)
@@ -230,6 +230,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mini_magick
+  minitest (< 5.11)
   paperclip
   pg (~> 0.18)
   puma
