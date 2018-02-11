@@ -5,8 +5,8 @@ class AuditsController < ApplicationController
       @start_date = parse_date params[:start_date]
       @end_date = parse_date params[:end_date]
     else
-      # If no range is specified, show audits from the current year.
-      @start_date = Date.new(Date.tomorrow.year)
+      # If no range is specified, show audits from the last 14 days.
+      @start_date = Date.today - 14
       @end_date  = Date.tomorrow
     end
     if params[:user]
