@@ -1,37 +1,10 @@
 GIT
-  remote: https://github.com/log0ymxm/bootswatch-rails.git
-  revision: 93d450185c57ceaabd0e29c7b03ea235824998c8
-  specs:
-    bootswatch-rails (3.0.0)
-      railties (>= 3.1)
-
-GIT
-  remote: https://github.com/minimagick/minimagick.git
-  revision: 8e005569e4b99e196dde004e1613d9dce72888bb
-  specs:
-    mini_magick (4.8.0)
-
-GIT
   remote: https://github.com/nickl-/formtastic-bootstrap3.git
   revision: 187efe6623a56ae8094c2b8a6063ff61e96b4e11
   branch: bootstrap3
   specs:
     formtastic-bootstrap (2.1.3)
       formtastic (~> 2.2)
-
-GIT
-  remote: https://github.com/rails/rails-perftest.git
-  revision: 5c1707ee582c5287b506950dd59de1a0e7bd8a93
-  specs:
-    rails-perftest (0.0.7)
-
-GIT
-  remote: https://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: 51486a8bd836d32b9f413e911ed83b433ef4ad39
-  specs:
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
 
 GEM
   remote: https://rubygems.org/
@@ -77,6 +50,11 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (7.2.6)
       execjs
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
+    bootswatch-rails (3.3.5)
+      railties (>= 3.1)
     builder (3.2.3)
     climate_control (0.2.0)
     cocaine (0.5.8)
@@ -139,6 +117,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
+    mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -178,6 +157,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-perftest (0.0.7)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -238,8 +218,8 @@ PLATFORMS
 DEPENDENCIES
   SyslogLogger
   autoprefixer-rails
-  bootstrap-sass!
-  bootswatch-rails!
+  bootstrap-sass
+  bootswatch-rails
   codeclimate-test-reporter (~> 1)
   coffee-rails
   faker
@@ -249,13 +229,13 @@ DEPENDENCIES
   gravatar_image_tag
   haml-rails
   jquery-rails
-  mini_magick!
+  mini_magick
   paperclip
   pg (~> 0.18)
   puma
   rails (~> 5)
   rails-controller-testing
-  rails-perftest!
+  rails-perftest
   ruby-prof
   sass-rails
   sentry-raven
