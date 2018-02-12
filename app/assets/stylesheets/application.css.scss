@@ -1,11 +1,10 @@
 @import "bootswatch/slate/variables";
 @import "bootstrap";
-@import "bootstrap/theme";
 @import "formtastic-bootstrap";
 @import "bootswatch/slate/bootswatch";
 
 // make room for navigation bar
-body { padding-top: 7rem; }
+body { padding-top: 5rem; }
 
 .navbar-brand {
   background-image: image_url('mete-logo.svg');
@@ -41,7 +40,11 @@ img.disabled {
     width: 10rem;
 }
 
-.panel-body {
+.card {
+  height: 12rem;
+}
+
+.card-body {
   flex: 1 1 0;
   overflow: hidden;
 }

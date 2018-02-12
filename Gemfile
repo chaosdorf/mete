@@ -13,7 +13,7 @@ gem 'sqlite3', '~> 1.3.6' # ActiveRecord needs this version
 
 gem 'sassc-rails'
 gem 'coffee-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap', "~> 4.3"
 
 gem 'uglifier', '>= 1.0.3'
 

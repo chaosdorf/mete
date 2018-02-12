@@ -1,12 +1,12 @@
 - model_class = User
 - content_for :actions do
-  %li
-    = link_to 'edit user', edit_user_path(@user)
+  %li.nav-item
+    = link_to 'edit user', edit_user_path(@user), class: "nav-link"
   - if @user.audit?
-    %li
-      = link_to 'show logs', audits_path(:user => @user)
-  %li
-    = link_to 'delete user', @user, :method => :delete, :data => {:confirm => "Really delete #{@user.name}’s account?"}
+    %li.nav-item
+      = link_to 'show logs', audits_path(:user => @user), class: "nav-link"
+  %li.nav-item
+    = link_to 'delete user', @user, :method => :delete, :data => {:confirm => "Really delete #{@user.name}’s account?"}, class: "nav-link"
 .page-header
   %h1
     = "Hi, #{@user.name}"

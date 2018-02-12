@@ -1,14 +1,14 @@
 - model_class = Barcode
 - content_for :actions do
-  %li
-    = link_to 'new barcode', [:new, :barcode]
+  %li.nav-item
+    = link_to 'new barcode', [:new, :barcode], class: "nav-link"
 
 .page-header
   %h1
     Barcodes.
     %small Here they are.
 
-%table.table
+%table.table.table-striped.table-bordered
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)

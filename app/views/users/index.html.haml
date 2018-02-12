@@ -1,7 +1,7 @@
 - model_class = User
 - content_for :actions do
-  %li
-    = link_to 'new user', [:new, :user]
+  %li.nav-item
+    = link_to 'new user', [:new, :user], class: "nav-link"
 
 .row.text-center.mb-0
   .btn-group
