@@ -59,8 +59,6 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    bootswatch-rails (3.3.5)
-      railties (>= 3.1)
     builder (3.2.3)
     climate_control (0.2.0)
     codeclimate-test-reporter (1.0.9)
@@ -225,7 +223,6 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap-sass
-  bootswatch-rails
   codeclimate-test-reporter (~> 1)
   coffee-rails
   faker
