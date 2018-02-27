@@ -22,10 +22,9 @@ img.disabled {
   opacity: 0.3;
 }
 
-.drink-panel {
-  display: flex;
-  flex-direction: column;
-  height: 165px;
+.drink-panel img {
+    height: 100px;
+    width: 100px;
 }
 
 .panel-body {
