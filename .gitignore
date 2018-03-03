@@ -30,3 +30,4 @@
 # Ignore Code Climate's coverage reports
 coverage
 public/assets
+.idea/
