@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include ApplicationHelper
+  include UsersHelper
 
   # GET /users
   def index
@@ -130,7 +131,7 @@ class UsersController < ApplicationController
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
     end
     warn_user_if_audit
-    no_resp_redir @user.redirect ? users_url : @user
+    no_resp_redir @user.redirect ? redirect_path(@user) : @user
   end
 
   def user_params

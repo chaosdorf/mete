@@ -3,5 +3,16 @@
   %li
     = link_to 'new user', [:new, :user]
 
+.row.text-center.mb-0
+  .btn-group
+    %a.btn.btn-default{href: "#0"} #
+    - ('a'..'z').each do |a|
+      %a.btn.btn-default{href: "##{a}"}= a
+.row
 .row
   = render @users
+
+- content_for :footer do
+  = javascript_include_tag "users"
+  %noscript
+    %style .user { display: initial; }
