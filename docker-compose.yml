@@ -14,7 +14,7 @@ services:
     environment:
       POSTGRES_PASSWORD: mete
     volumes:
-    - database:/var/lib/postgresql
+      - database:/var/lib/postgresql/data
     networks:
       appservers:
         aliases:
