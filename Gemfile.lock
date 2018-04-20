@@ -54,6 +54,8 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (8.3.0)
       execjs
+    bootsnap (1.3.0)
+      msgpack (~> 1.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -125,6 +127,7 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
+    msgpack (1.2.4)
     multipart-post (2.0.0)
     nio4r (2.3.0)
     nokogiri (1.8.2)
@@ -225,6 +228,7 @@ PLATFORMS
 DEPENDENCIES
   SyslogLogger
   autoprefixer-rails
+  bootsnap
   bootstrap-sass
   bootswatch-rails
   codeclimate-test-reporter (~> 1)
