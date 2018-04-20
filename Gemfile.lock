@@ -129,7 +129,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
-    pg (0.21.0)
+    pg (1.0.0)
     puma (3.11.3)
     rack (2.0.4)
     rack-test (1.0.0)
@@ -232,7 +232,7 @@ DEPENDENCIES
   mini_magick
   minitest (< 5.11)
   paperclip
-  pg (~> 0.18)
+  pg
   puma
   rails (~> 5)
   rails-controller-testing

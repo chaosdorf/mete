@@ -54,5 +54,5 @@ end
 
 group :production do
   gem 'SyslogLogger'
-  gem 'pg', '~> 0.18' # activerecord 5.1.4 requires this
+  gem 'pg'
 end
