@@ -29,6 +29,7 @@ gem 'mini_magick'
 gem 'puma'
 gem 'autoprefixer-rails'
 gem 'rails-controller-testing'
+# gem 'bootsnap'
 
 gem "codeclimate-test-reporter", '~> 1', group: :test, require: nil
 
