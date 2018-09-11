@@ -32,7 +32,7 @@ class BarcodesController < ApplicationController
       return
     end
     if @barcode.save
-      redirect_to barcodes_path, notice: 'Barcode was successfully created.'
+      redirect_to barcodes_path, :flash => { :success => 'Barcode was successfully created.' }
     else
       flash[:danger] = "Couldn't create the barcode. Error: #{@barcode.errors} Status: #{:unprocessable_entity}"
       redirect_to new_barcode_path
@@ -46,7 +46,7 @@ class BarcodesController < ApplicationController
       flash[:success] = "Barcode was successfully deleted."
       no_resp_redir barcodes_path
     else
-      redirect_to barcodes_path, error: "Couldn't delete the barcode. Error: #{@barcode.errors} Status: #{:unprocessable_entity}"
+      redirect_to barcodes_path, :flash => { :error => "Couldn't delete the barcode. Error: #{@barcode.errors} Status: #{:unprocessable_entity}" }
     end
   end
   

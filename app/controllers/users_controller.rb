@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user, success: 'User was successfully created.'
+      redirect_to @user, :flash => { :success => 'User was successfully created.' }
     else
       render action: "new", error: "Couldn't create the user. Error: #{@user.errors} Status: #{:unprocessable_entity}"
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
             audit.user = nil
             audit.save!
           end
-          flash[:notice] = "Deleted all your logs."
+          flash[:info] = "Deleted all your logs."
         end
       end
       flash[:success] = "User was successfully updated."
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
       flash[:success] = "User was successfully deleted."
       no_resp_redir users_url
     else
-      redirect_to users_url, error:  "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}"
+      redirect_to users_url, :flash => { :error => "Couldn't delete the user. Error: #{@user.errors} Status: #{:unprocessable_entity}" }
     end
   end
 

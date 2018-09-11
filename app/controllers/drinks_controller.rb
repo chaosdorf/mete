@@ -27,7 +27,7 @@ class DrinksController < ApplicationController
   def create
     @drink = Drink.new(drink_params)
     if @drink.save
-      redirect_to @drink, notice: 'Drink was successfully created.'
+      redirect_to @drink, :flash => { :success => 'Drink was successfully created.' }
     else
       render action: "new", error: "Couldn't create the drink. Error: #{@drink.errors} Status: #{:unprocessable_entity}"
     end
@@ -55,7 +55,7 @@ class DrinksController < ApplicationController
       flash[:success] = "Drink was successfully deleted."
       no_resp_redir drinks_url
     else
-      redirect_to drinks_url, error: "Couldn't delete the drink. Error: #{@drink.errors} Status: #{:unprocessable_entity}"
+      redirect_to drinks_url, :flash => { :error => "Couldn't delete the drink. Error: #{@drink.errors} Status: #{:unprocessable_entity}" }
     end
   end
 
