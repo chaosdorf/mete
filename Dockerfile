@@ -1,5 +1,5 @@
 FROM ruby:2.4-alpine
-RUN apk --no-cache add nodejs git g++ make postgresql-dev sqlite-dev tzdata ruby-bundler file imagemagick
+RUN apk --no-cache add nodejs git g++ make postgresql-dev sqlite-dev tzdata file imagemagick
 WORKDIR /app
 COPY Gemfile /app
 COPY Gemfile.lock /app
