@@ -87,6 +87,7 @@ GEM
     ffi (1.9.25)
     formtastic (2.3.1)
       actionpack (>= 3.0)
+    git_rev (0.1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gravatar_image_tag (1.2.0)
@@ -236,6 +237,7 @@ DEPENDENCIES
   favicon_maker
   formtastic
   formtastic-bootstrap!
+  git_rev
   gravatar_image_tag
   haml-rails
   jquery-rails

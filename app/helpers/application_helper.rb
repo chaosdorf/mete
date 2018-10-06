@@ -1,4 +1,10 @@
+require 'git_rev'
+
 module ApplicationHelper
+  
+  def get_revision
+    GitRev::Sha.new.short
+  end
 
   def show_amount(price)
     return 'n/a' if price.blank?

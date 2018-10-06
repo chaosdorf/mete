@@ -30,6 +30,7 @@ gem 'puma'
 gem 'autoprefixer-rails'
 gem 'rails-controller-testing'
 gem 'bootsnap'
+gem 'git_rev'
 
 gem "codeclimate-test-reporter", '~> 1', group: :test, require: nil
 

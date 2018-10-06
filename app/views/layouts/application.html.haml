@@ -46,6 +46,12 @@
         = render 'flash'
         = yield
 
+    %footer.footer
+      .container
+        %p.text-muted
+          mete
+          = link_to get_revision, "https://github.com/chaosdorf/mete/tree/#{get_revision}"
+
     /
       Javascripts
       \==================================================
