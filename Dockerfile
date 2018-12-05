@@ -8,5 +8,5 @@ RUN bundle install
 COPY . /app
 RUN bundle exec rake assets:precompile
 ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD ["rails", "server", "-p", "8080"]
-EXPOSE 8080
+CMD ["rails", "server", "--binding", "[::]", "--port", "80"]
+EXPOSE 80
