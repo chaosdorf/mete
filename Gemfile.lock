@@ -174,26 +174,18 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (12.3.2)
-    rb-fsevent (0.10.3)
-    rb-inotify (0.10.0)
-      ffi (~> 1.0)
     ruby-prof (0.17.0)
     ruby_parser (3.12.0)
       sexp_processor (~> 4.9)
-    sass (3.7.3)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (5.0.7)
-      railties (>= 4.0.0, < 6)
-      sass (~> 3.1)
-      sprockets (>= 2.8, < 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
-      tilt (>= 1.1, < 3)
     sassc (2.0.0)
       ffi (~> 1.9.6)
       rake
+    sassc-rails (2.1.0)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     sentry-raven (2.8.0)
       faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.11.0)
@@ -253,7 +245,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-perftest
   ruby-prof
-  sass-rails
+  sassc-rails
   sentry-raven
   spring
   sqlite3

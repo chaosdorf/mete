@@ -11,7 +11,7 @@ gem 'rails', '~> 5'
 
 gem 'sqlite3'
 
-gem 'sass-rails'
+gem 'sassc-rails'
 gem 'coffee-rails'
 gem 'bootstrap-sass'
 
