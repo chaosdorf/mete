@@ -52,7 +52,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
-    autoprefixer-rails (9.4.5)
+    autoprefixer-rails (9.4.7)
       execjs
     bootsnap (1.3.2)
       msgpack (~> 1.0)
@@ -105,7 +105,7 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (1.5.2)
+    i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
@@ -186,7 +186,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sentry-raven (2.8.0)
+    sentry-raven (2.9.0)
       faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.11.0)
     simplecov (0.7.1)
@@ -248,7 +248,7 @@ DEPENDENCIES
   sassc-rails
   sentry-raven
   spring
-  sqlite3
+  sqlite3 (~> 1.3.6)
   uglifier (>= 1.0.3)
 
 BUNDLED WITH
