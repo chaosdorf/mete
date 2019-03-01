@@ -36,6 +36,7 @@ Mete::Application.routes.draw do
       get 'payment'
       get 'buy'
       post 'buy_barcode'
+      post 'print_label'
     end
     collection do
       get 'stats'

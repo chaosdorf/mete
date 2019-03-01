@@ -6,6 +6,8 @@
     %li
       = link_to 'show logs', audits_path(:user => @user)
   %li
+    = link_to 'print label', print_label_user_path(@user), :method => :post
+  %li
     = link_to 'delete user', @user, :method => :delete, :data => {:confirm => "Really delete #{@user.name}’s account?"}
 .page-header
   %h1
