@@ -27,4 +27,6 @@ Or you can pass these parameters:
 These are the endpoints which Mete supports,
 but are not (yet) part of the specification or have additional parameters:
 
-(currently none, yay)
+ * `POST /users/{id}/transfer.json` - transfers an amount of money from user `id`; parameters:
+   * `amount` - `float` - the amount of money to transfer
+   * `destination` - `int` - the ID of the user who should receive the money

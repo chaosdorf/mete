@@ -1,0 +1,6 @@
+= semantic_form_for :transfer, :html => { :class => 'form-horizontal' } do |f|
+  = f.inputs do
+    = f.input :amount, :as => :number, hint: 'what do amount do you want to transfer?'
+    = f.input :destination, :as => :select, :collection => @users, hint: 'who gets the money?'
+  = f.actions do
+    = f.action :submit
