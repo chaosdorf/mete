@@ -1,12 +1,12 @@
 - model_class = User
 - content_for :actions do
-  %li
-    = link_to 'edit user', edit_user_path(@user)
+  %li.nav-item
+    = link_to 'edit user', edit_user_path(@user), class: "nav-link"
   - if @user.audit?
-    %li
-      = link_to 'show logs', audits_path(:user => @user)
-  %li
-    = link_to 'delete user', @user, :method => :delete, :data => {:confirm => "Really delete #{@user.name}’s account?"}
+    %li.nav-item
+      = link_to 'show logs', audits_path(:user => @user), class: "nav-link"
+  %li.nav-item
+    = link_to 'delete user', @user, :method => :delete, :data => {:confirm => "Really delete #{@user.name}’s account?"}, class: "nav-link"
 .page-header
   %h1
     = "Hi, #{@user.name}"
@@ -14,9 +14,9 @@
       Pick Your Poison.
 
 .row
-  .col-xs-4.col-sm-2.col-md-2.col-lg-1#user-page-avatar-holder
+  .col-4.col-sm-3.col-md-2.col-lg-2.col-xl-1#user-page-avatar-holder
     = gravatar(@user)
-  .col-xs-8.col-sm-10.col-md-10.col-lg-11
+  .col-8.col-sm-9.col-md-10.col-lg-10.col-xl-11
     %dl.dl-horizontal
       %dt
         = model_class.human_attribute_name(:email)

@@ -23,22 +23,20 @@
 
   %body
     %header
-      %nav.navbar.navbar-default.navbar-fixed-top( role="navigation" )
-        .navbar-header
-          %button.navbar-toggle( type="buttoon" data-toggle="collapse" data-target=".navbar-ex1-collapse" )
-            %span.sr-only Toggle navigation
-            - 3.times do
-              %span.icon-bar
-          = link_to 'MeTe', root_path, :class => 'navbar-brand'
+      %nav.navbar.navbar-expand-md.navbar-dark.bg-primary.fixed-top( role="navigation" )
+        %button.navbar-toggler( type="buttoon" data-toggle="collapse" data-target=".navbar-ex1-collapse" )
+          %span.sr-only Toggle navigation
+          %span.navbar-toggler-icon
+        = link_to 'MeTe', root_path, :class => 'navbar-brand'
 
         .collapse.navbar-collapse.navbar-ex1-collapse
-          %ul.nav.navbar-nav
-            %li= link_to "Users", "/users"
-            %li= link_to "Stats", "/users/stats"
-            %li= link_to "Audits", "/audits"
-            %li= link_to "Drinks", "/drinks"
-            %li= link_to "Barcodes", "/barcodes"
-          %ul.nav.navbar-nav.navbar-right
+          %ul.navbar-nav.mr-auto
+            %li.nav-item= link_to "Users", "/users", class: "nav-link"
+            %li.nav-item= link_to "Stats", "/users/stats", class: "nav-link"
+            %li.nav-item= link_to "Audits", "/audits", class: "nav-link"
+            %li.nav-item= link_to "Drinks", "/drinks", class: "nav-link"
+            %li.nav-item= link_to "Barcodes", "/barcodes", class: "nav-link"
+          %ul.navbar-nav
             = yield :actions
 
     %article

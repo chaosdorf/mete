@@ -1,7 +1,7 @@
-.col-xs-6.col-sm-3.col-md-2.col-lg-2.user{class: "#{user.initial}"}
+.col-6.col-sm-4.col-md-3.col-lg-2.col-xl-2.my-2.user{class: "#{user.initial}"}
   = link_to user, :title => user.name do
-    .panel.panel-default.text-center
-      .panel-header
+    .card.text-center
+      .card-header
         %h6= user.name
-      .panel-body
+      .card-body
         = gravatar(user)

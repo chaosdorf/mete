@@ -13,7 +13,7 @@ gem 'sqlite3', '~> 1.3.6' # ActiveRecord needs this version
 
 gem 'sassc-rails'
 gem 'coffee-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap', "~> 4.3"
 
 gem 'uglifier', '>= 1.0.3'
 
@@ -22,8 +22,7 @@ gem 'haml-rails'
 gem 'gravatar_image_tag'
 gem 'paperclip'
 gem 'formtastic'
-gem 'formtastic-bootstrap', :github => 'nickl-/formtastic-bootstrap3', :branch => 'bootstrap3'
-gem 'bootswatch-rails'
+gem 'formtastic-bootstrap'
 gem 'favicon_maker'
 gem 'mini_magick'
 gem 'puma'

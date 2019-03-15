@@ -1,14 +1,14 @@
 - model_class = Drink
 - content_for :actions do
-  %li
-    = link_to 'new drink', [:new, :drink]
+  %li.nav-item
+    = link_to 'new drink', [:new, :drink], class: "nav-link"
 
 .page-header
   %h1
     Drinks.
     %small All of them!
 
-%table.table
+%table.table.table-striped.table-bordered
   %thead
     %tr
       %th
