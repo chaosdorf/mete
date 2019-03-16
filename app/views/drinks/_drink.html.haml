@@ -4,7 +4,8 @@
   = link_to(path || '#') do
     .card.drink-card.text-center
       .card-header
-        %h6= drink.name
+        .inner-header
+          %h6= drink.name
       .card-body
         = image_tag drink.logo(:thumb), alt: drink.name, class: drink.active? ? "" : "disabled"
       .card-footer
