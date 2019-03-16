@@ -40,6 +40,18 @@ img.disabled {
     width: 10rem;
 }
 
+.user-filter {
+  display: flex;
+  overflow: hidden;
+  .btn-group {
+    flex: 1;
+    .btn {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
 .drink-card {
   .card-header {
     .inner-header {
