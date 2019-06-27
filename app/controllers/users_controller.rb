@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     @user = User.find(params[:id])
-    @drinks = Drink.order(active: :desc).order_by_name_asc
+    @drinks = Drink.where(active: true).order(active: :desc).order_by_name_asc
     # show.html.haml
   end
 
