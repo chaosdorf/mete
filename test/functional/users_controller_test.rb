@@ -79,7 +79,6 @@ class UsersControllerTest < ActionController::TestCase
   test "buy unavailable drink" do
     assert_equal Drink.find(drinks(:two).id).active, false
     get :buy, params: {id: @user, drink: drinks(:two)}
-    assert_equal Drink.find(drinks(:two).id).active, true
     assert_equal -drinks(:two).price, Audit.first.difference
     assert_redirected_to redirect_path(@user)
   end

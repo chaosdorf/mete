@@ -120,11 +120,6 @@ class UsersController < ApplicationController
   private
 
   def buy_drink
-    unless @drink.active?
-      @drink.active = true
-      @drink.save!
-      flash[:info] = "The drink you just bought has been set to 'available'."
-    end
     @user.buy(@drink)
     flash[:success] = "You just bought a drink and your new balance is #{show_amount(@user.balance)}. Thank you."
     if (@user.balance < 0) then
