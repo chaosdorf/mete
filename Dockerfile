@@ -4,6 +4,7 @@ WORKDIR /app
 COPY Gemfile /app
 COPY Gemfile.lock /app
 VOLUME /app/public/system
+RUN bundle config --local build.sassc --disable-march-tune-native
 RUN bundle install
 COPY . /app
 RUN bundle exec rake assets:precompile
