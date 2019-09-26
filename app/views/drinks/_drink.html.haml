@@ -1,7 +1,7 @@
 - path = buy_user_path(@user, :drink => drink.id) if @user
 
 .col-12.col-sm-4.col-md-3.col-lg-2.col-xl-2.my-2
-  = link_to(path || '#') do
+  = link_to(path || '#', :data => drink.active? ? {} : {confirm: "This drink is inactive. Do you really want to buy #{drink.name}?"}) do
     .card.drink-card.text-center
       .card-header
         .inner-header
