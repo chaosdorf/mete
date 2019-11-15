@@ -241,6 +241,7 @@ DEPENDENCIES
   sassc-rails
   sentry-raven
   spring
+  sprockets (~> 3)
   sqlite3 (~> 1.3.6)
   uglifier (>= 1.0.3)
 

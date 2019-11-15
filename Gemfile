@@ -3,8 +3,7 @@ git_source(:github){ |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem 'rails', '~> 5'
 
-# https://github.com/rails/sprockets-rails/issues/131
-#gem 'sprockets-rails', :require => 'sprockets/rails/version'
+gem 'sprockets', '~> 3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
