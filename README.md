@@ -41,9 +41,14 @@ After entering your details and confirming, you'll be presented your user page.
 
 Here, you can donate for stuff by simply tapping the product. Or you can modify or delete your account.
 
-### As a developer
+### As a developer of an app
 
-[How the API works.](https://github.com/chaosdorf/mete/blob/master/API.md)
+Mete currently implements [version 1](https://space-market.github.io/API/preview/v1/) of the [Space-Market API](https://github.com/Space-Market/API). The endpoint is located at `/api/v1`.
+
+Out-of-date instances of mete provide an API at `/` that is somewhat similar.
+Current installations may provide legacy support at `/` but please don't depend on this if you're developing a client.
+
+Please also don't parse the HTML returned by mete or anything not in `/api`.
 
 ### As an admin
 
