@@ -50,6 +50,16 @@ Current installations may provide legacy support at `/` but please don't depend 
 
 Please also don't parse the HTML returned by mete or anything not in `/api`.
 
+### As a developer of mete
+
+Thanks for wanting to contribute. :)
+
+This is a relatively standard Rails application (which means that most code resides in the `app` folder).
+
+If you're new to the codebase you might want to take a look at the [issues labeled 'good first issue'](https://github.com/chaosdorf/mete/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
+
+Also, there are tests for most parts of the application in `test` if you want to take a look.
+
 ### As an admin
 
 [How to setup the server.](https://github.com/chaosdorf/mete/blob/master/Setup.md)
