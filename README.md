@@ -62,4 +62,64 @@ Also, there are tests for most parts of the application in `test` if you want to
 
 ### As an admin
 
-[How to setup the server.](https://github.com/chaosdorf/mete/blob/master/Setup.md)
+So you want to set up an instance of mete? That's great!
+
+Please be aware that mete doesn't currently have any configuration mechanism on the server side, so if you want to make changes to mete consider forking this repository, making your changes and rebasing regularily. (Please also open a pull request if you think your changes are vaguely useful for others.)
+
+You can add products via a browser afterwards.
+
+There are multiple ways to set up an instance:
+
+#### using our provided Docker image
+
+There's the image [`chaosdorf/mete`](https://hub.docker.com/r/chaosdorf/mete) over at Docker hub.
+This is built automatically on each push to `master`, but should still be stable enough. (We try to not break `master`.)
+
+Here's a minimal example using docker-compose:
+
+```yaml
+version: 3
+volumes:
+  system:
+  database:
+services:
+  db:
+    image: postgres:10-alpine
+    environment:
+      POSTGRES_PASSWORD: mete
+    volumes:
+      - database:/var/lib/postgresql/data
+  backend:
+    environment:
+      RAILS_ENV: production
+    image: chaosdorf/mete
+    volumes:
+      - system:/app/public/system
+    restart: on-failure
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+```
+
+This is missing some stuff (eg. backups), you might want to take a look at `docker-compose.yml`.
+
+(You can also build the image on your own, of course.)
+
+#### the "traditional" way
+
+You can still run mete without Docker. It needs a few dependencies (mostly Ruby) and a database (Postgres and SQLite have been tested).
+
+```sh
+sudo apt install ruby ruby-dev bundler git zlib1g-dev libsqlite3-dev sqlite3 imagemagick nodejs
+git clone https://github.com/chaosdorf/mete.git
+cd mete
+# adjust config/database.yml
+export RAILS_ENV=production
+bundle install --path vendor/bundle
+bundle exec rake db:migrate
+bundle exec rake assets:precompile
+bundle exec rails server -b [::] -p 80 # or use a reverse proxy
+```
+
+After an update you'll need to repeat the last five steps.
