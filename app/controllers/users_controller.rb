@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @drinks = Drink.order(active: :desc).order_by_name_asc
+    @drinks_missing = false
+    unless @user.can_overdraw
+      @drinks = @drinks.where(price: (0..@user.balance))
+      @drinks_missing = Drink.where.not(price: (0..@user.balance)).exists?
+    end
     # show.html.haml
   end
 
