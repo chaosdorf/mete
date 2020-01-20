@@ -98,6 +98,17 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to users(:two)
   end
   
+  test "buy with overdrafting disabled succeed if balance is high enough" do
+    get :buy, params: {id: @user, drink: @drink}
+    assert_redirected_to redirect_path(@user)
+  end
+  
+  test "buy with overdrafting disabled fails if balance is not high enough" do
+    assert_raises ActiveRecord::RecordInvalid do
+      get :payment, params: {id: @user, amount: 200}
+    end
+  end
+  
   test "buy by barcode" do
     assert_difference('Audit.count') do
       post :buy_barcode, params: {id: @user, barcode: @barcode}
