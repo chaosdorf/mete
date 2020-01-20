@@ -2,6 +2,7 @@
 
 class User < ActiveRecord::Base
   validates_presence_of :name
+  validates :balance, numericality: {greater_than_or_equal_to: 0}, unless: :can_overdraw
   scope :order_by_name_asc, -> {
     order(arel_table['name'].lower.asc)
   }

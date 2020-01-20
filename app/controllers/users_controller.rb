@@ -130,7 +130,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
+    params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect, :can_overdraw)
   end
 
   def warn_user_if_audit
