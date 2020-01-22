@@ -2,15 +2,15 @@
   %li
     = link_to 'delete drink', @drink, method: :delete, :data => {confirm: "Really delete drink #{@drink.name}?"}
 
-= semantic_form_for @drink, :html => { :class => 'form-horizontal' } do |f|
-  = f.semantic_errors
-  = f.inputs  do
+= simple_form_for @drink, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
+  .form-inputs
     = f.input :name, hint:'the label says…'
-    = f.input :price, as: :number, hint:'e.g. 1.50; locked due to vandalism', :input_html => { :disabled => true }
+    = f.input :price, as: :decimal, hint:'e.g. 1.50; locked due to vandalism', :input_html => { :disabled => true }
     = f.input :bottle_size, hint: '0.5 or 0.33?'
     = f.input :caffeine, hint: 'in mg/100 ml'
     = f.input :logo, hint: 'make it look pretty'
     = f.input :active
-  = f.actions do
-    = f.action :submit
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
     = link_to 'Add a barcode', new_barcode_path(:drink => @drink.id), :class => 'btn'

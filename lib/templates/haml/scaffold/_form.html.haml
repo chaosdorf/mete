@@ -1,8 +1,12 @@
-= semantic_form_for @<%= singular_name %> do |f|
-  = f.inputs do
+-# frozen_string_literal: true
+= simple_form_for(@<%= singular_table_name %>) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
   <%- attributes.each do |attribute| -%>
-    = f.input :<%= attribute.name %>
+    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
   <%- end -%>
 
-  = f.actions do
-    = f.action :submit, :as => :input
+  .form-actions
+    = f.button :submit
