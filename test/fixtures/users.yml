@@ -4,6 +4,7 @@ one:
   name: A
   email: mail@example.net
   balance: 100
+  can_overdraw: false
 
 two:
   name: B

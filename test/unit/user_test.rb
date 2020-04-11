@@ -6,10 +6,30 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.save, "Saved the user without a name"
   end
   
+  test "should not save without overdraft if balance is below zero" do
+    user = User.new
+    user.can_overdraw = false
+    user.balance = -1
+    assert_not user.save, "Saved the user with overdrafting disabled and balance below zero"
+  end
+  
   test "should save" do
     user = User.new
     user.name = "test"
     assert user.save, "Failed to save the user with a name"
+  end
+  
+  test "should not modify if overdrafting is disabled and balance is below zero" do
+    user = users(:one)
+    user.balance = -1
+    assert_not user.save, "Modified the user with overdrafting disabled and balance below zero"
+  end
+  
+  test "should modify if overdrafting is enabled and balance is below zero" do
+    user = users(:one)
+    user.balance = -1
+    user.can_overdraw = true
+    assert user.save, "Failed to modify the user with overdrafting enabled and balance below zero"
   end
   
   test "should deposit" do
@@ -25,15 +45,23 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "should pay" do
-    assert users(:one).payment(rand(500)), "Failed to pay"
+    assert users(:one).payment(rand(99)), "Failed to pay"
   end
   
   test "payment should decrease balance" do
     user = users(:one)
-    amount = rand(500)
+    amount = rand(99)
     balance_was = user.balance
     user.payment amount
     assert_equal balance_was - amount, user.balance, "Payment didn't decrease the balance"
+  end
+  
+  test "payment should not lead to a negative balance if overdrafting is disabled" do
+    user = users(:one)
+    amount = 200
+    assert_raises ActiveRecord::RecordInvalid do
+      user.payment amount
+    end
   end
   
   test "should buy a drink" do
@@ -48,6 +76,15 @@ class UserTest < ActiveSupport::TestCase
     assert_equal balance_was - drink.price, user.balance, "Buying didn't decrease the balance"
   end
   
+  test "buying should not lead to a negative balance if overdrafting is disabled" do
+    user = users(:one)
+    user.balance = 1
+    drink = drinks(:one)
+    assert_raises ActiveRecord::RecordInvalid do
+      user.buy drink
+    end
+  end
+  
   test "should have attributes" do
     u = users(:one)
     assert_respond_to u, :id, "id missing"
@@ -59,5 +96,6 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to u, :active, "active missing"
     assert_respond_to u, :audit, "audit missing"
     assert_respond_to u, :redirect, "redirect missing"
+    assert_respond_to u, :can_overdraw, "can_overdraw missing"
   end
 end

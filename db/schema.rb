@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929201659) do
+ActiveRecord::Schema.define(version: 2020_01_19_134526) do
 
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170929201659) do
 
   create_table "barcodes", id: :string, force: :cascade do |t|
     t.integer "drink", null: false
-    t.index ["id"], name: "sqlite_autoindex_barcodes_1", unique: true
   end
 
   create_table "drinks", force: :cascade do |t|
@@ -47,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170929201659) do
     t.boolean "active", default: true
     t.boolean "audit", default: false
     t.boolean "redirect", default: true
+    t.boolean "can_overdraw", default: true
   end
 
 end

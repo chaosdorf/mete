@@ -7,6 +7,7 @@
     = f.input :active
     = f.input :audit, hint: 'This will create detailed logs about what you buy and deposit. If you uncheck this box, all records will be deleted.'
     = f.input :redirect, hint: "Redirect after buying a drink?"
+    = f.input :can_overdraw, hint: "Allow the balance to go below zero?"
   = f.actions do
     = f.action :submit
 

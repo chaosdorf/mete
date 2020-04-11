@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @drinks = Drink.order(active: :desc).order_by_name_asc
+    @drinks_missing = false
+    unless @user.can_overdraw
+      @drinks = @drinks.where(price: (0..@user.balance))
+      @drinks_missing = Drink.where.not(price: (0..@user.balance)).exists?
+    end
     # show.html.haml
   end
 
@@ -130,7 +135,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
+    params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect, :can_overdraw)
   end
 
   def warn_user_if_audit

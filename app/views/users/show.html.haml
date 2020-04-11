@@ -36,6 +36,12 @@
 
 %hr
 
+- if @drinks_missing
+  .alert.alert-info
+    Some drinks are hidden because their price is higher than your balance
+    and you have disabled overdrawing.
+    = link_to 'Change?', edit_user_url(@user)
+
 .row.drinks
   = render @drinks, :locals => {:user => @user}
 
