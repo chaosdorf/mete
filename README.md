@@ -85,7 +85,7 @@ This is built automatically on each push to `master`, but should still be stable
 Here's a minimal example using docker-compose:
 
 ```yaml
-version: 3
+version: "3"
 volumes:
   system:
   database:
