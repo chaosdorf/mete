@@ -63,7 +63,7 @@ class Api::V1::UsersController < ApplicationController
   # GET /users/1/deposit.json?amount=100
   def deposit
     @user = User.find(params[:id])
-    @user.deposit(BigDecimal.new(params[:amount]))
+    @user.deposit(BigDecimal(params[:amount]))
     head :no_content
   end
 
@@ -88,7 +88,7 @@ class Api::V1::UsersController < ApplicationController
   # GET /users/1/pay.json?amount=1.5
   def payment
     @user = User.find(params[:id])
-    @user.payment(BigDecimal.new(params[:amount]))
+    @user.payment(BigDecimal(params[:amount]))
     head :no_content
   end
 

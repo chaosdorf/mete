@@ -73,7 +73,7 @@ class UsersController < ApplicationController
   # GET /users/1/deposit?amount=100
   def deposit
     @user = User.find(params[:id])
-    @user.deposit(BigDecimal.new(params[:amount]))
+    @user.deposit(BigDecimal(params[:amount]))
     flash[:success] = "You just deposited some money and your new balance is #{show_amount(@user.balance)}. Thank you."
     warn_user_if_audit
     no_resp_redir @user
@@ -101,7 +101,7 @@ class UsersController < ApplicationController
   # GET /users/1/pay?amount=1.5
   def payment
     @user = User.find(params[:id])
-    @user.payment(BigDecimal.new(params[:amount]))
+    @user.payment(BigDecimal(params[:amount]))
     flash[:success] = "You just bought a drink and your new balance is #{show_amount(@user.balance)}. Thank you."
     if (@user.balance < 0) then
       flash[:warning] = "Your balance is below zero. Remember to compensate as soon as possible."
