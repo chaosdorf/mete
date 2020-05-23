@@ -14,7 +14,7 @@ gem 'sassc-rails'
 gem 'coffee-rails'
 gem 'bootstrap', "~> 4.3"
 
-gem 'uglifier', '>= 1.0.3'
+gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'haml-rails'
