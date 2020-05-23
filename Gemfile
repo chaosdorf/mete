@@ -30,7 +30,7 @@ gem 'rails-controller-testing'
 gem 'bootsnap'
 gem 'git_rev'
 
-gem "codeclimate-test-reporter", '~> 1', group: :test, require: nil
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -219,7 +219,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap (~> 4.3)
-  codeclimate-test-reporter (~> 1)
+  codeclimate-test-reporter
   coffee-rails
   faker
   favicon_maker
