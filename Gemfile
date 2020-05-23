@@ -47,8 +47,7 @@ gem 'sentry-raven'
 group :development do
   gem 'faker'
   gem 'rails-perftest'
-  # 1.2.0 and 1.3.0 cause a segfault in Ruby when running tests?!
-  gem 'ruby-prof', "< 1.2.0"
+  gem 'ruby-prof'
   gem 'spring'
   gem 'minitest', '< 5.11'
 end
