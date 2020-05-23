@@ -8,7 +8,7 @@ gem 'sprockets', '~> 3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', '~> 1.3.6' # ActiveRecord needs this version
+gem 'sqlite3'
 
 gem 'sassc-rails'
 gem 'coffee-rails'
