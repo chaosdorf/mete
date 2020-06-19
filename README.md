@@ -27,6 +27,8 @@ mete doesn't have any kind of discoverability built in. If you know the URL of a
  * Android App: (https://github.com/chaosdorf/meteroid)
  * iOS App: (https://github.com/chaosdorf/meteroid-ios)
  * Sailfish OS App: (https://github.com/r4mp/harbour-meteroid)
+ * CLI App: (https://github.com/YtvwlD/metecli)
+ * QML App: (https://github.com/YtvwlD/qmleteroid)
 
 2. Select your account
 
