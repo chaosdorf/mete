@@ -36,7 +36,7 @@ class DrinksController < ApplicationController
   # PATCH /drinks/1
   def update
     @drink = Drink.find(params[:id])
-    if @drink.update_attributes(drink_params)
+    if @drink.update(drink_params)
       flash[:success] = "Drink was successfully updated."
       no_resp_redir @drink
     else

@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  
+
   # GET /users.json
   def index
     @users = User.order(active: :desc).order_by_name_asc
@@ -34,7 +34,7 @@ class Api::V1::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @old_audit_status = @user.audit
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       if @user.audit != @old_audit_status
         unless @user.audit
           @user_audits = Audit.where(:user => @user.id)
@@ -73,7 +73,7 @@ class Api::V1::UsersController < ApplicationController
     @drink = Drink.find(params[:drink])
     buy_drink
   end
-  
+
   # POST /users/1/buy_barcode.json
   def buy_barcode
     @user = User.find(params[:id])
@@ -100,7 +100,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-  
+
   def buy_drink
     unless @drink.active?
       @drink.active = true

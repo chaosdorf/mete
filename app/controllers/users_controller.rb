@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @old_audit_status = @user.audit
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       if @user.audit != @old_audit_status
         unless @user.audit
           @user_audits = Audit.where(:user => @user.id)

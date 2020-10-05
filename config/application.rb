@@ -9,10 +9,7 @@ Bundler.require(*Rails.groups)
 module Mete
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.0
-    
-    # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.load_defaults 6.0
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

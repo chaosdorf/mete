@@ -1,3 +1,3 @@
-class Barcode < ActiveRecord::Base
-  validates_presence_of :id, :drink
+class Barcode < ApplicationRecord
+  validates :id, :drink, presence: true
 end

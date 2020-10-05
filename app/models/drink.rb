@@ -1,15 +1,15 @@
-class Drink < ActiveRecord::Base
+class Drink < ApplicationRecord
   scope :order_by_name_asc, -> {
     order(arel_table['name'].lower.asc)
   }
 
-  validates_presence_of :name, :bottle_size, :price
+  validates :name, :bottle_size, :price, presence: true
 
   has_attached_file :logo, :styles => { :thumb => "100x100#" }, :default_style => :thumb
   validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
   before_post_process :normalize_filename
   after_initialize :set_defaults, unless: :persisted?
-  
+
   def as_json(options)
     h = super(options)
     h["donation_recommendation"] = price # API compatibility

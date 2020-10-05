@@ -30,7 +30,7 @@ class Api::V1::DrinksController < ApplicationController
   # PATCH /drinks/1.json
   def update
     @drink = Drink.find(params[:id])
-    if @drink.update_attributes(drink_params)
+    if @drink.update(drink_params)
       head :no_content
     else
       render json: @drink.errors, status: :unprocessable_entity

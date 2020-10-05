@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-class User < ActiveRecord::Base
-  validates_presence_of :name
+class User < ApplicationRecord
+  validates :name, presence: true
+
   scope :order_by_name_asc, -> {
     order(arel_table['name'].lower.asc)
   }
