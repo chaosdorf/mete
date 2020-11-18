@@ -10,7 +10,7 @@ gem 'sqlite3'
 
 gem 'sassc-rails'
 gem 'coffee-rails'
-gem 'bootstrap', "~> 4.3"
+gem 'bootstrap', "~> 4"
 
 gem 'uglifier'
 
