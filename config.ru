@@ -2,4 +2,6 @@
 
 require_relative 'config/environment'
 
-run Mete::Application
+map ENV['RAILS_RELATIVE_URL_ROOT'] || "/" do
+    run Mete::Application
+end
