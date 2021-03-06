@@ -5,7 +5,9 @@ if ($('.user').length >= 50) {
   function hashchange() {
     var filterChar = location.hash.charAt(1);
     if (!filterChar) {
-      filterChar = allowedHashFilter.charAt(Math.floor(Math.random() * allowedHashFilter.length));
+      while ($(".user-" + filterChar).length === 0) {
+        filterChar = allowedHashFilter.charAt(Math.floor(Math.random() * allowedHashFilter.length));
+      }
     }
     var filter = '.user:not(.user-' + filterChar + ')';
     $('.user').show();
