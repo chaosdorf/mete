@@ -5,9 +5,9 @@
 
 .user-filter
   .btn-group
-    %a.btn.btn-primary{href: "#0"} #
+    %a.btn{href: "#0", class: "user-filter-0"} #
     - ('a'..'z').each do |a|
-      %a.btn.btn-primary{href: "##{a}"}= a
+      %a.btn{href: "##{a}", class: "user-filter-#{a}"}= a
 .row
 .row
   = render @users
