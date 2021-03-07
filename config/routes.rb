@@ -2,26 +2,26 @@ Mete::Application.routes.draw do
 
   # Redirections for legacy clients
 
-  get 'audits.json', to: redirect('/api/v1/audits.json'), format: false
+  get 'audits.json', to: redirect('api/v1/audits.json'), format: false
 
-  get 'barcodes.json', to: redirect('/api/v1/barcodes.json'), format: false
-  get 'barcodes/new.json', to: redirect('/api/v1/barcodes/new.json'), format: false
-  get 'barcodes/:id.json', to: redirect('/api/v1/barcodes/%{id}.json'), format: false
+  get 'barcodes.json', to: redirect('api/v1/barcodes.json'), format: false
+  get 'barcodes/new.json', to: redirect('api/v1/barcodes/new.json'), format: false
+  get 'barcodes/:id.json', to: redirect('api/v1/barcodes/%{id}.json'), format: false
 
-  get 'drinks.json', to: redirect('/api/v1/drinks.json'), format: false
-  get 'drinks/new.json', to: redirect('/api/v1/drinks/new.json'), format: false
-  get 'drinks/:id.json', to: redirect('/api/v1/drinks/%{id}.json'), format: false
+  get 'drinks.json', to: redirect('api/v1/drinks.json'), format: false
+  get 'drinks/new.json', to: redirect('api/v1/drinks/new.json'), format: false
+  get 'drinks/:id.json', to: redirect('api/v1/drinks/%{id}.json'), format: false
 
-  get 'users.json', to: redirect('/api/v1/users.json'), format: false
-  get 'users/new.json', to: redirect('/api/v1/users/new.json'), format: false
-  get 'users/:id.json', to: redirect('/api/v1/users/%{id}.json'), format: false
+  get 'users.json', to: redirect('api/v1/users.json'), format: false
+  get 'users/new.json', to: redirect('api/v1/users/new.json'), format: false
+  get 'users/:id.json', to: redirect('api/v1/users/%{id}.json'), format: false
 
-  get 'users/:id/deposit.json', to: redirect('/api/v1/users/%{id}/deposit.json'), format: false
-  get 'users/:id/payment.json', to: redirect('/api/v1/users/%{id}/payment.json'), format: false
-  get 'users/:id/buy.json', to: redirect('/api/v1/users/%{id}/buy.json'), format: false
-  get 'users/:id/buy_barcode.json', to: redirect('/api/v1/users/%{id}/buy_barcode.json'), format: false
+  get 'users/:id/deposit.json', to: redirect('api/v1/users/%{id}/deposit.json'), format: false
+  get 'users/:id/payment.json', to: redirect('api/v1/users/%{id}/payment.json'), format: false
+  get 'users/:id/buy.json', to: redirect('api/v1/users/%{id}/buy.json'), format: false
+  get 'users/:id/buy_barcode.json', to: redirect('api/v1/users/%{id}/buy_barcode.json'), format: false
 
-  get 'users/stats.json', to: redirect('/api/v1/users/stats.json'), format: false
+  get 'users/stats.json', to: redirect('api/v1/users/stats.json'), format: false
 
   # Regular routes
 
