@@ -1,4 +1,6 @@
 class Api::V1::AuditsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   # GET /audits.json
   def index
     if params[:start_date] and params[:end_date]

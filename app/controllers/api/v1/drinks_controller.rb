@@ -1,4 +1,6 @@
 class Api::V1::DrinksController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   # GET /drinks.json
   def index
     @drinks = Drink.order(active: :desc).order_by_name_asc
