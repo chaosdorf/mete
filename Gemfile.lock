@@ -241,7 +241,7 @@ DEPENDENCIES
   coffee-rails
   faker
   favicon_maker
-  formtastic
+  formtastic (~> 3.1)
   formtastic-bootstrap
   git_rev
   gravatar_image_tag
