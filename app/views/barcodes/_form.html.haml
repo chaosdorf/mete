@@ -1,7 +1,7 @@
-= semantic_form_for @barcode, :html => { :class => 'form-horizontal' } do |f|
-  = f.semantic_errors
-  = f.inputs do
+= simple_form_for @barcode, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
+  .form-inputs
     = f.input :id, hint: 'the label says…', input_html: { :autofocus => true }
     = f.input :drink, hint: 'If you edit a drink and click on "add barcode" this will be prefilled for you.', as: "select", collection: @drinks
-  = f.actions do
-    = f.action :submit
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
