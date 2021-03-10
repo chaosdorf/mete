@@ -12,19 +12,25 @@ class User < ApplicationRecord
   end
 
   def deposit(amount)
-    self.balance += amount
-    save!
+    with_lock do
+      self.balance += amount
+      save!
+    end
   end
 
   def buy(drink)
-    self.balance -= drink.price
-    @purchased_drink = drink
-    save!
+    with_lock do
+      self.balance -= drink.price
+      @purchased_drink = drink
+      save!
+    end
   end
 
   def payment(amount)
-    self.balance -= amount
-    save!
+    with_lock do
+      self.balance -= amount
+      save!
+    end
   end
 
   def initial
