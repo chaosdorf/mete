@@ -24,20 +24,20 @@
   %body
     %header
       %nav.navbar.navbar-expand-md.navbar-dark.bg-primary.fixed-top( role="navigation" )
-        %button.navbar-toggler( type="buttoon" data-toggle="collapse" data-target=".navbar-ex1-collapse" )
-          %span.sr-only Toggle navigation
-          %span.navbar-toggler-icon
-        = link_to 'MeTe', root_path, :class => 'navbar-brand'
+        .container-fluid
+          %button.navbar-toggler( type="button" data-bs-toggle="collapse" data-bs-target=".navbar-ex1-collapse" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" )
+            %span.navbar-toggler-icon
+          = link_to 'MeTe', root_path, :class => 'navbar-brand'
 
-        .collapse.navbar-collapse.navbar-ex1-collapse
-          %ul.navbar-nav.mr-auto
-            %li.nav-item= link_to "Users", url_for(controller: 'users'), class: "nav-link"
-            %li.nav-item= link_to "Stats", url_for(controller: 'users', action: 'stats'), class: "nav-link"
-            %li.nav-item= link_to "Audits", url_for(controller: 'audits'), class: "nav-link"
-            %li.nav-item= link_to "Drinks", url_for(controller: 'drinks'), class: "nav-link"
-            %li.nav-item= link_to "Barcodes", url_for(controller: 'barcodes'), class: "nav-link"
-          %ul.navbar-nav
-            = yield :actions
+          .collapse.navbar-collapse.navbar-ex1-collapse.justify-content-between#navbar
+            %ul.navbar-nav.mr-auto
+              %li.nav-item= link_to "Users", url_for(controller: 'users'), class: "nav-link"
+              %li.nav-item= link_to "Stats", url_for(controller: 'users', action: 'stats'), class: "nav-link"
+              %li.nav-item= link_to "Audits", url_for(controller: 'audits'), class: "nav-link"
+              %li.nav-item= link_to "Drinks", url_for(controller: 'drinks'), class: "nav-link"
+              %li.nav-item= link_to "Barcodes", url_for(controller: 'barcodes'), class: "nav-link"
+            %ul.navbar-nav
+              = yield :actions
 
     %article
       .container
