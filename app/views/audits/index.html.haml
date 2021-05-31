@@ -1,17 +1,17 @@
 - model_class = Audit
 
 = form_tag({}, { :class => 'form-horizontal', :method => :get }) do
-  .form-group
+  .mb-3
     = label_tag :start_date, "Show audits from ", class: 'col-form-label'
     .controls
       = select_date @start_date, prefix: :start_date, class: 'form-control'
-  .form-group
+  .mb-3
     = label_tag :end_date, "until", class: 'col-form-label'
     .controls
       = select_date @end_date, prefix: :end_date, class: 'form-control'
   - unless @user.nil?
     %input{:type => "hidden", :name => "user", :value => @user.id}
-  .form-group
+  .mb-3
     .controls
       %button.btn.btn-primary
         Filter
