@@ -8,25 +8,25 @@
     Drinks.
     %small All of them!
 
-%table.table.table-striped.table-bordered
+%table.table.table-striped.table-bordered.table-dark
   %thead
     %tr
-      %th
+      %th{:scope => "col"}
         = model_class.human_attribute_name(:logo)
         %span.small
           (click to edit drink)
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:bottle_size)
-      %th= model_class.human_attribute_name(:caffeine)
-      %th= model_class.human_attribute_name(:price)
-      %th= model_class.human_attribute_name(:created_at)
+      %th{:scope => "col"}= model_class.human_attribute_name(:name)
+      %th{:scope => "col"}= model_class.human_attribute_name(:bottle_size)
+      %th{:scope => "col"}= model_class.human_attribute_name(:caffeine)
+      %th{:scope => "col"}= model_class.human_attribute_name(:price)
+      %th{:scope => "col"}= model_class.human_attribute_name(:created_at)
   %tbody
     - @drinks.each do |drink|
       %tr
         %td
           = link_to [:edit, drink] do
             = image_tag drink.logo(:thumb), class: drink.active ? "" : "disabled"
-        %td= drink.name
+        %th{:scope => "row"}= drink.name
         %td= drink.bottle_size
         %td= drink.caffeine
         %td= show_amount drink.price

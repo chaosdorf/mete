@@ -33,22 +33,24 @@
     = @user.nil? ? "all users" : "user #{@user.name}"
     \:
 
-%table.table.table-striped.table-bordered.table-sm
-  %tr
-    %th Timestamp
-    %th Amount
-    %th Drink
-  - @audits.each do |audit|
-    - if audit.difference > 0
-      %tr.table-success
-        %td= audit.created_at
-        %td
-          = show_amount audit.difference
-        %td n/a
-    - else
-      %tr.table-error
-        %td= audit.created_at
-        %td
-          = show_amount audit.difference
-        %td
-          = link_to_drink_if_exists audit.drink
+%table.table.table-striped.table-bordered.table-sm.table-dark
+  %thead
+    %tr
+      %th{:scope => "col"} Timestamp
+      %th{:scope => "col"} Amount
+      %th{:scope => "col"} Drink
+  %tbody
+    - @audits.each do |audit|
+      - if audit.difference > 0
+        %tr.table-success
+          %td= audit.created_at
+          %td
+            = show_amount audit.difference
+          %td n/a
+      - else
+        %tr.table-danger
+          %td= audit.created_at
+          %td
+            = show_amount audit.difference
+          %td
+            = link_to_drink_if_exists audit.drink

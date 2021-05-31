@@ -8,16 +8,16 @@
     Barcodes.
     %small Here they are.
 
-%table.table.table-striped.table-bordered
+%table.table.table-striped.table-bordered.table-dark
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:drink)
-      %th Delete?
+      %th{:scope => "col"}= model_class.human_attribute_name(:id)
+      %th{:scope => "col"}= model_class.human_attribute_name(:drink)
+      %th{:scope => "col"} Delete?
   %tbody
     - @barcodes.each do |barcode|
       %tr
-        %td= barcode.id
+        %th{:scope => "row"}= barcode.id
         %td
           = link_to_drink_if_exists barcode.drink
         %td
