@@ -3,6 +3,5 @@
 # see https://github.com/mdeering/gravatar_image_tag
 
 GravatarImageTag.configure do |config|
-  config.default_image = "https://c3fickdistanz.de/gravatar-140.png"
   config.secure = true
 end
