@@ -1,17 +1,17 @@
 - model_class = Audit
 
 = form_tag({}, { :class => 'form-horizontal', :method => :get }) do
-  .form-group
+  .mb-3
     = label_tag :start_date, "Show audits from ", class: 'col-form-label'
     .controls
       = select_date @start_date, prefix: :start_date, class: 'form-control'
-  .form-group
+  .mb-3
     = label_tag :end_date, "until", class: 'col-form-label'
     .controls
       = select_date @end_date, prefix: :end_date, class: 'form-control'
   - unless @user.nil?
     %input{:type => "hidden", :name => "user", :value => @user.id}
-  .form-group
+  .mb-3
     .controls
       %button.btn.btn-primary
         Filter
@@ -33,22 +33,24 @@
     = @user.nil? ? "all users" : "user #{@user.name}"
     \:
 
-%table.table.table-striped.table-bordered.table-sm
-  %tr
-    %th Timestamp
-    %th Amount
-    %th Drink
-  - @audits.each do |audit|
-    - if audit.difference > 0
-      %tr.table-success
-        %td= audit.created_at
-        %td
-          = show_amount audit.difference
-        %td n/a
-    - else
-      %tr.table-error
-        %td= audit.created_at
-        %td
-          = show_amount audit.difference
-        %td
-          = link_to_drink_if_exists audit.drink
+%table.table.table-striped.table-bordered.table-sm.table-dark
+  %thead
+    %tr
+      %th{:scope => "col"} Timestamp
+      %th{:scope => "col"} Amount
+      %th{:scope => "col"} Drink
+  %tbody
+    - @audits.each do |audit|
+      - if audit.difference > 0
+        %tr.table-success
+          %td= audit.created_at
+          %td
+            = show_amount audit.difference
+          %td n/a
+      - else
+        %tr.table-danger
+          %td= audit.created_at
+          %td
+            = show_amount audit.difference
+          %td
+            = link_to_drink_if_exists audit.drink
