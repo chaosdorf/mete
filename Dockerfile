@@ -1,6 +1,5 @@
 FROM ruby:2.7-alpine
 RUN apk --no-cache add nodejs git g++ make postgresql-dev sqlite-dev tzdata file imagemagick
-RUN gem install bundler:1.17.3
 WORKDIR /app
 COPY Gemfile /app
 COPY Gemfile.lock /app
