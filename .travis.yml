@@ -3,6 +3,9 @@ language: ruby
 rvm:
  - 2.5
  - 2.6
+ - 2.7
+before_install:
+ - gem install bundler:1.17.3
 script:
  - bundle exec rake db:migrate RAILS_ENV=test
  - bundle exec rake
