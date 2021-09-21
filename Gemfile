@@ -29,6 +29,9 @@ gem 'git_rev'
 
 gem "codeclimate-test-reporter", group: :test, require: nil
 
+# work around a bug in Debian (https://github.com/rails/thor/issues/721)
+gem 'thor', '~> 1.0.1'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

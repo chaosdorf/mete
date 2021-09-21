@@ -230,7 +230,7 @@ GEM
     temple (0.8.2)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
-    thor (1.1.0)
+    thor (1.0.1)
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -271,6 +271,7 @@ DEPENDENCIES
   simple_form
   spring
   sqlite3
+  thor (~> 1.0.1)
   uglifier
 
 BUNDLED WITH
