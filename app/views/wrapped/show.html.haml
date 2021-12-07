@@ -15,3 +15,23 @@
     Please make sure that the "audit" option is enabled in
     = link_to 'your account settings', edit_user_path(@user)
     and check back next year.
+- else
+  .card
+    .card-header
+      Most Bought Drink
+    .row.g-0
+      .col-md-4
+        = image_tag @most_bought_drink[:drink].logo(:thumb), alt: @most_bought_drink[:drink].name, class: ['img-fluid', 'rounded-start']
+      .col-md-8.card-body
+        %h5.card-title
+          Your favorite drink is #{@most_bought_drink[:drink].name}.
+        .card-text
+          At least you bought it #{@most_bought_drink[:count]} times this year.
+        .card-text
+          - if @most_bought_drink[:user_more] > 1
+            There are only #{@most_bought_drink[:user_more]} other users who enjoy
+          - if @most_bought_drink[:user_more] == 1
+            There is only one other user who enjoys
+          - if @most_bought_drink[:user_more] == 0
+            There are no other users who enjoy
+          #{@most_bought_drink[:drink].name} more than you.
