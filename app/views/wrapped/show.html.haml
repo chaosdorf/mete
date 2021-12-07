@@ -8,3 +8,10 @@
 .alert.alert-info
   This is a new feature. Be sure to leave feedback on
   = link_to "GitHub", "https://github.com/chaosdorf/mete/pull/108"
+
+- if @empty
+  .alert.alert-warning
+    There are no logs for your account for the this year.
+    Please make sure that the "audit" option is enabled in
+    = link_to 'your account settings', edit_user_path(@user)
+    and check back next year.

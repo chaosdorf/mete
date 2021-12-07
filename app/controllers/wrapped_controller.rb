@@ -10,7 +10,9 @@ class WrappedController < ApplicationController
   # GET /users/1/wrapped/1970
   def show
     @user = User.find(params[:user_id])
-    @year = params[:id]
+    @year = Integer(params[:id])
+    audits = audits_for(@user, @year)
+    @empty = audits.none?
     # wrapped.html.haml
   end
   
