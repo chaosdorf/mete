@@ -27,6 +27,11 @@
       %dd
         = show_amount @user.balance
 
+- if @wrapped
+  .mt-3.alert.alert-info
+    Your #{@wrapped} wrapped is available.
+    = link_to 'See what you\'ve been up to.', user_wrapped_path(@user, @wrapped)
+
 %hr
 
 %form{:method => "POST", :action => buy_barcode_user_path}
