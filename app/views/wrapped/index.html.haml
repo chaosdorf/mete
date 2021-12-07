@@ -1,0 +1,18 @@
+- model_class = User
+.page-header
+  %h1
+    = "#{@user.name}'s wrapped"
+    %small
+      for the last years
+
+.alert.alert-info
+  This is a new feature. Be sure to leave feedback on
+  = link_to "GitHub", "https://github.com/chaosdorf/mete/pulls/108"
+
+.row.row-cols-1.row-cols-md-2.g-4
+  - @years.each do |year|
+    = link_to(user_wrapped_path(@user, year)) do
+      .card.h-100.text-center
+        .card-body
+          %h4.card-title
+            = year
