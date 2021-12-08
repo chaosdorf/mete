@@ -8,7 +8,7 @@ class User < ApplicationRecord
   }
 
   after_save do |user|
-    Audit.create! difference: user.balance - user.balance_before_last_save, drink: @purchased_drink, user: user.audit? ? user.id : nil
+    Audit.create! difference: user.balance - user.balance_before_last_save, drink: @purchased_drink, user: user.audit? ? user : nil
   end
 
   def deposit(amount)
