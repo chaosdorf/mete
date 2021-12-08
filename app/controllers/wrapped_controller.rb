@@ -29,8 +29,7 @@ class WrappedController < ApplicationController
   end
   
   def most_bought_drink(audits, year)
-    drink_id, count = audits.reorder(nil).group(:drink).count.max_by { |_, v| v }
-    drink = Drink.find(drink_id)
+    drink, count = audits.reorder(nil).group(:drink).count.max_by { |_, v| v }
     user_more = audits_for(User.where(audit: true), year)
                 .where(drink: drink).reorder(nil).group(:user).count
                 .select { |_, v| v > count }
