@@ -102,3 +102,10 @@ label {
   width: 100%;
   height: auto;
 }
+
+.wrapped-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

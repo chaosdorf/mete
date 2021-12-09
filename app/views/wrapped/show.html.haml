@@ -20,8 +20,9 @@
     .card-header
       Most Bought Drink
     .row.g-0
-      .col-md-4
-        = image_tag @most_bought_drink[:drink].logo(:thumb), alt: @most_bought_drink[:drink].name, class: ['img-fluid', 'rounded-start']
+      .col-xs-1.col-sm-4.col-md-3.col-lg-2
+        .wrapped-image
+          = image_tag @most_bought_drink[:drink].logo(:thumb), alt: @most_bought_drink[:drink].name, class: ['img-fluid', 'rounded-start']
       .col-md-8.card-body
         %h5.card-title
           Your favorite drink is #{@most_bought_drink[:drink].name}.
