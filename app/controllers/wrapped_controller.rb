@@ -16,6 +16,7 @@ class WrappedController < ApplicationController
     unless @empty
       @most_bought_drink = most_bought_drink(audits, @year)
       @caffeine = caffeine(audits)
+      @most_active = most_active(audits)
     end
     
     # wrapped.html.haml
@@ -66,5 +67,12 @@ class WrappedController < ApplicationController
                    end
     end
     { total: total, would_kill: would_kill }
+  end
+  
+  def most_active(audits)
+    weekday_hour = audits.select(:created_at).map(&:created_at).map do |dt|
+      { weekday: dt.strftime('%A'), hour: dt.hour }
+    end
+    weekday_hour.tally.max_by { |_, v| v }[0]
   end
 end

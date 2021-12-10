@@ -48,3 +48,12 @@
         - if @caffeine[:would_kill]
           .card-text
             This could kill a medium-weight #{@caffeine[:would_kill]}. Glad you're still here.
+  .card.mt-3
+    .card-header
+      Most Active Times
+    .row.g-0
+      .col-xs-1.col-sm-4.col-md-3.col-lg-2
+        = image_tag image_url('clock.png'), alt: 'coffee beans', class: ['img-fluid', 'rounded-start', 'mx-auto'], style: 'display: block'
+      .col-md-8.card-body
+        %h5.card-title
+          You were most active on #{@most_active[:weekday]}s at #{@most_active[:hour]} o'clock.
