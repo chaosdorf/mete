@@ -12,13 +12,12 @@ class WrappedController < ApplicationController
     @user = User.find(params[:user_id])
     @year = Integer(params[:id])
     audits = audits_for(@user, @year)
-    @empty = audits.none?
-    unless @empty
-      @most_bought_drink = most_bought_drink(audits, @year)
-      @caffeine = caffeine(audits)
-      @most_active = most_active(audits)
-    end
+    @empty = audits.where.not(drink: nil).none?
+    return if @empty
     
+    @most_bought_drink = most_bought_drink(audits, @year)
+    @caffeine = caffeine(audits)
+    @most_active = most_active(audits)
     # wrapped.html.haml
   end
   
@@ -31,7 +30,8 @@ class WrappedController < ApplicationController
   end
   
   def most_bought_drink(audits, year)
-    drink, count = audits.reorder(nil).group(:drink).count.max_by { |_, v| v }
+    drink, count = audits.where.not(drink: nil)
+                         .reorder(nil).group(:drink).count.max_by { |_, v| v }
     user_more = audits_for(User.where(audit: true), year)
                 .where(drink: drink).reorder(nil).group(:user).count
                 .select { |_, v| v > count }
