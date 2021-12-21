@@ -12,6 +12,15 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @drinks = Drink.order(active: :desc).order_by_name_asc
+    @wrapped = nil
+    if @user.audit
+      if Date.today.month == 12
+        @wrapped = Date.today.year
+      end
+      if Date.today.month == 01
+        @wrapped = Date.today.year - 1
+      end
+    end
     # show.html.haml
   end
 

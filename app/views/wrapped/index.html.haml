@@ -1,0 +1,19 @@
+- model_class = User
+.page-header
+  %h1
+    = "#{@user.name}'s wrapped"
+    %small
+      for the last years
+
+= render 'new_feature'
+
+- if @years.empty?
+  = render 'no_logs'
+
+.row.row-cols-1.row-cols-md-2.g-4
+  - @years.each do |year|
+    = link_to(user_wrapped_path(@user, year)) do
+      .card.h-100.text-center
+        .card-body
+          %h4.card-title
+            = year

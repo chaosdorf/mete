@@ -31,6 +31,7 @@ Mete::Application.routes.draw do
   get 'audits' => 'audits#index'
 
   resources :users do
+    resources :wrapped
     member do
       get 'deposit'
       get 'payment'

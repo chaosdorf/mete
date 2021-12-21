@@ -90,7 +90,7 @@ class UsersControllerTest < ActionController::TestCase
   
   test "buy with logging enabled resulting in identifiable audit" do
     get :buy, params: {id: users(:two), drink: @drink}
-    assert_equal users(:two).id, Audit.first.user
+    assert_equal users(:two), Audit.first.user
   end
   
   test "buy with redirect disabled results in no redirect" do

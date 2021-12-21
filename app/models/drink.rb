@@ -10,7 +10,7 @@ class Drink < ApplicationRecord
   before_post_process :normalize_filename
   after_initialize :set_defaults, unless: :persisted?
 
-  def as_json(options)
+  def as_json(options = {})
     h = super(options)
     h["donation_recommendation"] = price # API compatibility
     h["logo_url"] = logo.url
