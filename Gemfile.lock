@@ -88,10 +88,6 @@ GEM
     execjs (2.8.1)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
-    faraday (2.2.0)
-      faraday-net_http (~> 2.0)
-      ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.0.1)
     favicon_maker (1.3.1)
       docile (~> 1.1)
     ffi (1.15.5)
@@ -186,7 +182,6 @@ GEM
       thor (~> 1.0)
     rake (13.0.6)
     ruby-prof (1.4.3)
-    ruby2_keywords (0.0.5)
     ruby_parser (3.18.1)
       sexp_processor (~> 4.16)
     sassc (2.4.0)
@@ -197,8 +192,14 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sentry-raven (3.1.2)
-      faraday (>= 1.0)
+    sentry-rails (5.0.2)
+      railties (>= 5.0)
+      sentry-ruby-core (~> 5.0.2)
+    sentry-ruby (5.0.2)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      sentry-ruby-core (= 5.0.2)
+    sentry-ruby-core (5.0.2)
+      concurrent-ruby
     sexp_processor (4.16.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
@@ -257,7 +258,8 @@ DEPENDENCIES
   rails-perftest
   ruby-prof
   sassc-rails
-  sentry-raven
+  sentry-rails
+  sentry-ruby
   simple_form
   spring
   sqlite3

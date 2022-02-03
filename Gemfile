@@ -42,7 +42,8 @@ gem 'thor', '~> 1.0.1'
 # gem 'debugger'
 #
 #
-gem 'sentry-raven'
+gem 'sentry-ruby'
+gem 'sentry-rails'
 
 group :development do
   gem 'faker'
