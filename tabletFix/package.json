@@ -1,0 +1,12 @@
+{
+  "name": "tablet-fix",
+  "scripts": {
+    "compile": "babel assets -d assets",
+    "gzip": "rm assets/*.js.gz && gzip -9 -k assets/*.js",
+    "tabletFix": "npm run compile && npm run gzip"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/preset-env": "^7.16.11"
+  }
+}
