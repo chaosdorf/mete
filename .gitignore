@@ -31,3 +31,5 @@
 coverage
 public/assets
 .idea/
+
+tabletFix/node_modules
