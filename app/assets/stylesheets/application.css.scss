@@ -1,13 +1,14 @@
-@import "bootswatch/slate/variables";
+@import "bootswatch/vapor/variables";
 @import "bootstrap";
-@import "bootswatch/slate/bootswatch";
+$outrun: true !default;
+@import "bootswatch/vapor/bootswatch";
 
 // make room for navigation bar
 body { padding-top: 5rem; }
 
 .navbar-brand {
   background-image: image_url('mete-logo.svg');
-  background-position: 0.5em 0.5em;
+  background-position: 0em 0em;
   background-repeat: no-repeat;
   background-size: 2em;
   padding-left: 3em;
