@@ -12,7 +12,8 @@ ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["rails", "server", "--binding", "[::]", "--port", "80"]
 EXPOSE 80
 
-FROM node:16-alpine as tabletFix
+FROM node:18-alpine as tabletFix
+RUN apk add --no-cache brotli
 WORKDIR /app
 COPY tabletFix/ /app
 RUN npm install

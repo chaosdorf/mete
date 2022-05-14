@@ -2,11 +2,24 @@
   "name": "tablet-fix",
   "scripts": {
     "compile": "babel assets -d assets",
-    "gzip": "rm assets/*.js.gz && gzip -9 -k assets/*.js",
-    "tabletFix": "npm run compile && npm run gzip"
+    "gzip": "run-p gzipJS gzipCSS",
+    "gzipJS": "rm assets/*.js.gz && gzip -9 -k assets/*.js",
+    "gzipCSS": "rm assets/*.css.gz && gzip -9 -k assets/*.css",
+    "compressJS": "node compress.mjs",
+    "compressCSS": "postcss -r assets/*.css",
+    "compress": "run-p compressJS compressCSS",
+    "brotli": "run-p brotliJS brotliCSS",
+    "brotliJS": "rm assets/*.js.br && brotli assets/*.js",
+    "brotliCSS": "rm assets/*.css.br && brotli assets/*.css",
+    "tabletFix": "run-s compile compress gzip brotli"
   },
   "dependencies": {
     "@babel/cli": "^7.17.6",
-    "@babel/preset-env": "^7.16.11"
+    "@babel/preset-env": "^7.16.11",
+    "cssnano": "^5.1.7",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.13",
+    "postcss-cli": "^9.1.0",
+    "terser": "^5.13.1"
   }
 }
