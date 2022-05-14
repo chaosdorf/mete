@@ -3,14 +3,14 @@
   "scripts": {
     "compile": "babel assets -d assets",
     "gzip": "run-p gzipJS gzipCSS",
-    "gzipJS": "rm assets/*.js.gz && gzip -9 -k assets/*.js",
-    "gzipCSS": "rm assets/*.css.gz && gzip -9 -k assets/*.css",
+    "gzipJS": "rm -f assets/*.js.gz && gzip -9 -k assets/*.js",
+    "gzipCSS": "rm -f assets/*.css.gz && gzip -9 -k assets/*.css",
     "compressJS": "node compress.mjs",
     "compressCSS": "postcss -r assets/*.css",
     "compress": "run-p compressJS compressCSS",
     "brotli": "run-p brotliJS brotliCSS",
-    "brotliJS": "rm assets/*.js.br && brotli assets/*.js",
-    "brotliCSS": "rm assets/*.css.br && brotli assets/*.css",
+    "brotliJS": "rm -f assets/*.js.br && brotli assets/*.js",
+    "brotliCSS": "rm -f assets/*.css.br && brotli assets/*.css",
     "tabletFix": "run-s compile compress gzip brotli"
   },
   "dependencies": {
