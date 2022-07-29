@@ -5,7 +5,7 @@ Mete::Application.configure do
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
   # and recreated between test runs. Don't rely on the data there!
-  config.cache_classes = true
+  config.cache_classes = false
 
   # Configure static files server for tests with Cache-Control for performance
   config.public_file_server.enabled = true

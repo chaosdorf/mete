@@ -47,7 +47,6 @@ gem 'sentry-rails'
 
 group :development do
   gem 'faker'
-  gem 'rails-perftest'
   gem 'ruby-prof'
   gem 'spring'
   gem 'minitest', '< 5.11'
