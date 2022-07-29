@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/marudor/gravatar_image_tag
+  remote: https://github.com/chaosdorf/gravatar_image_tag
   revision: cbdba8aaa035735663a345e7e88d6a08006646da
   specs:
     gravatar_image_tag (1.2.0)
