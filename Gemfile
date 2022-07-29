@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github){ |repo_name| "https://github.com/#{repo_name}.git" }
 
-gem 'rails', '~> 6'
+gem 'rails', '~> 7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -16,7 +16,7 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'haml-rails'
-gem 'gravatar_image_tag'
+gem 'gravatar_image_tag', git: 'https://github.com/chaosdorf/gravatar_image_tag'
 gem 'kt-paperclip'
 gem 'simple_form'
 gem 'favicon_maker'
