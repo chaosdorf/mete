@@ -1,9 +1,0 @@
-dist: bionic
-language: ruby
-rvm:
- - 2.5
- - 2.6
- - 2.7
-script:
- - bundle exec rake db:migrate RAILS_ENV=test
- - bundle exec rake
