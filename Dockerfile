@@ -13,12 +13,13 @@ CMD ["rails", "server", "--binding", "[::]", "--port", "80"]
 EXPOSE 80
 
 FROM node:18-alpine as tabletFix
+RUN corepack enable
 RUN apk add --no-cache brotli
 WORKDIR /app
 COPY tabletFix/ /app
-RUN npm install
+RUN pnpm i
 COPY --from=main /app/public/assets /app/assets
-RUN npm run tabletFix
+RUN pnpm tabletFix
 
 FROM main
 COPY --from=tabletFix /app/assets /app/public/assets
