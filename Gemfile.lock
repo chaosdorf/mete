@@ -239,7 +239,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.5.0)
+    sqlite3 (1.5.1)
       mini_portile2 (~> 2.8.0)
     strscan (3.0.4)
     temple (0.8.2)
