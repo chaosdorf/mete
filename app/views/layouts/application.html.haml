@@ -20,6 +20,8 @@
     %link{ rel: "shortcut icon", href: image_path("/favicon.png") }
     %link{ rel: "icon", type: "image/ico", href: image_path("/favicon.ico") }
     %link{ rel: "manifest", href: asset_path("/manifest.json") }
+    - if params[:iframe] == "true"
+      = stylesheet_link_tag "iframe", :media => "all"
 
   %body
     %header
