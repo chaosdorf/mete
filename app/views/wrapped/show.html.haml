@@ -34,9 +34,9 @@
     .row.g-0
       .col-xs-1.col-sm-4.col-md-3.col-lg-2
         - if Rails.application.assets_manifest.find_sources("#{@caffeine[:would_kill]}.png").any?
-          = image_tag image_url("#{@caffeine[:would_kill]}.png"), alt: @caffeine[:would_kill], class: ['img-fluid', 'rounded-start', 'mx-auto'], style: 'display: block'
+          = image_tag image_path("#{@caffeine[:would_kill]}.png"), alt: @caffeine[:would_kill], class: ['img-fluid', 'rounded-start', 'mx-auto'], style: 'display: block'
         - else
-          = image_tag image_url('coffee-beans.png'), alt: 'coffee beans', class: ['img-fluid', 'rounded-start', 'mx-auto'], style: 'display: block'
+          = image_tag image_path('coffee-beans.png'), alt: 'coffee beans', class: ['img-fluid', 'rounded-start', 'mx-auto'], style: 'display: block'
       .col-md-8.card-body
         %h5.card-title
           You consumed #{@caffeine[:total]} mg of caffeine this year.
@@ -48,7 +48,7 @@
       Most Active Times
     .row.g-0
       .col-xs-1.col-sm-4.col-md-3.col-lg-2
-        = image_tag image_url('clock.png'), alt: 'clock', class: ['img-fluid', 'rounded-start', 'mx-auto'], style: 'display: block'
+        = image_tag image_path('clock.png'), alt: 'clock', class: ['img-fluid', 'rounded-start', 'mx-auto'], style: 'display: block'
       .col-md-8.card-body
         %h5.card-title
           You were most active on #{@most_active[:weekday]}s at #{@most_active[:hour]} o'clock.
