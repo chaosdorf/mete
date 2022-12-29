@@ -10,7 +10,7 @@
 - else
   .card
     .card-header
-      Most Bought Drink
+      Most Frequent Drink
     .row.g-0
       .col-xs-1.col-sm-4.col-md-3.col-lg-2
         .wrapped-image
@@ -19,7 +19,7 @@
         %h5.card-title
           Your favorite drink is #{@most_bought_drink[:drink].name}.
         .card-text
-          At least you bought it #{@most_bought_drink[:count]} times this year.
+          At least you enjoyed it #{@most_bought_drink[:count]} times this year.
         .card-text
           - if @most_bought_drink[:user_more] > 1
             There are only #{@most_bought_drink[:user_more]} other users who enjoy
