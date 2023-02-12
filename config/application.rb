@@ -9,8 +9,9 @@ Bundler.require(*Rails.groups)
 module Mete
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.0
     config.active_record.legacy_connection_handling = false
+    config.action_dispatch.cookies_serializer = :hybrid
 
     # Configuration for the application, engines, and railties goes here.
     #
