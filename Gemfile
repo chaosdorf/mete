@@ -45,6 +45,9 @@ gem 'thor', '~> 1.0.1'
 gem 'sentry-ruby'
 gem 'sentry-rails'
 
+# To toot purchases to Mastodon
+gem 'httparty'
+
 group :development do
   gem 'faker'
   gem 'ruby-prof'
