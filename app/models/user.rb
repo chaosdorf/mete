@@ -45,16 +45,17 @@ class User < ApplicationRecord
   end
   
   def toot(drink)
-    response = HTTParty.post(
-      Rails.application.config.mastodon_instance + "/api/v1/statuses", 
-      body: URI.encode_www_form({status: drink.name + '!'}),
-      :headers => {"Authorization" => 'Bearer ' + Rails.application.config.mastodon_token}
-    )
-    case response.code
-      when 200...204
-        puts "All good!"
-      when 300...600
-        puts "Something went wrong! #{response.code}"
+    t = Thread.new do
+      response = HTTParty.post(
+        Rails.application.config.mastodon_instance + "/api/v1/statuses", 
+        body: URI.encode_www_form({status: drink.name + '!'}),
+        :headers => {"Authorization" => 'Bearer ' + Rails.application.config.mastodon_token}
+      )
+      case response.code
+        when 200...204
+          puts "I tooted! Status ID: " + response.parsed_response['id']
+        when 300...600
+          puts "Tooting failed! #{response.code}: #{response}"
       end
     end
   end
