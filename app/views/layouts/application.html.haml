@@ -7,7 +7,7 @@
     %meta(name="apple-mobile-web-app-capable" content="yes")
     %meta(name="mobile-web-app-capable" content="yes")
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
-    %title= content_for?(:title) ? yield(:title) : "Mete"
+    %title= content_for?(:title) ? yield(:title) : "WinMete"
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
     %link{ rel: "apple-touch-icon", sizes: "144x144", href: image_path("/apple-touch-icon-144x144-precomposed.png") }
@@ -29,7 +29,7 @@
         .container-fluid
           %button.navbar-toggler( type="button" data-bs-toggle="collapse" data-bs-target=".navbar-ex1-collapse" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" )
             %span.navbar-toggler-icon
-          = link_to 'MeTe', root_path, :class => 'navbar-brand'
+          = link_to 'WinMete', root_path, :class => 'navbar-brand'
 
           .collapse.navbar-collapse.navbar-ex1-collapse.justify-content-between#navbar
             %ul.navbar-nav.mr-auto
@@ -49,7 +49,7 @@
     %footer.footer
       .container
         %p.text-muted
-          mete
+          winmete
           = link_to get_revision, "https://github.com/chaosdorf/mete/tree/#{get_revision}"
 
     /
