@@ -1,4 +1,4 @@
-FROM ruby:3-alpine as main
+FROM ruby:3.2-alpine as main
 RUN apk --no-cache add nodejs git g++ make postgresql-dev sqlite-dev tzdata file imagemagick
 WORKDIR /app
 COPY Gemfile /app
