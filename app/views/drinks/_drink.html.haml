@@ -10,5 +10,12 @@
         = image_tag drink.logo(:thumb), alt: drink.name, class: drink.active? ? "" : "disabled"
       .card-footer
         = show_amount drink.price
-        = show_amount (drink.price / drink.bottle_size)*100
-        = show_amount (drink.caffeine / drink.price) if drink.caffeine
+        %br
+        = drink.price / drink.bottle_size
+        €/L
+        %br
+        - if drink.caffeine && !drink.caffeine.zero?
+          = sprintf('%.2f', (drink.caffeine / drink.price))
+          mg caffeine/€
+        - else
+          ??? mg caffeine/€
