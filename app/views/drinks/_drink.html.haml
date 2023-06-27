@@ -7,6 +7,6 @@
         .inner-header
           %h6= drink.name
       .card-body
-        = image_tag drink.logo(:thumb), alt: drink.name, class: drink.active? ? "" : "disabled"
+        = image_tag drink.logo(:medium), alt: drink.name, class: drink.active? ? "" : "disabled", size: 100
       .card-footer
         = show_amount drink.price

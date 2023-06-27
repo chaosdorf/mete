@@ -14,7 +14,7 @@
     .row.g-0
       .col-xs-1.col-sm-4.col-md-3.col-lg-2
         .wrapped-image
-          = image_tag @most_bought_drink[:drink].logo(:thumb), alt: @most_bought_drink[:drink].name, class: ['img-fluid', 'rounded-start']
+          = image_tag @most_bought_drink[:drink].logo(:medium), alt: @most_bought_drink[:drink].name, class: ['img-fluid', 'rounded-start'], size: 100
       .col-md-8.card-body
         %h5.card-title
           Your favorite drink is #{@most_bought_drink[:drink].name}.
