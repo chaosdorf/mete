@@ -21,9 +21,9 @@
   .col-8.col-sm-9.col-md-10.col-lg-10.col-xl-11
     %dl.dl-horizontal
       %dt
-        = model_class.human_attribute_name(:email)
+        = @user.avatar_provider == "gravatar" ? "Gravatar" : nil
       %dd
-        = @user.email
+        = @user.avatar
       %dt
         = model_class.human_attribute_name(:balance)
       %dd
