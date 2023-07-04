@@ -61,6 +61,11 @@ class UsersController < ApplicationController
           flash[:info] = "Deleted all your logs."
         end
       end
+
+      if @user.avatar_provider = "webfinger"
+        Rails.cache.delete "fetch_avatar_url_from_webfinger_or_activitypub #{@user.avatar}"
+      end
+
       flash[:success] = "User was successfully updated."
       no_resp_redir @user
     else
