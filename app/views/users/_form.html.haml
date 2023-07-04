@@ -3,9 +3,9 @@
   .form-inputs
     = f.input :name, hint: 'your nickname'
     = f.input :avatar_provider,
-      :collection => [['Gravatar', 'gravatar']],
+      :collection => [['Gravatar', 'gravatar'], ['WebFinger / ActivityPub', 'webfinger']],
       :as => :radio_buttons,
-      :hint => "This determines how the identifier below will be interpreted. Use an email for Gravatar"
+      :hint => "This determines how the identifier below will be interpreted. Use an email for Gravatar and a fediverse username for WebFinger / ActivityPub"
     = f.input :avatar, hint: 'An identifier for your avatar'
     = f.input :balance, :as => :decimal, hint: 'just in case you need to correct this'
     = f.input :active

@@ -42,6 +42,14 @@ img.disabled {
   opacity: 0.3;
 }
 
+.webfinger-missing {
+  background-image: image_url('webfinger-missing.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 80px !important;
+  height: 80px !important;
+}
+
 .user-filter {
   display: flex;
   overflow: hidden;
