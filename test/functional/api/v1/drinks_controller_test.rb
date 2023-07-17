@@ -26,7 +26,7 @@ class Api::V1::DrinksControllerTest < ActionController::TestCase
     assert_nil resp["logo_content_type"]
     assert_nil resp["logo_file_size"]
     assert_nil resp["logo_updated_at"]
-    assert_equal "/logos/thumb/missing.png", resp["logo_url"]
+    assert_equal "/logos/medium/missing.png", resp["logo_url"]
     assert_nil resp["created_at"]
     assert_nil resp["updated_at"]
     assert_equal true, resp["active"]

@@ -5,7 +5,7 @@ class Drink < ApplicationRecord
 
   validates :name, :bottle_size, :price, presence: true
 
-  has_attached_file :logo, :styles => { :thumb => "100x100#" }, :default_style => :thumb
+  has_attached_file :logo, :styles => { :thumb => "100x100#", :medium => "640x640#" }, :default_style => :medium
   validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
   before_post_process :normalize_filename
   after_initialize :set_defaults, unless: :persisted?
