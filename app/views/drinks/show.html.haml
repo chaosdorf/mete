@@ -1,4 +1,6 @@
 = render @drink
+- content_for :title do
+  Drink
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), drinks_path, :class => 'btn'

@@ -1,4 +1,6 @@
 - model_class = User
+- content_for :title do
+  User #{@user.name}
 - content_for :actions do
   %li.nav-item
     = link_to 'edit user', edit_user_path(@user), class: "nav-link"

@@ -7,7 +7,7 @@
     %meta(name="apple-mobile-web-app-capable" content="yes")
     %meta(name="mobile-web-app-capable" content="yes")
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
-    %title= content_for?(:title) ? yield(:title) : "Mete"
+    %title= content_for?(:title) ? "Mete ++ " + yield(:title) : "Mete"
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
     %link{ rel: "apple-touch-icon", sizes: "144x144", href: image_path("/apple-touch-icon-144x144-precomposed.png") }

@@ -1,4 +1,6 @@
 - model_class = Barcode
+- content_for :title do
+  Barcodes
 - content_for :actions do
   %li.nav-item
     = link_to 'new barcode', [:new, :barcode], class: "nav-link"
