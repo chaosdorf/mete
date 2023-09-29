@@ -5,6 +5,7 @@ COPY Gemfile /app
 COPY Gemfile.lock /app
 VOLUME /app/public/system
 RUN bundle config --local build.sassc --disable-march-tune-native
+RUN bundle config set force_ruby_platform true
 RUN bundle install
 COPY . /app
 RUN bundle exec rake assets:precompile
@@ -12,13 +13,13 @@ ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["rails", "server", "--binding", "[::]", "--port", "80"]
 EXPOSE 80
 
-FROM node:18-alpine as tabletFix
+FROM node:20-alpine as tabletFix
 RUN corepack enable
 RUN apk add --no-cache brotli
 WORKDIR /app
 COPY tabletFix/ /app
-RUN pnpm i
 COPY --from=main /app/public/assets /app/assets
+RUN pnpm i --frozen-lockfile
 RUN pnpm tabletFix
 
 FROM main
