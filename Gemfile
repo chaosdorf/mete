@@ -49,7 +49,7 @@ group :development do
   gem 'faker'
   gem 'ruby-prof'
   gem 'spring'
-  gem 'minitest', '< 5.11'
+  gem 'minitest'
 end
 
 group :production do

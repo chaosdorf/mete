@@ -144,7 +144,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.4)
-    minitest (5.10.3)
+    minitest (5.20.0)
     msgpack (1.7.2)
     net-imap (0.4.2)
       date
@@ -265,7 +265,7 @@ DEPENDENCIES
   jquery-rails
   kt-paperclip
   mini_magick
-  minitest (< 5.11)
+  minitest
   pg
   puma
   rails (~> 7)
