@@ -1,4 +1,6 @@
 - model_class = User
+- content_for :title do
+  Tap-In
 - content_for :actions do
   %li.nav-item
     = link_to 'new user', [:new, :user], class: "nav-link"

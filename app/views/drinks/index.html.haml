@@ -1,4 +1,6 @@
 - model_class = Drink
+- content_for :title do
+  Drinks
 - content_for :actions do
   %li.nav-item
     = link_to 'new drink', [:new, :drink], class: "nav-link"

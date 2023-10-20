@@ -1,4 +1,6 @@
 - model_class = User
+- content_for :title do
+  Stats
 %ul
   %li User count: #{@user_count}
   %li Balance sum: #{show_amount @balance_sum}
