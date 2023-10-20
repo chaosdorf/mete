@@ -35,7 +35,7 @@ class WrappedControllerTest < ActionController::TestCase
       assigns(:most_bought_drink)
     )
     assert_equal(
-      { total: @drink.caffeine, would_kill: 'hamster' },
+      { total: @drink.caffeine * (@drink.bottle_size / 0.1), would_kill: 'hamster' },
       assigns(:caffeine)
     )
     assert_equal(

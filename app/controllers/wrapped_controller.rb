@@ -40,7 +40,7 @@ class WrappedController < ApplicationController
   end
   
   def caffeine(audits)
-    total = audits.joins(:drink).sum(:caffeine)
+    total = audits.joins(:drink).sum("caffeine * (bottle_size / 0.1)")
     if total.positive?
       # for humans: overdose: 1000 mg, intoxication: 5000 mg
       would_kill_kg = total / 192.0  # lethal dosage (mg) per kg
