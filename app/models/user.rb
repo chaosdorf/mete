@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   validates :name, presence: true
 
+  enum :avatar_provider, [ :gravatar, :webfinger ]
+
   scope :order_by_name_asc, -> {
     order(arel_table['name'].lower.asc)
   }

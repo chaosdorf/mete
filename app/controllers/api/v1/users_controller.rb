@@ -112,6 +112,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
+    params.require(:user).permit(:name, :avatar_provider, :avatar, :balance, :active, :audit, :redirect)
   end
 end
