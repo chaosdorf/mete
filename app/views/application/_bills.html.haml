@@ -4,7 +4,7 @@
     = link_to path || '#' do
       .card.bill-card.text-center
         .card-body
-          = image_tag "euro-#{amount}.png", alt: show_amount(amount)
+          = image_tag "euro-#{amount}.png", alt: show_amount(amount), height: 100
         .card-footer
           +
           = show_amount amount

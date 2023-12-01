@@ -3,10 +3,16 @@
 @import "bootswatch/slate/bootswatch";
 
 // make room for navigation bar
-body { padding-top: 5rem; }
+body {
+  padding-top: 5rem;
+}
+
+a {
+  text-decoration: none;
+}
 
 .navbar-brand {
-  background-image: image_url('mete-logo.svg');
+  background-image: image_url("mete-logo.svg");
   background-position: 0.5em 0.5em;
   background-repeat: no-repeat;
   background-size: 2em;
@@ -19,7 +25,9 @@ html {
   min-height: 100%;
 }
 
-body { margin-bottom: 4rem; }
+body {
+  margin-bottom: 4rem;
+}
 .footer {
   position: absolute;
   bottom: 0;
@@ -32,11 +40,6 @@ img.disabled {
   //see http://stackoverflow.com/a/11842712
   filter: grayscale(100%) contrast(30%);
   opacity: 0.3;
-}
-
-.drink-panel img {
-    height: 10rem;
-    width: 10rem;
 }
 
 .user-filter {
@@ -95,7 +98,7 @@ img.disabled {
 }
 
 label {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 #user-page-avatar-holder img {
