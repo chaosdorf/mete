@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     @user = User.find(params[:id])
-    @drinks = Drink.order(active: :desc).order_by_name_asc
+    @drinks = Drink.order(active: :desc).order(caffeine: :asc).order_by_name_asc
     @wrapped = nil
     if @user.audit
       if Date.today.month == 12
