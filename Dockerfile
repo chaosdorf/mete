@@ -1,4 +1,4 @@
-FROM ruby:3.2-alpine as main
+FROM ruby:3.2-alpine AS main
 RUN apk --no-cache add nodejs git g++ make postgresql-dev sqlite-dev tzdata file imagemagick
 WORKDIR /app
 COPY Gemfile /app
@@ -13,7 +13,7 @@ ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["rails", "server", "--binding", "[::]", "--port", "80"]
 EXPOSE 80
 
-FROM node:20-alpine as tabletFix
+FROM node:20-alpine AS tablet_fix
 RUN corepack enable
 RUN apk add --no-cache brotli
 WORKDIR /app
@@ -23,4 +23,4 @@ RUN pnpm i --frozen-lockfile
 RUN pnpm tabletFix
 
 FROM main
-COPY --from=tabletFix /app/assets /app/public/assets
+COPY --from=tablet_fix /app/assets /app/public/assets
