@@ -1,4 +1,4 @@
-// Slate 5.3.2
+// Slate 5.3.3
 // Bootswatch
 
 
@@ -6,17 +6,17 @@
 
 // Mixins
 
-@mixin btn-shadow($color) {
-  @include gradient-y-three-colors(tint-color($color, 12%), $color, 60%, shade-color($color, 8%));
+@mixin btn-shadow($color){
+  @include gradient-y-three-colors(tint-color($color, 5%), $color, 20%, shade-color($color, 20%));
   filter: none;
 }
 
-@mixin btn-shadow-inverse($color) {
+@mixin btn-shadow-inverse($color){
   @include gradient-y-three-colors(shade-color($color, 16%), shade-color($color, 10%), 40%, shade-color($color, 6%));
   filter: none;
 }
 
-@mixin btn-shadow-inverse-dark($color) {
+@mixin btn-shadow-inverse-dark($color){
   @include gradient-y-three-colors(shade-color($color, 36%), shade-color($color, 30%), 40%, shade-color($color, 26%));
   filter: none;
 }
@@ -60,7 +60,7 @@
     border-left: 1px solid rgba(0, 0, 0, .2);
   }
 
-  &-nav .nav-item+.nav-item {
+  &-nav .nav-item + .nav-item {
     margin-left: 0;
   }
 
@@ -85,7 +85,6 @@
 
 @media (max-width: 576px) {
   .navbar-expand-sm {
-
     .navbar-brand,
     .nav-link {
       border: none !important;
@@ -95,7 +94,6 @@
 
 @media (max-width: 768px) {
   .navbar-expand-md {
-
     .navbar-brand,
     .nav-link {
       border: none !important;
@@ -105,7 +103,6 @@
 
 @media (max-width: 992px) {
   .navbar-expand-lg {
-
     .navbar-brand,
     .nav-link {
       border: none !important;
@@ -167,8 +164,8 @@
   }
 }
 
-.btn-check:checked+.btn,
-.btn-check+.btn:hover {
+.btn-check:checked + .btn,
+.btn-check + .btn:hover {
   color: $white;
   border-color: rgba(0, 0, 0, .6);
 }
@@ -299,7 +296,6 @@ legend {
   }
 
   &-light {
-
     &,
     a:not(.btn),
     .alert-link {
@@ -333,4 +329,12 @@ legend {
   &-item-action:hover {
     background-color: shade-color($gray-900, 10%);
   }
+
+  @each $color, $value in $theme-colors {
+    &-item-#{$color} {
+      background-color: $value;
+      border-color: $list-group-border-color;
+    }
+  }
 }
+
