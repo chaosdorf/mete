@@ -19,6 +19,7 @@ Mete::Application.routes.draw do
   get 'users/:id/deposit.json', to: redirect('api/v1/users/%{id}/deposit.json'), format: false
   get 'users/:id/payment.json', to: redirect('api/v1/users/%{id}/payment.json'), format: false
   get 'users/:id/buy.json', to: redirect('api/v1/users/%{id}/buy.json'), format: false
+  post 'users/:id/buy.json', to: redirect('api/v2/users/%{id}/buy.json'), format: false
   get 'users/:id/buy_barcode.json', to: redirect('api/v1/users/%{id}/buy_barcode.json'), format: false
 
   get 'users/stats.json', to: redirect('api/v1/users/stats.json'), format: false
@@ -33,9 +34,9 @@ Mete::Application.routes.draw do
   resources :users do
     resources :wrapped
     member do
-      get 'deposit'
-      get 'payment'
-      get 'buy'
+      post 'deposit'
+      post 'payment'
+      post 'buy'
       post 'buy_barcode'
     end
     collection do
@@ -53,6 +54,23 @@ Mete::Application.routes.draw do
           get 'deposit'
           get 'payment'
           get 'buy'
+          post 'buy_barcode'
+        end
+        collection do
+          get 'stats'
+        end
+      end
+    end
+    
+    namespace :v2 do
+      resources :audits
+      resources :drinks
+      resources :barcodes
+      resources :users do
+        member do
+          post 'deposit'
+          post 'payment'
+          post 'buy'
           post 'buy_barcode'
         end
         collection do
