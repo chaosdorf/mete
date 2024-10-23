@@ -87,4 +87,9 @@ Rails.application.configure do
   
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Get Mastodon data from environment variables
+  # Note: ENV["FOO"] returns nil if variable does not exist
+  config.mastodon_token = ENV["MASTODON_TOKEN"]
+  config.mastodon_instance = ENV["MASTODON_INSTANCE"] # expected format is https://example.social
 end
