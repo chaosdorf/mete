@@ -120,7 +120,7 @@ This is missing some stuff (eg. backups), you might want to take a look at `dock
 You can still run mete without Docker. It needs a few dependencies (mostly Ruby) and a database (Postgres and SQLite have been tested).
 
 ```sh
-sudo apt install ruby ruby-dev bundler git zlib1g-dev libsqlite3-dev sqlite3 imagemagick nodejs
+sudo apt install ruby ruby-dev bundler git zlib1g-dev libsqlite3-dev sqlite3 imagemagick nodejs libpq-dev libyaml-dev
 git clone https://github.com/chaosdorf/mete.git
 cd mete
 # adjust config/database.yml
