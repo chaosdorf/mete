@@ -93,7 +93,7 @@ volumes:
   database:
 services:
   db:
-    image: postgres:10-alpine
+    image: postgres:16-alpine
     environment:
       POSTGRES_PASSWORD: mete
     volumes:
@@ -120,12 +120,13 @@ This is missing some stuff (eg. backups), you might want to take a look at `dock
 You can still run mete without Docker. It needs a few dependencies (mostly Ruby) and a database (Postgres and SQLite have been tested).
 
 ```sh
-sudo apt install ruby ruby-dev bundler git zlib1g-dev libsqlite3-dev sqlite3 imagemagick nodejs
+sudo apt install ruby ruby-dev git zlib1g-dev libsqlite3-dev sqlite3 libpq-dev libyaml-dev imagemagick nodejs
 git clone https://github.com/chaosdorf/mete.git
 cd mete
 # adjust config/database.yml
 export RAILS_ENV=production
-bundle install --path vendor/bundle
+bundle config set --local path 'vendor/bundle'
+bundle install
 bundle exec rake db:migrate
 bundle exec rake assets:precompile
 bundle exec rails server -b [::] -p 80 # or use a reverse proxy
