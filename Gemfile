@@ -42,6 +42,9 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'sentry-ruby'
 gem 'sentry-rails'
 
+# To toot purchases to Mastodon
+gem 'httparty'
+
 group :development do
   gem 'faker'
   gem 'ruby-prof'
