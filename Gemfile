@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github){ |repo_name| "https://github.com/#{repo_name}.git" }
 
-gem 'rails', '~> 7'
+gem 'rails', '~> 8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', '~> 1.4'
+gem 'sqlite3', '~> 2.1'
 
 gem 'sassc-rails'
 gem 'coffee-rails'

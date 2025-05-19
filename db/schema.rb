@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_02_12_153705) do
+ActiveRecord::Schema[8.0].define(version: 2023_02_12_153705) do
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at", precision: nil
     t.decimal "difference", precision: 20, scale: 2, default: "0.0"
@@ -46,5 +46,4 @@ ActiveRecord::Schema[7.1].define(version: 2023_02_12_153705) do
     t.boolean "audit", default: false
     t.boolean "redirect", default: true
   end
-
 end
