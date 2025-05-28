@@ -7,7 +7,7 @@ class Audit < ApplicationRecord
   scope :deposits, ->{ where('difference > 0') }
   scope :payments, ->{ where('difference < 0') }
 
-  def as_json(options)
+  def as_json(options = {})
     h = super(options)
     h['drink'] = h['drink']['id'] if h['drink']
     h.delete('user')
