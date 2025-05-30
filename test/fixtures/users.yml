@@ -2,7 +2,8 @@
 
 one:
   name: A
-  email: mail@example.net
+  avatar_provider: gravatar
+  avatar: mail@example.net
   balance: 100
 
 two:

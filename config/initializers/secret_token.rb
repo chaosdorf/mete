@@ -5,3 +5,5 @@
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
 Mete::Application.config.secret_key_base = '48eb56a7caee5ffb645221a26e85901d57ce45f4c74b54a1723d4062c7a60e29f0c46999e571e45a5562a13f0fcd20010137f019e37f12e88622a0d62b900a4f'
+Mete::Application.config.avatar_mastodon_client_token = nil
+Mete::Application.config.avatar_mastodon_client_url = nil

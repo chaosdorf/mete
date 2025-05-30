@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2023_02_12_153705) do
+ActiveRecord::Schema[8.0].define(version: 2023_06_30_204356) do
   create_table "audits", force: :cascade do |t|
     t.datetime "created_at", precision: nil
     t.decimal "difference", precision: 20, scale: 2, default: "0.0"
@@ -38,12 +38,13 @@ ActiveRecord::Schema[8.0].define(version: 2023_02_12_153705) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
+    t.string "avatar"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.decimal "balance", precision: 20, scale: 2, default: "0.0"
     t.boolean "active", default: true
     t.boolean "audit", default: false
     t.boolean "redirect", default: true
+    t.integer "avatar_provider", default: 0
   end
 end

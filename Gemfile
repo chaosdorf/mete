@@ -26,6 +26,8 @@ gem 'autoprefixer-rails'
 gem 'rails-controller-testing'
 gem 'bootsnap'
 gem 'git_rev'
+gem 'webfinger'
+gem 'faraday'
 
 gem "codeclimate-test-reporter", group: :test, require: nil
 
