@@ -42,6 +42,17 @@ img.disabled {
   opacity: 0.3;
 }
 
+div.avatar-missing {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: var(--bs-body-color);
+  mask-image: image_url('avatar-missing.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  width: 80px !important;
+  height: 80px !important;
+}
+
 .user-filter {
   display: flex;
   overflow: hidden;

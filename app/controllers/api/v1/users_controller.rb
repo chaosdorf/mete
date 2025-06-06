@@ -112,6 +112,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :balance, :active, :audit, :redirect)
+    email = params[:email]
+    input = params.require(:user).permit(:name, :balance, :active, :audit, :redirect)
+
+    if email
+      input[:avatar_provider] = 'gravatar'
+      input[:avatar] = email
+    end
+
+    input
   end
 end

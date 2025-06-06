@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   validates :name, presence: true
 
+  enum :avatar_provider, [ :gravatar, :webfinger ]
+
   scope :order_by_name_asc, -> {
     order(arel_table['name'].lower.asc)
   }
@@ -37,5 +39,18 @@ class User < ApplicationRecord
     first = name[0, 1].downcase
     return first if first =~ /[a-z]/
     '0'
+  end
+
+  def email
+    case avatar_provider
+    when 'gravatar'
+      avatar
+    when 'webfinger'
+      ''
+    end
+  end
+
+  def as_json(options={})
+    super(except: [ :avatar_provider, :avatar ], methods: :email)
   end
 end
