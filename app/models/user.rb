@@ -46,7 +46,7 @@ class User < ApplicationRecord
     when 'gravatar'
       avatar
     when 'webfinger'
-      nil
+      ''
     end
   end
 
