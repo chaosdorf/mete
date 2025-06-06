@@ -5,7 +5,11 @@ module UsersHelper
   def avatar(user)
     case user.avatar_provider
     when 'gravatar'
-      gravatar_image_tag user.avatar, class: user.active? ? '' : 'disabled'
+      if user.avatar.nil? or user.avatar.empty? then
+        content_tag :div, nil, class: [ 'avatar-missing' ]
+      else 
+        gravatar_image_tag user.avatar, class: user.active? ? '' : 'disabled'
+      end
     when 'webfinger'
       webfinger_activitypub_image_tag user.avatar
     end
@@ -103,13 +107,13 @@ module UsersHelper
     end
 
     if not avatar_url
-      return tag 'img', class: [ 'webfinger-missing' ]
+      return content_tag :div, nil, class: [ 'avatar-missing' ]
     end
 
     options = {}
     options[:src] = avatar_url
     options[:alt] = "Profile picture for #{identifier}"
     options[:height] = options[:width] = 80
-    tag 'img', options, false, false
+    tag :img, options, false, false
   end
 end

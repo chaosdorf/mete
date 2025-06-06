@@ -42,10 +42,13 @@ img.disabled {
   opacity: 0.3;
 }
 
-.webfinger-missing {
-  background-image: image_url('webfinger-missing.png');
-  background-size: contain;
-  background-repeat: no-repeat;
+div.avatar-missing {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: var(--bs-body-color);
+  mask-image: image_url('avatar-missing.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
   width: 80px !important;
   height: 80px !important;
 }
