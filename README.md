@@ -25,7 +25,7 @@ of features. Please hack on it.
 
 mete doesn't have any kind of discoverability built in. If you know the URL of an instance, you can access it by simply pointing your browser there. Or use one of the apps:
  * Android App: (https://github.com/chaosdorf/meteroid)
- * iOS App: (https://github.com/chaosdorf/meteroid-ios)
+ * iOS App: (https://github.com/chaosdorf/meterios)
  * Sailfish OS App: (https://github.com/r4mp/harbour-meteroid)
  * CLI App: (https://github.com/YtvwlD/metecli)
  * QML App: (https://github.com/YtvwlD/qmleteroid)
