@@ -27,7 +27,15 @@
       %dt
         = model_class.human_attribute_name(:balance)
       %dd
-        = show_amount @user.balance
+        - if @user.balance < -50
+          .text-danger
+            = show_amount @user.balance
+        - elsif @user.balance < 0
+          .text-warning
+            = show_amount @user.balance
+        - else
+          .text-success
+            = show_amount @user.balance
 
 - if @wrapped
   .mt-3.alert.alert-info
