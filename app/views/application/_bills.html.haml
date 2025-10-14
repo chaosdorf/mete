@@ -1,7 +1,7 @@
 - [0.5,1,2,5,10,20,50].each do |amount|
   - path = deposit_user_path(@user, :amount => amount) if @user
   .col-12.col-sm-6.col-md-4.col-lg-3.col-xl-3.my-2
-    = link_to path || '#' do
+    = link_to path, method: :post || '#' do
       .card.bill-card.text-center
         .card-body
           = image_tag "euro-#{amount}.png", alt: show_amount(amount), height: 100
