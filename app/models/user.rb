@@ -2,12 +2,20 @@
 
 class User < ApplicationRecord
   validates :name, presence: true
+  validates :barcode, uniqueness: { conditions: -> { where.not(barcode: nil) } }
 
   enum :avatar_provider, [ :gravatar, :webfinger ]
 
   scope :order_by_name_asc, -> {
     order(arel_table['name'].lower.asc)
   }
+
+  before_save do |user|
+    if user.barcode == ''
+      user.barcode = nil
+    end
+  end
+  
 
   after_save do |user|
     Audit.create! difference: user.balance - user.balance_before_last_save, drink: @purchased_drink, user: user.audit? ? user : nil

@@ -4,6 +4,14 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
+    if params[:barcode] != nil
+      @user = User.find_by(barcode: params[:barcode])
+      if @user
+        redirect_to @user
+      else
+        redirect_to users_url, :flash => { :error => "no user with that barcode found" }
+      end
+    end
     @users = User.order(active: :desc).order_by_name_asc
     # index.html.haml
   end
@@ -138,7 +146,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :avatar_provider, :avatar, :balance, :active, :audit, :redirect)
+    params.require(:user).permit(:name, :avatar_provider, :avatar, :balance, :active, :audit, :redirect, :barcode)
   end
 
   def warn_user_if_audit
