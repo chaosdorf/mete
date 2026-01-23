@@ -5,6 +5,12 @@
   %li.nav-item
     = link_to 'new user', [:new, :user], class: "nav-link"
 
+.row
+  %form{:method => "GET"}
+    %small
+      Select a user by scanning a barcode:
+    %input{:name => "barcode", :autofocus => true, :inputMode => "none"}
+
 .user-filter
   .btn-group
     %a.btn{href: "#0", class: "user-filter-0"} #

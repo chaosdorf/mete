@@ -60,4 +60,16 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to u, :audit, "audit missing"
     assert_respond_to u, :redirect, "redirect missing"
   end
+
+  test "two users should't have the same barcode" do
+    user = User.new
+    user.name = "test"
+    user.barcode = "testbc"
+    user.save
+
+    user2 = User.new
+    user2.name = "test2"
+    user2.barcode = "testbc"
+    assert_equal user2.save, false, "two users with the same barcode could be created"
+  end
 end
