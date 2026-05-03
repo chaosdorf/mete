@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  include UsersHelper
   skip_before_action :verify_authenticity_token
 
   # GET /users.json
@@ -91,6 +92,13 @@ class Api::V1::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.payment(BigDecimal(params[:amount]))
     head :no_content
+  end
+
+  # GET /users/1/avatar
+  def avatar
+    @user = User.find(params[:id])
+    @url = avatar_url(@user)
+    render json: { url: @url }
   end
 
   # GET /users/stats.json
