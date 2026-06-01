@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+include UsersHelper
+
 class User < ApplicationRecord
   validates :name, presence: true
   validates :barcode, uniqueness: { conditions: -> { where.not(barcode: nil) } }
@@ -15,7 +17,7 @@ class User < ApplicationRecord
       user.barcode = nil
     end
   end
-  
+
 
   after_save do |user|
     Audit.create! difference: user.balance - user.balance_before_last_save, drink: @purchased_drink, user: user.audit? ? user : nil
@@ -58,7 +60,13 @@ class User < ApplicationRecord
     end
   end
 
+  def avatar_url
+    @url = get_avatar_url(self)
+    @url
+  end
+
+
   def as_json(options={})
-    super(except: [ :avatar_provider, :avatar ], methods: :email)
+    super(except: [ :avatar_provider, :avatar ], methods: [ :email, :avatar_url ])
   end
 end
