@@ -1,18 +1,42 @@
 module UsersHelper
-  
+
   # see also: /config/initializers/gravatar_image_tag.rb
-  
+
   def avatar(user)
     case user.avatar_provider
     when 'gravatar'
       if user.avatar.nil? or user.avatar.empty? then
         content_tag :div, nil, class: [ 'avatar-missing' ]
-      else 
+      else
         gravatar_image_tag user.avatar, class: user.active? ? '' : 'disabled'
       end
     when 'webfinger'
       webfinger_activitypub_image_tag user.avatar
     end
+  end
+
+  def get_avatar_url(user)
+    case user.avatar_provider
+    when 'gravatar'
+      if user.avatar.nil? or user.avatar.empty? then
+        return nil
+      end
+
+      id = Digest::MD5.hexdigest(user.avatar)
+      return "https://secure.gravatar.com/avatar/#{id}"
+    when 'webfinger'
+      identifier = user.avatar
+      avatar_url = Rails.cache.fetch("fetch_avatar_url_from_webfinger_or_activitypub #{identifier}", expires_in: 1.day) do
+        fetch_avatar_url_from_webfinger_or_activitypub identifier
+      end
+
+      if not avatar_url
+        return nil
+      end
+
+      return avatar_url
+    end
+
   end
 
   def redirect_path(user)
