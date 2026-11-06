@@ -1,9 +1,7 @@
-[![build status](https://travis-ci.org/chaosdorf/mete.svg?branch=master)](https://travis-ci.org/chaosdorf/mete)
-[![documentation status](https://inch-ci.org/github/chaosdorf/mete.svg?branch=master)](https://inch-ci.org/github/chaosdorf/mete)
-[![Code Climate](https://codeclimate.com/github/chaosdorf/mete/badges/gpa.svg)](https://codeclimate.com/github/chaosdorf/mete)
-[![test coverage](https://codeclimate.com/github/chaosdorf/mete/badges/coverage.svg)](https://codeclimate.com/github/chaosdorf/mete/coverage)
 
 # Matekasse
+
+**This (Ruby-based) version of MeTe is in maintenance mode. You might want to migrate to [the new Python-based version](https://docs.metekasse.cc/).**
 
 ![logo](public/favicon-196x196.png)
 
