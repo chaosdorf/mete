@@ -84,11 +84,28 @@ module UsersHelper
   end
 
   def fetch_avatar_url_from_webfinger_or_activitypub(identifier)
-    # NOTE: The WebFinger gem supports identifiers like "gnom.is" without a "user@",
-    #       allowing the somewhat common practice of serving a static webfinger file.
-    #       It does however not support something like "@ordnung@chaos.social", only
-    #       "ordnung@chaos.social", as such we trim an initial "@" here.
-    webfinger_response = WebFinger.discover! identifier.delete_prefix('@') rescue return
+    # NOTE: WebFinger query targets are always URIs.
+    #       See https://datatracker.ietf.org/doc/html/rfc7033#section-4.5
+    identifier = URI.parse identifier rescue return
+
+    # NOTE: The acct URI scheme is used to identify users in ActivityPub,
+    #       as such we assume it as the default here. This approach also
+    #       supports other URI schemes.
+    if identifier.scheme.nil?
+      identifier.scheme = 'acct'
+    end
+
+    # NOTE: The acct URI scheme doesn't allow a leading @, however it is
+    #       commonly shown in ActivityPub services to distinguish this
+    #       identifier from email.
+    if identifier.scheme == 'acct'
+      # NOTE: We bypass method protection here to avoid the path component
+      #       (where the actual content of the acct URI ends up in) getting
+      #       checked.
+      identifier.send(:set_path, identifier.path.delete_prefix('@'))
+    end
+
+    webfinger_response = WebFinger.discover! identifier.to_str rescue return
 
     return unless webfinger_response.is_a? Hash
 
